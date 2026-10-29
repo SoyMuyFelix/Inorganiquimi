@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafío de Química Inorgánica 🧪</title>
-    <!-- Favicon SVG en linea para prevenir error 404 -->
+    <!-- Favicon SVG Inline -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧪</text></svg>">
-    <!-- Fuentes de Google Fonts -->
+    <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome para Iconos con Politica de Privacidad/CORS Segura -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <!-- Hoja de estilos -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,7 +24,7 @@
                 <h1>Desafío Inorgánica</h1>
             </div>
             <div id="info-jugador">
-                <span id="nombre-etiqueta"><i class="fa-solid fa-user-astronaut"></i> <strong id="display-nombre">Estudiante</strong></span>
+                <span id="nombre-etiqueta"><i class="fa-solid fa-user-astronaut"></i> <strong id="display-nombre">Estudiante</strong> (<span id="display-curso">Curso</span>)</span>
                 <span id="puntaje-etiqueta"><i class="fa-solid fa-trophy"></i> <strong id="score">0</strong> pts</span>
             </div>
         </header>
@@ -35,9 +34,9 @@
             <div class="icono-bienvenida">
                 <i class="fa-solid fa-atom"></i>
             </div>
-            <h2>Misión: Nomenclatura Química</h2>
-            <p class="subtitulo">Ingresa la fórmula y nombra los compuestos inorgánicos con la mayor precisión posible.</p>
-
+            <h2>Misión: Nomenclatura Abierta</h2>
+            <p class="subtitulo">Ingresa la fórmula presentada. El sistema evaluará tu nivel de precisión y bonificará tu rapidez.</p>
+            
             <form id="form-inicio" onsubmit="return false;">
                 <div class="campo-input">
                     <label for="input-nombre"><i class="fa-solid fa-signature"></i> Nombre Completo</label>
@@ -49,21 +48,21 @@
                     <input type="text" id="input-curso" placeholder="Ej: 2° Medio A / Química II" autocomplete="off" required>
                 </div>
 
-                <button id="btn-comenzar" class="btn btn-primary">
+                <button id="btn-comenzar" type="button" class="btn btn-primary">
                     <i class="fa-solid fa-play"></i> Comenzar Misión
                 </button>
             </form>
 
-            <button id="btn-ver-ranking" class="btn btn-secondary">
+            <button id="btn-ver-ranking" type="button" class="btn btn-secondary">
                 <i class="fa-solid fa-ranking-star"></i> Ver Ranking Global 📊
             </button>
         </section>
 
-        <!-- Pantalla del Juego / Pregunta Abierta -->
+        <!-- Pantalla del Juego / Respuesta Abierta -->
         <section id="pantalla-juego" class="card oculto">
             <div class="barra-estado">
-                <span id="progreso-pregunta" class="badge-info">Pregunta 1 de 10</span>
-                <span id="categoria-badge" class="badge-categoria">Óxidos</span>
+                <span id="progreso-pregunta" class="badge-info">Compuesto 1 de 10</span>
+                <span id="tipo-compuesto" class="badge-categoria">Óxidos</span>
                 <div id="temporizador-container" class="badge-tiempo">
                     <i class="fa-solid fa-stopwatch"></i> <span id="tiempo-restante">30</span>s
                 </div>
@@ -74,32 +73,31 @@
                 <div id="barra-tiempo" class="barra-tiempo-linea"></div>
             </div>
 
-            <!-- Contenedor del Compuesto -->
-            <div class="caja-compuesto">
-                <span class="sub-etiqueta">Nombra el siguiente compuesto:</span>
-                <h2 id="formula-compuesto" class="formula-destacada">Fe₂O₃</h2>
+            <div class="pregunta-card">
+                <p class="instruccion-texto">Escribe la nomenclatura correspondiente para:</p>
+                <h2 id="formula-compuesto" class="formula-display">Fe₂O₃</h2>
+                
+                <div class="seccion-pista">
+                    <button id="btn-pista" type="button" class="btn-pista-link">
+                        <i class="fa-solid fa-lightbulb"></i> Ver Pista
+                    </button>
+                    <p id="texto-pista" class="pista-caja oculto"></p>
+                </div>
             </div>
 
-            <!-- Botón e Indicador de Pista -->
-            <div class="contenedor-pista">
-                <button id="btn-pista" class="btn-pista"><i class="fa-solid fa-lightbulb"></i> Solicitar Pista</button>
-                <div id="texto-pista" class="pista-caja oculto"></div>
-            </div>
-
-            <!-- Entrada de Respuesta Abierta -->
-            <div class="caja-respuesta">
-                <input type="text" id="input-respuesta" placeholder="Escribe aquí el nombre del compuesto..." autocomplete="off">
-                <button id="btn-enviar" class="btn btn-primary btn-responder">
+            <form id="form-respuesta" onsubmit="return false;" class="form-respuesta-grid">
+                <div class="input-respuesta-container">
+                    <input type="text" id="input-respuesta" placeholder="Escribe el nombre del compuesto..." autocomplete="off" required>
+                </div>
+                <button id="btn-enviar" type="button" class="btn btn-primary">
                     <i class="fa-solid fa-paper-plane"></i> Responder
                 </button>
-            </div>
+            </form>
 
-            <!-- Retroalimentación / Feedback -->
-            <div id="retroalimentacion" class="retro-card oculto">
-                <div id="feedback-titulo" class="feedback-head"></div>
-                <div id="feedback-puntos" class="feedback-sub"></div>
-                <div id="feedback-explicacion" class="feedback-detail"></div>
-                <button id="btn-siguiente" class="btn btn-primary btn-siguiente oculto">
+            <div id="cuadro-feedback" class="retro-card oculto">
+                <h3 id="feedback-titulo"></h3>
+                <p id="feedback-detalle"></p>
+                <button id="btn-siguiente" type="button" class="btn btn-secondary oculto">
                     Siguiente Compuesto <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
@@ -111,21 +109,21 @@
                 <i class="fa-solid fa-award"></i>
             </div>
             <h2>¡Misión Completada! 🧪</h2>
-            <p>Excelente esfuerzo, <strong id="nombre-final">Estudiante</strong> (<span id="curso-final">Curso</span>).</p>
-
+            <p>Excelente desempeño, <strong id="nombre-final">Estudiante</strong> (<span id="curso-final">Curso</span>).</p>
+            
             <div class="caja-puntaje-final">
-                <span>Puntuación Total</span>
+                <span>Puntuación Total Acumulada</span>
                 <h3 id="score-final">0 pts</h3>
             </div>
-
+            
             <div class="seccion-ranking">
-                <h3><i class="fa-solid fa-ranking-star"></i> Ranking de la Clase</h3>
-                <ul id="lista-ranking" class="lista-ranking-estilo">
-                    <li>Cargando tabla de posiciones...</li>
+                <h3><i class="fa-solid fa-ranking-star"></i> Tabla de Posiciones Global</h3>
+                <ul id="lista-ranking">
+                    <li><i class="fa-solid fa-spinner fa-spin"></i> Cargando tabla de posiciones...</li>
                 </ul>
             </div>
 
-            <button id="btn-reiniciar" class="btn btn-primary">
+            <button id="btn-reiniciar" type="button" class="btn btn-primary">
                 <i class="fa-solid fa-rotate-right"></i> Jugar de Nuevo
             </button>
         </section>
@@ -136,12 +134,12 @@
         <div class="modal-card card">
             <div class="modal-header">
                 <h3><i class="fa-solid fa-trophy"></i> Ranking Global de Química</h3>
-                <button id="btn-cerrar-modal-x" class="btn-close">&times;</button>
+                <button id="btn-cerrar-modal-x" type="button" class="btn-close">&times;</button>
             </div>
             <ul id="lista-ranking-global" class="lista-ranking-estilo">
                 <li><i class="fa-solid fa-spinner fa-spin"></i> Cargando puntajes desde la nube...</li>
             </ul>
-            <button id="btn-cerrar-ranking" class="btn btn-secondary">Volver al Juego</button>
+            <button id="btn-cerrar-ranking" type="button" class="btn btn-secondary">Volver al Juego</button>
         </div>
     </div>
 

@@ -1,47 +1,43 @@
 /* =========================================
-   ESTILOS GENERALES Y TEORÍA DEL COLOR
+   ESTILOS GENERALES Y VARIABLES DE COLOR
    ========================================= */
 :root {
-    --color-bg-overlay: rgba(11, 20, 38, 0.82);
-    --color-card-bg: rgba(23, 37, 63, 0.78);
-    --color-card-border: rgba(56, 189, 248, 0.25);
-    
-    --color-cyan-glow: #38bdf8;
-    --color-indigo-glow: #818cf8;
+    --color-bg-dark: #090d16;
+    --color-card-glass: rgba(18, 28, 45, 0.85);
+    --color-card-border: rgba(56, 189, 248, 0.2);
     --color-text-main: #f8fafc;
-    --color-text-muted: #cbd5e1;
-    
+    --color-text-muted: #94a3b8;
+    --color-cyan-glow: #38bdf8;
+    --color-primary-btn: #0284c7;
+    --color-primary-hover: #0369a1;
+    --color-secondary-btn: #334155;
+    --color-secondary-hover: #475569;
     --color-success: #10b981;
-    --color-success-bg: rgba(16, 185, 129, 0.2);
     --color-warning: #f59e0b;
-    --color-warning-bg: rgba(245, 158, 11, 0.2);
     --color-danger: #ef4444;
-    --color-danger-bg: rgba(239, 68, 68, 0.2);
-    
     --radio-card: 20px;
     --radio-btn: 12px;
-    --shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.45);
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('fondo.jpg');
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-image: linear-gradient(rgba(9, 13, 22, 0.75), rgba(9, 13, 22, 0.85)), url('fondo.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: var(--color-text-main);
+    margin: 0;
+    padding: 20px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+    font-family: 'Outfit', sans-serif;
 }
 
 .contenedor-juego {
@@ -52,29 +48,16 @@ body {
     gap: 16px;
 }
 
-/* CARDS GLASSMORPHISM */
-.card {
-    background: var(--color-card-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--color-card-border);
-    border-radius: var(--radio-card);
-    padding: 28px 24px;
-    box-shadow: var(--shadow-soft);
-    text-align: center;
-}
-
-/* HEADER */
 header {
-    background: var(--color-card-bg);
-    backdrop-filter: blur(12px);
+    background: var(--color-card-glass);
     border: 1px solid var(--color-card-border);
+    backdrop-filter: blur(12px);
     border-radius: var(--radio-card);
     padding: 14px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .logo-titulo {
@@ -84,13 +67,13 @@ header {
 }
 
 .icono-header {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--color-cyan-glow);
 }
 
 header h1 {
-    font-family: 'Outfit', sans-serif;
     font-size: 1.15rem;
+    margin: 0;
     font-weight: 700;
 }
 
@@ -98,7 +81,7 @@ header h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--color-text-muted);
 }
 
@@ -106,67 +89,69 @@ header h1 {
     color: var(--color-cyan-glow);
 }
 
-/* BIENVENIDA */
-.icono-bienvenida {
-    font-size: 3rem;
-    color: var(--color-cyan-glow);
-    margin-bottom: 12px;
+.card {
+    background: var(--color-card-glass);
+    border: 1px solid var(--color-card-border);
+    backdrop-filter: blur(16px);
+    border-radius: var(--radio-card);
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
-h2 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 8px;
+.icono-bienvenida, .icono-trofeo {
+    font-size: 2.8rem;
+    color: var(--color-cyan-glow);
+    margin-bottom: 10px;
 }
 
 .subtitulo {
     font-size: 0.9rem;
     color: var(--color-text-muted);
     margin-bottom: 20px;
-    line-height: 1.4;
 }
 
-/* FORMULARIOS E INPUTS */
 .campo-input {
-    text-align: left;
-    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 16px;
 }
 
 .campo-input label {
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 600;
+    font-size: 0.85rem;
     color: var(--color-text-muted);
-    margin-bottom: 6px;
+    font-weight: 600;
 }
 
 input[type="text"] {
     width: 100%;
     padding: 12px 16px;
     background: rgba(15, 23, 42, 0.8);
-    border: 1px solid rgba(148, 163, 184, 0.3);
+    border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: var(--radio-btn);
-    color: var(--color-text-main);
+    color: #ffffff;
     font-size: 0.95rem;
+    box-sizing: border-box;
     outline: none;
     transition: all 0.2s ease;
 }
 
 input[type="text"]:focus {
     border-color: var(--color-cyan-glow);
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
 }
 
-/* BOTONES */
 .btn {
     width: 100%;
     padding: 13px 20px;
+    border: none;
     border-radius: var(--radio-btn);
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-weight: 700;
     cursor: pointer;
-    border: none;
-    transition: transform 0.15s ease, opacity 0.2s ease;
+    transition: all 0.2s ease;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -174,260 +159,226 @@ input[type="text"]:focus {
     margin-top: 10px;
 }
 
-.btn:active {
-    transform: scale(0.98);
+.btn-primary {
+    background: var(--color-primary-btn);
+    color: #ffffff;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #0284c7, #0369a1);
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
 }
 
 .btn-secondary {
-    background: rgba(51, 65, 85, 0.8);
-    color: var(--color-text-main);
-    border: 1px solid rgba(148, 163, 184, 0.2);
+    background: var(--color-secondary-btn);
+    color: #ffffff;
 }
 
-/* PANTALLA DE JUEGO */
+.btn-secondary:hover {
+    background: var(--color-secondary-hover);
+}
+
+/* JUEGO / PREGUNTA */
 .barra-estado {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.82rem;
+    gap: 6px;
     margin-bottom: 12px;
 }
 
-.badge-info {
-    background: rgba(15, 23, 42, 0.6);
-    padding: 4px 10px;
-    border-radius: 8px;
-    color: var(--color-text-muted);
+.badge-info, .badge-categoria, .badge-tiempo {
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .badge-categoria {
-    background: rgba(129, 140, 248, 0.2);
-    color: var(--color-indigo-glow);
-    border: 1px solid rgba(129, 140, 248, 0.3);
-    padding: 4px 10px;
-    border-radius: 8px;
-    font-weight: 600;
+    color: var(--color-cyan-glow);
 }
 
 .badge-tiempo {
-    background: rgba(239, 68, 68, 0.2);
-    color: var(--color-danger);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-weight: 700;
+    color: var(--color-warning);
 }
 
 .barra-tiempo-contenedor {
     width: 100%;
     height: 6px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
+    border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .barra-tiempo-linea {
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg, #38bdf8, #ef4444);
+    background: var(--color-cyan-glow);
     transition: width 1s linear;
 }
 
-.caja-compuesto {
-    background: rgba(15, 23, 42, 0.7);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    padding: 20px;
+.pregunta-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.15);
     border-radius: 16px;
-    margin-bottom: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
 }
 
-.sub-etiqueta {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.instruccion-texto {
+    font-size: 0.85rem;
     color: var(--color-text-muted);
+    margin: 0 0 8px 0;
 }
 
-.formula-destacada {
-    font-family: 'Outfit', sans-serif;
-    font-size: 2.4rem;
+.formula-display {
+    font-size: 2.2rem;
     font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin: 10px 0;
+}
+
+/* FORMATO DE SUBÍNDICES FÓRMULA QUÍMICA */
+.formula-display sub, h2 sub, p sub, .pregunta-card sub {
+    font-size: 0.65em;
+    vertical-align: sub;
+    line-height: 0;
     color: var(--color-cyan-glow);
-    margin-top: 6px;
-    letter-spacing: 1px;
 }
 
-/* PISTAS */
-.contenedor-pista {
-    margin-bottom: 16px;
-}
-
-.btn-pista {
-    background: rgba(245, 158, 11, 0.15);
-    color: #fbbf24;
-    border: 1px dashed rgba(245, 158, 11, 0.4);
-    padding: 8px 14px;
-    border-radius: 20px;
+.btn-pista-link {
+    background: none;
+    border: none;
+    color: var(--color-warning);
     font-size: 0.82rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-pista:hover {
-    background: rgba(245, 158, 11, 0.25);
+    text-decoration: underline;
+    padding: 4px;
 }
 
 .pista-caja {
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(245, 158, 11, 0.15);
     border: 1px solid rgba(245, 158, 11, 0.3);
-    color: #fde68a;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    margin-top: 8px;
-    text-align: left;
+    color: #fef08a;
+    font-size: 0.82rem;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
-.caja-respuesta {
+.form-respuesta-grid {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
-.btn-responder {
-    margin-top: 0;
-}
-
-/* RETROALIMENTACIÓN */
 .retro-card {
-    margin-top: 18px;
-    padding: 16px;
     border-radius: 14px;
+    padding: 16px;
+    margin-top: 16px;
     text-align: left;
-    font-size: 0.9rem;
-    line-height: 1.4;
 }
 
 .retro-card.exito {
-    background: var(--color-success-bg);
-    border: 1px solid var(--color-success);
-    color: #6ee7b7;
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #a7f3d0;
 }
 
 .retro-card.parcial {
-    background: var(--color-warning-bg);
-    border: 1px solid var(--color-warning);
-    color: #fde047;
+    background: rgba(245, 158, 11, 0.18);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fde68a;
 }
 
 .retro-card.error {
-    background: var(--color-danger-bg);
-    border: 1px solid var(--color-danger);
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.4);
     color: #fca5a5;
 }
 
-.feedback-head {
-    font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 4px;
+.retro-card h3 {
+    font-size: 0.98rem;
+    margin: 0 0 6px 0;
 }
 
-.feedback-sub {
-    font-size: 0.82rem;
-    opacity: 0.9;
-    margin-bottom: 8px;
+.retro-card p {
+    font-size: 0.84rem;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
 }
 
-.feedback-detail {
-    font-size: 0.8rem;
-    background: rgba(15, 23, 42, 0.6);
-    padding: 8px 12px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-}
-
-.btn-siguiente {
-    margin-top: 8px;
-}
-
-/* RANKING Y RESULTADOS */
-.icono-trofeo {
-    font-size: 3.2rem;
-    color: var(--color-warning);
-    margin-bottom: 10px;
-}
-
+/* RANKING Y MODAL */
 .caja-puntaje-final {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid var(--color-card-border);
-    padding: 16px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--color-cyan-glow);
     border-radius: 14px;
+    padding: 14px;
     margin: 16px 0;
 }
 
 .caja-puntaje-final span {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--color-text-muted);
 }
 
 .caja-puntaje-final h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--color-cyan-glow);
-    font-weight: 800;
+    margin: 4px 0 0 0;
 }
 
 .seccion-ranking h3 {
     font-size: 1rem;
     margin-bottom: 12px;
-    color: var(--color-text-muted);
 }
 
-.lista-ranking-estilo {
+#lista-ranking, #lista-ranking-global {
     list-style: none;
+    padding: 0;
+    margin: 0;
     max-height: 220px;
     overflow-y: auto;
-    padding-right: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.lista-ranking-estilo li {
+#lista-ranking li, #lista-ranking-global li {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 8px;
+    padding: 8px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 12px;
-    background: rgba(15, 23, 42, 0.5);
-    border-radius: 10px;
-    margin-bottom: 8px;
     font-size: 0.88rem;
-}
-
-.ranking-col-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .ranking-pos {
     font-weight: 800;
+    width: 28px;
     color: var(--color-cyan-glow);
-    width: 24px;
 }
 
 .ranking-info {
     display: flex;
     flex-direction: column;
     text-align: left;
+    flex: 1;
 }
 
-.ranking-curso {
-    font-size: 0.75rem;
+.ranking-info span {
+    font-weight: 600;
+}
+
+.ranking-info small {
+    font-size: 0.72rem;
     color: var(--color-text-muted);
 }
 
@@ -443,31 +394,30 @@ input[type="text"]:focus {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(11, 20, 38, 0.85);
+    background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 20px;
 }
 
 .modal-card {
-    width: 100%;
-    max-width: 460px;
+    max-width: 440px;
+    width: 90%;
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .btn-close {
     background: none;
     border: none;
-    color: var(--color-text-muted);
+    color: #ffffff;
     font-size: 1.5rem;
     cursor: pointer;
 }

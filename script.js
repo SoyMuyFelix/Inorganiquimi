@@ -1,21 +1,20 @@
 // ========================================================
-// LÓGICA DE JUEGO - DESAFÍO DE QUÍMICA INORGÁNICA (PREGUNTA ABIERTA)
+// LÓGICA DEL JUEGO - NOMENCLATURA DE QUÍMICA INORGÁNICA
 // ========================================================
 
 const urlGoogleSheet = "https://script.google.com/macros/s/AKfycbxRreoEVo7URIqKK1EgGo9LatpWLlYBrhiRwdaGiEPjZeTKaIHb54SQHnVl6cYrKPh9/exec";
 
-// Estado del juego
+// Estado del Juego
 let preguntasPartida = [];
 let indicePreguntaActual = 0;
 let puntuacionTotal = 0;
 let nombreEstudiante = "";
 let cursoEstudiante = "";
-
 let tiempoRestante = 30;
 let intervaloTemporizador = null;
 const TIEMPO_MAXIMO = 30;
 
-// Referencias DOM
+// Referencias al DOM
 const pantallaInicio = document.getElementById("pantalla-inicio");
 const pantallaJuego = document.getElementById("pantalla-juego");
 const pantallaFinal = document.getElementById("pantalla-final");
@@ -24,6 +23,7 @@ const inputNombre = document.getElementById("input-nombre");
 const inputCurso = document.getElementById("input-curso");
 const btnComenzar = document.getElementById("btn-comenzar");
 const displayNombre = document.getElementById("display-nombre");
+const displayCurso = document.getElementById("display-curso");
 const scoreDisplay = document.getElementById("score");
 const scoreFinal = document.getElementById("score-final");
 const nombreFinal = document.getElementById("nombre-final");
@@ -31,59 +31,112 @@ const cursoFinal = document.getElementById("curso-final");
 const listaRanking = document.getElementById("lista-ranking");
 
 const progresoPregunta = document.getElementById("progreso-pregunta");
-const categoriaBadge = document.getElementById("categoria-badge");
+const tipoCompuesto = document.getElementById("tipo-compuesto");
 const formulaCompuesto = document.getElementById("formula-compuesto");
 const spanTiempoRestante = document.getElementById("tiempo-restante");
 const barraTiempo = document.getElementById("barra-tiempo");
 
 const btnPista = document.getElementById("btn-pista");
 const textoPista = document.getElementById("texto-pista");
-
 const inputRespuesta = document.getElementById("input-respuesta");
 const btnEnviar = document.getElementById("btn-enviar");
-
-const retroalimentacion = document.getElementById("retroalimentacion");
+const cuadroFeedback = document.getElementById("cuadro-feedback");
 const feedbackTitulo = document.getElementById("feedback-titulo");
-const feedbackPuntos = document.getElementById("feedback-puntos");
-const feedbackExplicacion = document.getElementById("feedback-explicacion");
+const feedbackDetalle = document.getElementById("feedback-detalle");
 const btnSiguiente = document.getElementById("btn-siguiente");
 
 const btnReiniciar = document.getElementById("btn-reiniciar");
-
-// Modal Ranking
 const btnVerRanking = document.getElementById("btn-ver-ranking");
 const modalRanking = document.getElementById("modal-ranking");
 const listaRankingGlobal = document.getElementById("lista-ranking-global");
 const btnCerrarRanking = document.getElementById("btn-cerrar-ranking");
 const btnCerrarModalX = document.getElementById("btn-cerrar-modal-x");
 
-// Iniciar Eventos
-if (btnComenzar) {
-    btnComenzar.addEventListener("click", iniciarMision);
+// --------------------------------------------------------
+// 1. FORMATEO AUTOMÁTICO DE SUBÍNDICES PARA FÓRMULAS QUÍMICAS
+// --------------------------------------------------------
+function formatearFormulaQuimica(formula) {
+    if (!formula) return "";
+    const unicodeMap = {'₀':'0', '₁':'1', '₂':'2', '₃':'3', '₄':'4', '₅':'5', '₆':'6', '₇':'7', '₈':'8', '₉':'9'};
+    let normalizada = formula.replace(/[₀-₉]/g, m => unicodeMap[m]);
+    return normalizada.replace(/(\d+)/g, '<sub>$1</sub>');
 }
 
-function iniciarMision() {
+// --------------------------------------------------------
+// 2. ALGORITMOS DE NORMALIZACIÓN Y PRECISIÓN (LEVENSHTEIN)
+// --------------------------------------------------------
+function normalizarTexto(str) {
+    if (!str) return "";
+    return str.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remueve tildes
+        .replace(/[^a-z0-9 ]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+function calcularDistanciaLevenshtein(a, b) {
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
+                );
+            }
+        }
+    }
+    return matrix[b.length][a.length];
+}
+
+function calcularSimilitud(entrada, objetivo) {
+    const normInput = normalizarTexto(entrada);
+    const normTarget = normalizarTexto(objetivo);
+
+    if (normInput === normTarget) return 1.0;
+    if (!normInput || !normTarget) return 0.0;
+
+    const distancia = calcularDistanciaLevenshtein(normInput, normTarget);
+    const maxLen = Math.max(normInput.length, normTarget.length);
+    return Math.max(0, 1 - distancia / maxLen);
+}
+
+// --------------------------------------------------------
+// 3. INICIO DEL JUEGO
+// --------------------------------------------------------
+if (btnComenzar) {
+    btnComenzar.addEventListener("click", iniciarJuego);
+}
+
+function iniciarJuego() {
     nombreEstudiante = inputNombre.value.trim();
     cursoEstudiante = inputCurso.value.trim();
 
     if (!nombreEstudiante || !cursoEstudiante) {
-        alert("Por favor, ingresa tu Nombre y Curso antes de iniciar.");
+        alert("Por favor, ingresa tu nombre y curso para comenzar la misión.");
         return;
     }
 
-    if (typeof bancoPreguntasCompleto === "undefined" || !Array.isArray(bancoPreguntasCompleto) || bancoPreguntasCompleto.length === 0) {
-        alert("Error: No se pudo cargar el banco de preguntas. Verifica 'banco_preguntas.js'.");
+    if (typeof bancoPreguntasCompleto === "undefined" || !bancoPreguntasCompleto.length) {
+        alert("Error: No se encontró el banco de preguntas 'banco_preguntas.js'.");
         return;
     }
 
-    // Seleccionar 10 preguntas aleatorias del banco gigante
-    let bancoCopia = [...bancoPreguntasCompleto].sort(() => Math.random() - 0.5);
-    preguntasPartida = bancoCopia.slice(0, Math.min(10, bancoCopia.length));
+    // Mezclar banco y tomar 10 preguntas al azar
+    let bancoMezclado = [...bancoPreguntasCompleto].sort(() => Math.random() - 0.5);
+    preguntasPartida = bancoMezclado.slice(0, Math.min(10, bancoMezclado.length));
 
     indicePreguntaActual = 0;
     puntuacionTotal = 0;
     scoreDisplay.textContent = 0;
     displayNombre.textContent = nombreEstudiante;
+    displayCurso.textContent = cursoEstudiante;
 
     pantallaInicio.classList.add("oculto");
     pantallaJuego.classList.remove("oculto");
@@ -95,29 +148,28 @@ function cargarPregunta() {
     clearInterval(intervaloTemporizador);
 
     if (indicePreguntaActual >= preguntasPartida.length) {
-        finalizarMision();
+        finalizarJuego();
         return;
     }
 
     const actual = preguntasPartida[indicePreguntaActual];
 
-    progresoPregunta.textContent = `Pregunta ${indicePreguntaActual + 1} de ${preguntasPartida.length}`;
-    categoriaBadge.textContent = actual.tipo || actual.categoria || "Inorgánica";
-    formulaCompuesto.textContent = actual.formula || "Compuesto";
+    progresoPregunta.textContent = `Compuesto ${indicePreguntaActual + 1} de ${preguntasPartida.length}`;
+    tipoCompuesto.textContent = actual.tipo || actual.type || "Química Inorgánica";
+    
+    // RENDERIZADO CON SUBÍNDICES AUTOMÁTICOS
+    formulaCompuesto.innerHTML = formatearFormulaQuimica(actual.formula);
 
-    // Pista
-    textoPista.textContent = actual.pista || "Analiza el estado de oxidación de sus elementos.";
-    textoPista.classList.add("oculto");
-    btnPista.disabled = false;
-
-    // Entrada de texto
     inputRespuesta.value = "";
     inputRespuesta.disabled = false;
     btnEnviar.disabled = false;
     inputRespuesta.focus();
 
-    // Retroalimentación
-    retroalimentacion.classList.add("oculto");
+    textoPista.classList.add("oculto");
+    textoPista.textContent = actual.pista || (actual.hints ? actual.hints.join(" ") : "Analiza los estados de oxidación.");
+    btnPista.disabled = false;
+
+    cuadroFeedback.classList.add("oculto");
     btnSiguiente.classList.add("oculto");
 
     // Temporizador
@@ -142,25 +194,35 @@ function iniciarTemporizador() {
     }, 1000);
 }
 
-btnPista.addEventListener("click", () => {
-    textoPista.classList.remove("oculto");
-    btnPista.disabled = true;
-});
+if (btnPista) {
+    btnPista.addEventListener("click", () => {
+        textoPista.classList.remove("oculto");
+        btnPista.disabled = true;
+    });
+}
 
-btnEnviar.addEventListener("click", procesarRespuesta);
-inputRespuesta.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") procesarRespuesta();
-});
-
-btnSiguiente.addEventListener("click", () => {
-    indicePreguntaActual++;
-    cargarPregunta();
-});
+// --------------------------------------------------------
+// 4. EVALUACIÓN Y PROCESAMIENTO DE RESPUESTA
+// --------------------------------------------------------
+if (btnEnviar) {
+    btnEnviar.addEventListener("click", procesarRespuesta);
+}
+if (inputRespuesta) {
+    inputRespuesta.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") procesarRespuesta();
+    });
+}
+if (btnSiguiente) {
+    btnSiguiente.addEventListener("click", () => {
+        indicePreguntaActual++;
+        cargarPregunta();
+    });
+}
 
 function procesarRespuesta() {
     const respuestaUsuario = inputRespuesta.value.trim();
     if (!respuestaUsuario) {
-        alert("Por favor, escribe un nombre para el compuesto antes de responder.");
+        alert("Por favor, escribe el nombre del compuesto.");
         return;
     }
 
@@ -169,16 +231,12 @@ function procesarRespuesta() {
     btnEnviar.disabled = true;
 
     const actual = preguntasPartida[indicePreguntaActual];
-
-    // Obtener lista segura de nombres válidos
-    const nombresValidos = actual.nombresAceptados || actual.acceptedNames || [actual.formula];
+    const listaAceptados = actual.nombresAceptados || actual.acceptedNames || [];
 
     let mejorSimilitud = 0;
-    nombresValidos.forEach(nombreValido => {
-        if (typeof nombreValido === "string") {
-            const sim = calcularSimilitud(respuestaUsuario, nombreValido);
-            if (sim > mejorSimilitud) mejorSimilitud = sim;
-        }
+    listaAceptados.forEach(nombreValido => {
+        const sim = calcularSimilitud(respuestaUsuario, nombreValido);
+        if (sim > mejorSimilitud) mejorSimilitud = sim;
     });
 
     const porcentajePrecision = Math.round(mejorSimilitud * 100);
@@ -208,12 +266,11 @@ function procesarRespuesta() {
     puntuacionTotal += puntosObtenidos;
     scoreDisplay.textContent = puntuacionTotal;
 
+    cuadroFeedback.className = `retro-card ${claseFeedback}`;
     feedbackTitulo.textContent = tituloText;
-    feedbackPuntos.textContent = `Puntos ganados: +${puntosObtenidos} pts (Base: ${puntosPrecision} pts | Vel: ${puntosTiempo} pts)`;
-    feedbackExplicacion.innerHTML = `<strong>Explicación:</strong> ${actual.explicacion || 'Revisa la tabla periódica y valencias.'}`;
-
-    retroalimentacion.className = `retro-card ${claseFeedback}`;
-    retroalimentacion.classList.remove("oculto");
+    feedbackDetalle.innerHTML = `<strong>Puntos:</strong> +${puntosObtenidos} (${puntosPrecision} precisión + ${puntosTiempo} tiempo)<br><strong>Explicación:</strong> ${actual.explicacion || actual.explanation || ''}`;
+    
+    cuadroFeedback.classList.remove("oculto");
     btnSiguiente.classList.remove("oculto");
 }
 
@@ -222,67 +279,24 @@ function manejarTiempoAgotado() {
     btnEnviar.disabled = true;
 
     const actual = preguntasPartida[indicePreguntaActual];
-
-    feedbackTitulo.textContent = "⏰ ¡Se acabó el tiempo!";
-    feedbackPuntos.textContent = "Puntos ganados: 0 pts";
-    feedbackExplicacion.innerHTML = `<strong>Explicación:</strong> ${actual.explicacion || 'Tiempo agotado.'}`;
-
-    retroalimentacion.className = "retro-card error";
-    retroalimentacion.classList.remove("oculto");
+    cuadroFeedback.className = "retro-card error";
+    feedbackTitulo.textContent = "⏰ ¡Tiempo Agotado! (0 pts)";
+    feedbackDetalle.innerHTML = `<strong>Explicación:</strong> ${actual.explicacion || actual.explanation || ''}`;
+    
+    cuadroFeedback.classList.remove("oculto");
     btnSiguiente.classList.remove("oculto");
 }
 
-// Algoritmo de Distancia Levenshtein / Normalización
-function normalizarTexto(str) {
-    return str
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-z0-9 ]/g, "")
-        .trim();
-}
-
-function calcularSimilitud(a, b) {
-    const s1 = normalizarTexto(a);
-    const s2 = normalizarTexto(b);
-
-    if (s1 === s2) return 1.0;
-    if (!s1 || !s2) return 0.0;
-
-    const len1 = s1.length;
-    const len2 = s2.length;
-    const matrix = Array.from({ length: len2 + 1 }, (_, i) => [i]);
-
-    for (let j = 0; j <= len1; j++) matrix[0][j] = j;
-
-    for (let i = 1; i <= len2; i++) {
-        for (let j = 1; j <= len1; j++) {
-            if (s2[i - 1] === s1[j - 1]) {
-                matrix[i][j] = matrix[i - 1][j - 1];
-            } else {
-                matrix[i][j] = Math.min(
-                    matrix[i - 1][j - 1] + 1,
-                    matrix[i][j - 1] + 1,
-                    matrix[i - 1][j] + 1
-                );
-            }
-        }
-    }
-
-    const dist = matrix[len2][len1];
-    const maxLen = Math.max(len1, len2);
-    return Math.max(0, 1 - dist / maxLen);
-}
-
-function finalizarMision() {
+// --------------------------------------------------------
+// 5. PANTALLA FINAL Y RANKING GLOBAL (4 COLUMNAS)
+// --------------------------------------------------------
+function finalizarJuego() {
     pantallaJuego.classList.add("oculto");
     pantallaFinal.classList.remove("oculto");
-
     scoreFinal.textContent = `${puntuacionTotal} pts`;
     nombreFinal.textContent = nombreEstudiante;
     cursoFinal.textContent = cursoEstudiante;
 
-    // Enviar resultado a Google Sheets App Script (4 Columnas: fecha, nombre, curso, puntaje)
     if (urlGoogleSheet) {
         fetch(urlGoogleSheet, {
             method: "POST",
@@ -293,29 +307,28 @@ function finalizarMision() {
                 curso: cursoEstudiante,
                 puntaje: puntuacionTotal
             })
-        }).catch(err => console.error("Error al guardar puntaje:", err));
+        }).catch(err => console.error("Error guardando puntaje:", err));
     }
 
-    obtenerYMostrarRanking(listaRanking);
+    if (listaRanking) {
+        listaRanking.innerHTML = "<li><i class='fa-solid fa-spinner fa-spin'></i> Actualizando ranking global...</li>";
+    }
+    setTimeout(() => obtenerYMostrarRanking(listaRanking), 1000);
 }
 
 function obtenerYMostrarRanking(elementoLista) {
     if (!elementoLista || !urlGoogleSheet) return;
 
-    elementoLista.innerHTML = "<li><i class='fa-solid fa-spinner fa-spin'></i> Cargando ranking...</li>";
-
     fetch(urlGoogleSheet)
-        .then(res => res.json())
+        .then(response => response.json())
         .then(data => {
             elementoLista.innerHTML = "";
-
-            if (!data || !Array.isArray(data) || data.length === 0) {
+            if (!data || !data.length) {
                 elementoLista.innerHTML = "<li>No hay puntajes registrados aún.</li>";
                 return;
             }
 
-            // Ordenar descendentemente por puntaje numérico
-            data.sort((a, b) => Number(b.puntaje || 0) - Number(a.puntaje || 0));
+            data.sort((a, b) => b.puntaje - a.puntaje);
 
             data.slice(0, 15).forEach((item, index) => {
                 const li = document.createElement("li");
@@ -325,25 +338,22 @@ function obtenerYMostrarRanking(elementoLista) {
                 if (index === 2) medalla = "🥉";
 
                 li.innerHTML = `
-                    <div class="ranking-col-left">
-                        <span class="ranking-pos">${medalla}</span>
-                        <div class="ranking-info">
-                            <strong>${item.nombre || 'Anónimo'}</strong>
-                            <span class="ranking-curso">${item.curso || 'N/A'}</span>
-                        </div>
+                    <span class="ranking-pos">${medalla}</span>
+                    <div class="ranking-info">
+                        <span>${item.nombre}</span>
+                        <small>${item.curso || 'N/A'}</small>
                     </div>
-                    <strong class="ranking-pts">${item.puntaje || 0} pts</strong>
+                    <strong class="ranking-pts">${item.puntaje} pts</strong>
                 `;
                 elementoLista.appendChild(li);
             });
         })
         .catch(err => {
-            console.error("Error al obtener ranking:", err);
-            elementoLista.innerHTML = "<li>❌ Error al conectar con el servidor.</li>";
+            console.error("Error cargando ranking:", err);
+            elementoLista.innerHTML = "<li>❌ Error al conectar con el ranking.</li>";
         });
 }
 
-// Reiniciar
 if (btnReiniciar) {
     btnReiniciar.addEventListener("click", () => {
         pantallaFinal.classList.add("oculto");
@@ -353,10 +363,10 @@ if (btnReiniciar) {
     });
 }
 
-// Modal Ranking Global
 if (btnVerRanking) {
     btnVerRanking.addEventListener("click", () => {
         modalRanking.classList.remove("oculto");
+        listaRankingGlobal.innerHTML = "<li><i class='fa-solid fa-spinner fa-spin'></i> Cargando ranking...</li>";
         obtenerYMostrarRanking(listaRankingGlobal);
     });
 }
