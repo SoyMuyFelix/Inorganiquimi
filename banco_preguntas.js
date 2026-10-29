@@ -1,240 +1,216 @@
 // ========================================================
-// BANCO DE DATOS: NOMENCLATURA DE QUÍMICA INORGÁNICA
+// BANCO DE PREGUNTAS: NOMENCLATURA DE QUÍMICA INORGÁNICA
+// (PREGUNTAS DE RESPUESTA ABIERTA)
 // ========================================================
 
-const bancoPreguntasCompleto = [
+var bancoPreguntasCompleto = [
     {
         formula: "Fe₂O₃",
-        tipo: "Óxido Básico",
-        nombresAceptados: [
-            "trioxido de dihierro", "trióxido de dihierro",
-            "oxido de hierro(iii)", "óxido de hierro(iii)", "oxido de hierro iii", "óxido de hierro iii",
-            "oxido ferrico", "óxido férrico"
+        categoria: "Óxidos Básicos",
+        aceptadas: [
+            "trióxido de dihierro", "trioxido de dihierro",
+            "óxido de hierro(III)", "oxido de hierro(iii)", "oxido de hierro 3", "óxido de hierro 3",
+            "óxido férrico", "oxido ferrico"
         ],
-        pista: "El hierro actúa con su mayor estado de oxidación (+3).",
-        explicacion: "Nomenclaturas válidas: Trióxido de dihierro (IUPAC) | Óxido de hierro(III) (Stock) | Óxido férrico (Tradicional)"
+        pista: "El hierro actúa con su valencia +3. En nomenclatura Stock usa números romanos (III).",
+        explicacion: "Sistemática: Trióxido de dihierro | Stock: Óxido de hierro(III) | Tradicional: Óxido férrico"
     },
     {
         formula: "HCl",
-        tipo: "Hidrácido / Haluro de Hidrógeno",
-        nombresAceptados: [
-            "acido clorhidrico", "ácido clorhídrico",
-            "cloruro de hidrogeno", "cloruro de hidrógeno"
+        categoria: "Hidrácidos / Haluros",
+        aceptadas: [
+            "cloruro de hidrógeno", "cloruro de hidrogeno",
+            "ácido clorhídrico", "acido clorhidrico"
         ],
-        pista: "En disolución acuosa es un ácido muy fuerte presente en el estómago.",
-        explicacion: "Nomenclaturas válidas: Ácido clorhídrico (acuoso) | Cloruro de hidrógeno (gaseoso/Stock)"
+        pista: "Formado por hidrógeno y cloro. En disolución acuosa se nombra como un ácido.",
+        explicacion: "Sistemática/Stock: Cloruro de hidrógeno | Disolución acuosa: Ácido clorhídrico"
     },
     {
         formula: "NaOH",
-        tipo: "Hidróxido",
-        nombresAceptados: [
-            "hidroxido de sodio", "hidróxido de sodio",
-            "soda caustica", "soda cáustica", "sosa caustica", "sosa cáustica"
+        categoria: "Hidróxidos",
+        aceptadas: [
+            "hidróxido de sodio", "hidroxido de sodio",
+            "soda cáustica", "soda caustica"
         ],
-        pista: "Compuesto básico formado por sodio y el grupo hidróxido (OH⁻).",
-        explicacion: "Nomenclaturas válidas: Hidróxido de sodio (Oficial) | Soda/Sosa cáustica (Nombre común)"
+        pista: "Contiene el grupo hidróxido (OH⁻) y un metal alcalino.",
+        explicacion: "Nomenclatura oficial: Hidróxido de sodio (o Soda cáustica)"
     },
     {
         formula: "H₂SO₄",
-        tipo: "Oxácido",
-        nombresAceptados: [
-            "acido sulfurico", "ácido sulfúrico",
-            "tetraoxosulfato de hidrogeno", "tetraoxosulfato de hidrógeno",
-            "tetraoxosulfato (vi) de hidrogeno", "tetraoxosulfato (vi) de hidrógeno"
+        categoria: "Oxácidos",
+        aceptadas: [
+            "ácido sulfúrico", "acido sulfurico",
+            "tetraoxosulfato (VI) de hidrógeno", "tetraoxosulfato de hidrogeno"
         ],
-        pista: "Ácido fuerte en el que el azufre actúa con valencia +6.",
-        explicacion: "Nomenclaturas válidas: Ácido sulfúrico (Tradicional/IUPAC) | Tetraoxosulfato (VI) de hidrógeno (Sistemática)"
+        pista: "El azufre actúa con su estado de oxidación máximo (+6).",
+        explicacion: "Tradicional: Ácido sulfúrico | IUPAC: Tetraoxosulfato (VI) de hidrógeno"
     },
     {
         formula: "CO₂",
-        tipo: "Óxido Ácido (Anhídrido)",
-        nombresAceptados: [
-            "dioxido de carbono", "dióxido de carbono",
-            "anhidrido carbonico", "anhídrido carbónico",
-            "oxido de carbono(iv)", "óxido de carbono(iv)", "oxido de carbono iv"
+        categoria: "Óxidos Ácidos (Anhídridos)",
+        aceptadas: [
+            "dióxido de carbono", "dioxido de carbono",
+            "anhídrido carbónico", "anhidrido carbonico",
+            "óxido de carbono(IV)", "oxido de carbono(iv)", "oxido de carbono 4"
         ],
-        pista: "Gas incoloro producido por la respiración y la combustión.",
-        explicacion: "Nomenclaturas válidas: Dióxido de carbono (Sistemática) | Anhídrido carbónico (Tradicional) | Óxido de carbono(IV) (Stock)"
+        pista: "Gas común de la respiración. Usa el prefijo 'di-' por sus dos oxígenos.",
+        explicacion: "Sistemática: Dióxido de carbono | Stock: Óxido de carbono(IV) | Tradicional: Anhídrido carbónico"
     },
     {
         formula: "NaCl",
-        tipo: "Sal Binaria",
-        nombresAceptados: [
+        categoria: "Sales Binarias",
+        aceptadas: [
             "cloruro de sodio", "cloruro sodico", "cloruro sódico",
-            "sal comun", "sal común", "sal de mesa"
+            "sal común", "sal comun"
         ],
-        pista: "Sal de mesa común formada por un metal alcalino y un halógeno.",
-        explicacion: "Nomenclaturas válidas: Cloruro de sodio (Oficial) | Cloruro sódico (Tradicional) | Sal común"
+        pista: "Sal de mesa compuesta por catión sodio y anión cloruro.",
+        explicacion: "Nomenclatura oficial: Cloruro de sodio"
     },
     {
         formula: "NH₃",
-        tipo: "Hidruro Volátil",
-        nombresAceptados: [
-            "amoniaco", "amoníaco",
-            "trihidruro de nitrogeno", "trihidruro de nitrógeno",
+        categoria: "Hidruros Volátiles",
+        aceptadas: [
+            "amoníaco", "amoniaco",
+            "trihidruro de nitrógeno", "trihidruro de nitrogeno",
             "azano"
         ],
-        pista: "Gas de olor penetrante formado por nitrógeno e hidrógeno.",
-        explicacion: "Nomenclaturas válidas: Amoníaco (Aceptado IUPAC) | Trihidruro de nitrógeno (Sistemática) | Azano"
+        pista: "Compuesto gaseoso de nitrógeno e hidrógeno de olor penetrante.",
+        explicacion: "Aceptado por IUPAC: Amoníaco | Sistemática: Trihidruro de nitrógeno"
     },
     {
         formula: "BaSO₄",
-        tipo: "Oxisal Ternaria",
-        nombresAceptados: [
-            "sulfato de bario",
-            "tetraoxosulfato de bario"
+        categoria: "Oxisales Ternarias",
+        aceptadas: [
+            "sulfato de bario", "tetraoxosulfato de bario"
         ],
-        pista: "Sal insoluble de bario derivada del ácido sulfúrico.",
-        explicacion: "Nomenclaturas válidas: Sulfato de bario (Oficial/Stock) | Tetraoxosulfato de bario (Sistemática)"
+        pista: "Unión del anión sulfato (SO₄²⁻) con el catión bario (Ba²⁺).",
+        explicacion: "Nomenclatura oficial: Sulfato de bario"
     },
     {
         formula: "Cu₂O",
-        tipo: "Óxido Básico",
-        nombresAceptados: [
-            "oxido cuproso", "óxido cuproso",
-            "oxido de cobre(i)", "óxido de cobre(i)", "oxido de cobre i", "óxido de cobre i",
-            "monoxido de dicobre", "monóxido de dicobre"
+        categoria: "Óxidos Básicos",
+        aceptadas: [
+            "monóxido de dicobre", "monoxido de dicobre",
+            "óxido de cobre(I)", "oxido de cobre(i)", "oxido de cobre 1",
+            "óxido cuproso", "oxido cuproso"
         ],
-        pista: "Óxido de cobre donde el metal tiene estado de oxidación +1.",
-        explicacion: "Nomenclaturas válidas: Óxido cuproso (Tradicional) | Óxido de cobre(I) (Stock) | Monóxido de dicobre (Sistemática)"
+        pista: "El cobre actúa con su menor valencia (+1).",
+        explicacion: "Stock: Óxido de cobre(I) | Tradicional: Óxido cuproso | Sistemática: Monóxido de dicobre"
     },
     {
         formula: "Mg(OH)₂",
-        tipo: "Hidróxido",
-        nombresAceptados: [
-            "hidroxido de magnesio", "hidróxido de magnesio",
-            "dihidroxido de magnesio", "dihidróxido de magnesio",
+        categoria: "Hidróxidos",
+        aceptadas: [
+            "hidróxido de magnesio", "hidroxido de magnesio",
+            "dihidróxido de magnesio", "dihidroxido de magnesio",
             "leche de magnesia"
         ],
-        pista: "Utilizado comúnmente como antiácido y laxante.",
-        explicacion: "Nomenclaturas válidas: Hidróxido de magnesio (Stock/IUPAC) | Dihidróxido de magnesio (Sistemática) | Leche de magnesia"
+        pista: "Metal alcalinotérreo con grupo hidróxido, usado en antiácidos.",
+        explicacion: "IUPAC/Stock: Hidróxido de magnesio (o Dihidróxido de magnesio)"
     },
     {
         formula: "HNO₃",
-        tipo: "Oxácido",
-        nombresAceptados: [
-            "acido nitrico", "ácido nítrico",
-            "trioxonitrato de hidrogeno", "trioxonitrato de hidrógeno",
-            "trioxonitrato (v) de hidrogeno", "trioxonitrato (v) de hidrógeno"
+        categoria: "Oxácidos",
+        aceptadas: [
+            "ácido nítrico", "acido nitrico",
+            "trioxonitrato (V) de hidrógeno", "trioxonitrato de hidrogeno"
         ],
-        pista: "Ácido fuerte donde el nitrógeno actúa con valencia +5.",
-        explicacion: "Nomenclaturas válidas: Ácido nítrico (Tradicional) | Trioxonitrato (V) de hidrógeno (Sistemática)"
+        pista: "El nitrógeno actúa con su valencia máxima (+5).",
+        explicacion: "Tradicional: Ácido nítrico | IUPAC: Trioxonitrato (V) de hidrógeno"
     },
     {
         formula: "CaO",
-        tipo: "Óxido Básico",
-        nombresAceptados: [
-            "oxido de calcio", "óxido de calcio",
-            "monoxido de calcio", "monóxido de calcio",
+        categoria: "Óxidos Básicos",
+        aceptadas: [
+            "óxido de calcio", "oxido de calcio",
+            "monóxido de calcio", "monoxido de calcio",
             "cal viva"
         ],
-        pista: "Conocido comúnmente como cal viva.",
-        explicacion: "Nomenclaturas válidas: Óxido de calcio (Stock) | Monóxido de calcio (Sistemática) | Cal viva"
+        pista: "Conocido popularmente como cal viva.",
+        explicacion: "Nomenclatura oficial: Óxido de calcio"
     },
     {
         formula: "H₂CO₃",
-        tipo: "Oxácido",
-        nombresAceptados: [
-            "acido carbonico", "ácido carbónico",
-            "trioxocarbonato de hidrogeno", "trioxocarbonato de hidrógeno"
+        categoria: "Oxácidos",
+        aceptadas: [
+            "ácido carbónico", "acido carbonico",
+            "trioxocarbonato de hidrógeno", "trioxocarbonato de hidrogeno"
         ],
-        pista: "Ácido débil presente en bebidas carbonatadas o gaseosas.",
-        explicacion: "Nomenclaturas válidas: Ácido carbónico (Tradicional) | Trioxocarbonato de hidrógeno (Sistemática)"
+        pista: "Ácido débil presente en las bebidas efervescentes.",
+        explicacion: "Tradicional: Ácido carbónico"
     },
     {
         formula: "CuO",
-        tipo: "Óxido Básico",
-        nombresAceptados: [
-            "oxido cuproso", "óxido cúprico", "oxido cuprico",
-            "oxido de cobre(ii)", "óxido de cobre(ii)", "oxido de cobre ii", "óxido de cobre ii",
-            "monoxido de cobre", "monóxido de cobre"
+        categoria: "Óxidos Básicos",
+        aceptadas: [
+            "óxido de cobre(II)", "oxido de cobre(ii)", "oxido de cobre 2",
+            "óxido cúprico", "oxido cuprico",
+            "monóxido de cobre", "monoxido de cobre"
         ],
-        pista: "Óxido donde el cobre actúa con su mayor valencia (+2).",
-        explicacion: "Nomenclaturas válidas: Óxido cúprico (Tradicional) | Óxido de cobre(II) (Stock) | Monóxido de cobre (Sistemática)"
+        pista: "El cobre actúa con su mayor valencia (+2).",
+        explicacion: "Stock: Óxido de cobre(II) | Tradicional: Óxido cúprico | Sistemática: Monóxido de cobre"
     },
     {
         formula: "CaCO₃",
-        tipo: "Oxisal Ternaria",
-        nombresAceptados: [
-            "carbonato de calcio",
-            "trioxocarbonato de calcio",
-            "caliza", "marmol", "mármol"
+        categoria: "Oxisales Ternarias",
+        aceptadas: [
+            "carbonato de calcio", "carbonato calcico", "carbonato cálcico",
+            "trioxocarbonato de calcio"
         ],
-        pista: "Componente principal de las conchas marinas, la caliza y el mármol.",
-        explicacion: "Nomenclaturas válidas: Carbonato de calcio (Stock/Tradicional) | Trioxocarbonato de calcio (Sistemática)"
+        pista: "Componente principal de las rocas calizas, cáscaras de huevo y tizas.",
+        explicacion: "Nomenclatura oficial: Carbonato de calcio"
     },
     {
         formula: "H₂O₂",
-        tipo: "Peróxido",
-        nombresAceptados: [
-            "peroxido de hidrogeno", "peróxido de hidrógeno",
-            "agua oxigenada",
-            "dioxido de dihidrogeno", "dióxido de dihidrógeno"
+        categoria: "Peróxidos",
+        aceptadas: [
+            "peróxido de hidrógeno", "peroxido de hidrogeno",
+            "dióxido de dihidrógeno", "dioxido de dihidrogeno",
+            "agua oxigenada"
         ],
-        pista: "Líquido antiséptico conocido popularmente como agua oxigenada.",
-        explicacion: "Nomenclaturas válidas: Peróxido de hidrógeno (IUPAC) | Agua oxigenada (Nombre común) | Dióxido de dihidrógeno"
+        pista: "Conocido comúnmente como agua oxigenada.",
+        explicacion: "Nomenclatura oficial: Peróxido de hidrógeno"
     },
     {
         formula: "FeCl₃",
-        tipo: "Sal Binaria",
-        nombresAceptados: [
-            "cloruro de hierro(iii)", "cloruro de hierro(iii)", "cloruro de hierro iii",
-            "cloruro ferrico", "cloruro férrico",
-            "tricloruro de hierro"
+        categoria: "Sales Binarias",
+        aceptadas: [
+            "cloruro de hierro(III)", "cloruro de hierro(iii)", "cloruro de hierro 3",
+            "tricloruro de hierro",
+            "cloruro férrico", "cloruro ferrico"
         ],
-        pista: "Sal haloidea de hierro con estado de oxidación +3.",
-        explicacion: "Nomenclaturas válidas: Cloruro de hierro(III) (Stock) | Cloruro férrico (Tradicional) | Tricloruro de hierro (Sistemática)"
+        pista: "El hierro actúa con su valencia mayor (+3) frente al cloro.",
+        explicacion: "Stock: Cloruro de hierro(III) | Sistemática: Tricloruro de hierro | Tradicional: Cloruro férrico"
     },
     {
-        formula: "KOH",
-        tipo: "Hidróxido",
-        nombresAceptados: [
-            "hidroxido de potasio", "hidróxido de potasio",
-            "potasa caustica", "potasa cáustica"
+        formula: "KNO₃",
+        categoria: "Oxisales Ternarias",
+        aceptadas: [
+            "nitrato de potasio", "nitrato potásico", "nitrato potasico",
+            "trioxonitrato de potasio", "salitre"
         ],
-        pista: "Base fuerte formada por potasio y el grupo hidróxido.",
-        explicacion: "Nomenclaturas válidas: Hidróxido de potasio (Oficial) | Potasa cáustica (Nombre común)"
+        pista: "Componente principal del salitre.",
+        explicacion: "Nomenclatura oficial: Nitrato de potasio"
     },
     {
         formula: "Al(OH)₃",
-        tipo: "Hidróxido",
-        nombresAceptados: [
-            "hidroxido de aluminio", "hidróxido de aluminio",
-            "trihidroxido de aluminio", "trihidróxido de aluminio"
+        categoria: "Hidróxidos",
+        aceptadas: [
+            "hidróxido de aluminio", "hidroxido de aluminio",
+            "trihidróxido de aluminio", "trihidroxido de aluminio"
         ],
-        pista: "Hidróxido metálico en el que el aluminio actúa con valencia +3.",
-        explicacion: "Nomenclaturas válidas: Hidróxido de aluminio (Stock) | Trihidróxido de aluminio (Sistemática)"
+        pista: "El aluminio posee una única valencia (+3).",
+        explicacion: "Nomenclatura oficial: Hidróxido de aluminio"
     },
     {
         formula: "SO₃",
-        tipo: "Óxido Ácido (Anhídrido)",
-        nombresAceptados: [
-            "trioxido de azufre", "trióxido de azufre",
-            "anhidrido sulfurico", "anhídrido sulfúrico",
-            "oxido de azufre(vi)", "óxido de azufre(vi)", "oxido de azufre vi"
+        categoria: "Óxidos Ácidos (Anhídridos)",
+        aceptadas: [
+            "trióxido de azufre", "trioxido de azufre",
+            "anhídrido sulfúrico", "anhidrido sulfurico",
+            "óxido de azufre(VI)", "oxido de azufre(vi)", "oxido de azufre 6"
         ],
-        pista: "Óxido de azufre donde el no metal actúa con su máxima valencia (+6).",
-        explicacion: "Nomenclaturas válidas: Trióxido de azufre (Sistemática) | Anhídrido sulfúrico (Tradicional) | Óxido de azufre(VI) (Stock)"
-    },
-    {
-        formula: "NaHCO₃",
-        tipo: "Sal Ácida",
-        nombresAceptados: [
-            "bicarbonato de sodio",
-            "hidrogenocarbonato de sodio",
-            "hidrogenotrioxocarbonato de sodio"
-        ],
-        pista: "Polvo blanco usado frecuentemente en repostería y como antiaćido.",
-        explicacion: "Nomenclaturas válidas: Bicarbonato de sodio (Tradicional/Aceptado) | Hidrogenocarbonato de sodio (IUPAC)"
-    },
-    {
-        formula: "KMnO₄",
-        tipo: "Oxisal Ternaria",
-        nombresAceptados: [
-            "permanganato de potasio",
-            "tetraoxomanganato (vii) de potasio"
-        ],
-        pista: "Sal intensamente purpúrea utilizada como desinfectante y oxidante fuerte.",
-        explicacion: "Nomenclaturas válidas: Permanganato de potasio (Tradicional/Stock) | Tetraoxomanganato (VII) de potasio (Sistemática)"
+        pista: "El azufre actúa con valencia +6 frente a tres átomos de oxígeno.",
+        explicacion: "Sistemática: Trióxido de azufre | Tradicional: Anhídrido sulfúrico | Stock: Óxido de azufre(VI)"
     }
 ];
