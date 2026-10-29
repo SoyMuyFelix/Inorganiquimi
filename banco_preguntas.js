@@ -1,3255 +1,2979 @@
 // ========================================================
-// BANCO DE PREGUNTAS GIGANTE: NOMENCLATURA DE QUÍMICA INORGÁNICA
-// TOTAL DE COMPUESTOS: 210
+// BANCO DE DATOS: NOMENCLATURA DE QUÍMICA INORGÁNICA
+// TOTAL DE COMPUESTOS: 237
 // ========================================================
 
-const bancoPreguntasCompleto = [
+var bancoPreguntasCompleto = [
     {
         "formula": "Na₂O",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Na₂O",
-        "acceptedNames": [
-            "oxido de sodio",
-            "óxido de sodio",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "monóxido de disodio",
             "monoxido de disodio",
-            "monóxido de disodio"
+            "oxido de sodio",
+            "óxido de sodio"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El sodio actúa con valencia +1."
-        ],
-        "explanation": "Sistemática: Monóxido de disodio | Tradicional/Stock: Óxido de sodio."
+        "pista": "Óxido de un metal alcalino con valencia +1.",
+        "explicacion": "Óxido de sodio (Stock/Tradicional) | Monóxido de disodio (IUPAC)"
     },
     {
         "formula": "K₂O",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: K₂O",
-        "acceptedNames": [
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
             "oxido de potasio",
-            "óxido de potasio",
             "monoxido de dipotasio",
-            "monóxido de dipotasio"
+            "monóxido de dipotasio",
+            "óxido de potasio"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El potasio actúa con valencia +1."
-        ],
-        "explanation": "Sistemática: Monóxido de dipotasio | Stock/Tradicional: Óxido de potasio."
+        "pista": "Óxido del metal potasio.",
+        "explicacion": "Óxido de potasio (Stock/Tradicional) | Monóxido de dipotasio (IUPAC)"
     },
     {
         "formula": "Li₂O",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Li₂O",
-        "acceptedNames": [
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "monóxido de dilitio",
             "oxido de litio",
             "óxido de litio",
-            "monoxido de dilitio",
-            "monóxido de dilitio"
+            "monoxido de dilitio"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El litio tiene estado de oxidación +1."
-        ],
-        "explanation": "Sistemática: Monóxido de dilitio | Stock/Tradicional: Óxido de litio."
+        "pista": "Óxido del elemento más ligero del grupo 1.",
+        "explicacion": "Óxido de litio | Monóxido de dilitio"
     },
     {
         "formula": "CaO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CaO",
-        "acceptedNames": [
-            "oxido de calcio",
-            "óxido de calcio",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "cal viva",
             "monoxido de calcio",
             "monóxido de calcio",
-            "cal viva"
+            "oxido de calcio",
+            "óxido de calcio"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "Se le conoce comúnmente como cal viva."
-        ],
-        "explanation": "Sistemática: Monóxido de calcio | Stock/Tradicional: Óxido de calcio."
+        "pista": "Comúnmente conocido como cal viva.",
+        "explicacion": "Óxido de calcio (Oficial) | Cal viva (Nombre común)"
     },
     {
         "formula": "MgO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: MgO",
-        "acceptedNames": [
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "magnesia",
             "oxido de magnesio",
             "óxido de magnesio",
             "monoxido de magnesio",
             "monóxido de magnesio"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El magnesio actúa con estado de oxidación +2."
-        ],
-        "explanation": "Sistemática: Monóxido de magnesio | Stock/Tradicional: Óxido de magnesio."
+        "pista": "Óxido del metal alcalinotérreo magnesio.",
+        "explicacion": "Óxido de magnesio | Magnesia"
     },
     {
         "formula": "BaO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: BaO",
-        "acceptedNames": [
-            "oxido de bario",
-            "óxido de bario",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "monóxido de bario",
             "monoxido de bario",
-            "monóxido de bario"
+            "óxido de bario",
+            "oxido de bario"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El bario actúa con su única valencia +2."
-        ],
-        "explanation": "Sistemática: Monóxido de bario | Stock/Tradicional: Óxido de bario."
+        "pista": "Óxido de bario con estado de oxidación +2.",
+        "explicacion": "Óxido de bario | Monóxido de bario"
     },
     {
         "formula": "FeO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: FeO",
-        "acceptedNames": [
-            "oxido de hierro(ii)",
-            "óxido de hierro(ii)",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
             "oxido ferroso",
+            "oxido de hierro(ii)",
             "óxido ferroso",
+            "oxido de hierro ii",
             "monoxido de hierro",
+            "óxido de hierro(ii)",
             "monóxido de hierro",
-            "oxido de hierro ii"
+            "óxido de hierro ii"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El hierro actúa con su menor valencia (+2)."
-        ],
-        "explanation": "Stock: Óxido de hierro(II) | Tradicional: Óxido ferroso | Sistemática: Monóxido de hierro."
+        "pista": "El hierro actúa con su menor valencia (+2).",
+        "explicacion": "Óxido de hierro(II) (Stock) | Óxido ferroso (Tradicional) | Monóxido de hierro (IUPAC)"
     },
     {
         "formula": "Fe₂O₃",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Fe₂O₃",
-        "acceptedNames": [
-            "trioxido de dihierro",
-            "trióxido de dihierro",
-            "oxido de hierro(iii)",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
             "óxido de hierro(iii)",
             "oxido ferrico",
-            "óxido férrico",
-            "oxido de hierro iii"
+            "oxido de hierro(iii)",
+            "oxido de hierro iii",
+            "trióxido de dihierro",
+            "trioxido de dihierro",
+            "óxido de hierro iii",
+            "óxido férrico"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El hierro actúa con su mayor valencia (+3)."
-        ],
-        "explanation": "Stock: Óxido de hierro(III) | Tradicional: Óxido férrico | Sistemática: Trióxido de dihierro."
+        "pista": "El hierro actúa con su mayor valencia (+3). Es el componente del herrumbre.",
+        "explicacion": "Óxido de hierro(III) (Stock) | Óxido férrico (Tradicional) | Trióxido de dihierro (IUPAC)"
     },
     {
         "formula": "Cu₂O",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cu₂O",
-        "acceptedNames": [
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
             "oxido de cobre(i)",
             "óxido de cobre(i)",
             "oxido cuproso",
-            "óxido cuproso",
-            "monoxido de dicobre",
+            "óxido de cobre i",
             "monóxido de dicobre",
-            "oxido de cobre i"
+            "monoxido de dicobre",
+            "oxido de cobre i",
+            "óxido cuproso"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El cobre actúa con su menor estado de oxidación (+1)."
-        ],
-        "explanation": "Stock: Óxido de cobre(I) | Tradicional: Óxido cuproso | Sistemática: Monóxido de dicobre."
+        "pista": "El cobre actúa con su menor valencia (+1).",
+        "explicacion": "Óxido de cobre(I) (Stock) | Óxido cuproso (Tradicional) | Monóxido de dicobre (IUPAC)"
     },
     {
         "formula": "CuO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CuO",
-        "acceptedNames": [
-            "oxido de cobre(ii)",
-            "óxido de cobre(ii)",
-            "oxido cuprico",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
             "óxido cúprico",
+            "oxido de cobre ii",
+            "oxido de cobre(ii)",
             "monoxido de cobre",
             "monóxido de cobre",
-            "oxido de cobre ii"
+            "óxido de cobre ii",
+            "óxido de cobre(ii)",
+            "oxido cuprico"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El cobre actúa con su mayor valencia (+2)."
-        ],
-        "explanation": "Stock: Óxido de cobre(II) | Tradicional: Óxido cúprico | Sistemática: Monóxido de cobre."
-    },
-    {
-        "formula": "Al₂O₃",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Al₂O₃",
-        "acceptedNames": [
-            "oxido de aluminio",
-            "óxido de aluminio",
-            "trioxido de dialuminio",
-            "trióxido de dialuminio",
-            "alumina",
-            "alúmina"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "Constituyente principal de la bauxita."
-        ],
-        "explanation": "Sistemática: Trióxido de dialuminio | Stock/Tradicional: Óxido de aluminio."
+        "pista": "El cobre actúa con valencia +2.",
+        "explicacion": "Óxido de cobre(II) (Stock) | Óxido cúprico (Tradicional) | Monóxido de cobre (IUPAC)"
     },
     {
         "formula": "ZnO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: ZnO",
-        "acceptedNames": [
-            "oxido de zinc",
-            "óxido de zinc",
-            "monoxido de zinc",
-            "monóxido de zinc",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
             "oxido de cinc",
-            "óxido de cinc"
+            "óxido de zinc",
+            "oxido de zinc",
+            "monóxido de zinc",
+            "óxido de cinc",
+            "monoxido de zinc"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "Utilizado ampliamente en pomadas y protectores solares."
+        "pista": "Usado ampliamente en pomadas y protectores solares.",
+        "explicacion": "Óxido de zinc / cinc"
+    },
+    {
+        "formula": "Al₂O₃",
+        "tipo": "Óxido Básico / Anfótero",
+        "nombresAceptados": [
+            "alúmina",
+            "óxido de aluminio",
+            "oxido de aluminio",
+            "alumina",
+            "trioxido de dialuminio",
+            "trióxido de dialuminio"
         ],
-        "explanation": "Stock/Tradicional: Óxido de zinc | Sistemática: Monóxido de zinc."
+        "pista": "Conocido como alúmina, mineral muy duro.",
+        "explicacion": "Óxido de aluminio | Trióxido de dialuminio | Alúmina"
     },
     {
         "formula": "PbO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: PbO",
-        "acceptedNames": [
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "óxido de plomo ii",
             "oxido de plomo(ii)",
+            "monóxido de plomo",
+            "litargirio",
             "óxido de plomo(ii)",
             "oxido plumboso",
+            "oxido de plomo ii",
             "óxido plumboso",
-            "monoxido de plomo",
-            "monóxido de plomo",
-            "oxido de plomo ii"
+            "monoxido de plomo"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El plomo actúa con valencia +2."
-        ],
-        "explanation": "Stock: Óxido de plomo(II) | Tradicional: Óxido plumboso | Sistemática: Monóxido de plomo."
+        "pista": "El plomo actúa con valencia +2.",
+        "explicacion": "Óxido de plomo(II) | Óxido plumboso | Monóxido de plomo"
     },
     {
         "formula": "PbO₂",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: PbO₂",
-        "acceptedNames": [
-            "oxido de plomo(iv)",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
             "óxido de plomo(iv)",
-            "oxido plumbico",
-            "óxido plúmbico",
-            "dioxido de plomo",
             "dióxido de plomo",
-            "oxido de plomo iv"
+            "óxido de plomo iv",
+            "óxido plúmbico",
+            "oxido de plomo iv",
+            "oxido plumbico",
+            "dioxido de plomo",
+            "oxido de plomo(iv)"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El plomo actúa con valencia +4."
-        ],
-        "explanation": "Stock: Óxido de plomo(IV) | Tradicional: Óxido plúmbico | Sistemática: Dióxido de plomo."
+        "pista": "El plomo actúa con valencia +4.",
+        "explicacion": "Óxido de plomo(IV) | Óxido plúmbico | Dióxido de plomo"
     },
     {
         "formula": "SnO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SnO",
-        "acceptedNames": [
-            "oxido de estano(ii)",
-            "óxido de estaño(ii)",
-            "oxido estannoso",
-            "óxido estannoso",
-            "monoxido de estano",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
             "monóxido de estaño",
-            "oxido de estano ii"
+            "monoxido de estano",
+            "óxido estannoso",
+            "oxido estannoso",
+            "óxido de estaño ii",
+            "óxido de estaño(ii)",
+            "oxido de estano ii",
+            "oxido de estano(ii)"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El estaño actúa con valencia +2."
-        ],
-        "explanation": "Stock: Óxido de estaño(II) | Tradicional: Óxido estannoso."
+        "pista": "El estaño actúa con valencia +2.",
+        "explicacion": "Óxido de estaño(II) | Óxido estannoso | Monóxido de estaño"
     },
     {
         "formula": "SnO₂",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SnO₂",
-        "acceptedNames": [
-            "oxido de estano(iv)",
-            "óxido de estaño(iv)",
-            "oxido estannico",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "óxido de estaño iv",
             "óxido estánnico",
             "dioxido de estano",
+            "oxido de estano(iv)",
             "dióxido de estaño",
+            "óxido de estaño(iv)",
+            "oxido estannico",
             "oxido de estano iv"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "Mineral casiterita, valencia del estaño es +4."
-        ],
-        "explanation": "Stock: Óxido de estaño(IV) | Tradicional: Óxido estánnico."
-    },
-    {
-        "formula": "Ag₂O",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ag₂O",
-        "acceptedNames": [
-            "oxido de plata",
-            "óxido de plata",
-            "monoxido de diplata",
-            "monóxido de diplata"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "La plata actúa con valencia +1."
-        ],
-        "explanation": "Stock/Tradicional: Óxido de plata | Sistemática: Monóxido de diplata."
-    },
-    {
-        "formula": "NiO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NiO",
-        "acceptedNames": [
-            "oxido de niquel(ii)",
-            "óxido de níquel(ii)",
-            "oxido niqueloso",
-            "óxido niqueloso",
-            "monoxido de niquel",
-            "monóxido de níquel"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El níquel actúa con estado de oxidación +2."
-        ],
-        "explanation": "Stock: Óxido de níquel(II) | Tradicional: Óxido niqueloso."
-    },
-    {
-        "formula": "Ni₂O₃",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ni₂O₃",
-        "acceptedNames": [
-            "oxido de niquel(iii)",
-            "óxido de níquel(iii)",
-            "oxido niquelico",
-            "óxido niquélico",
-            "trioxido de diniquel",
-            "trióxido de diníquel"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El níquel actúa con su mayor estado de oxidación +3."
-        ],
-        "explanation": "Stock: Óxido de níquel(III) | Tradicional: Óxido niquélico."
-    },
-    {
-        "formula": "CoO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CoO",
-        "acceptedNames": [
-            "oxido de cobalto(ii)",
-            "óxido de cobalto(ii)",
-            "oxido cobaltoso",
-            "óxido cobaltoso",
-            "monoxido de cobalto",
-            "monóxido de cobalto"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El cobalto actúa con su menor valencia (+2)."
-        ],
-        "explanation": "Stock: Óxido de cobalto(II) | Tradicional: Óxido cobaltoso."
-    },
-    {
-        "formula": "Co₂O₃",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Co₂O₃",
-        "acceptedNames": [
-            "oxido de cobalto(iii)",
-            "óxido de cobalto(iii)",
-            "oxido cobaltico",
-            "óxido cobáltico",
-            "trioxido de dicobalto",
-            "trióxido de dicobalto"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El cobalto actúa con su mayor valencia (+3)."
-        ],
-        "explanation": "Stock: Óxido de cobalto(III) | Tradicional: Óxido cobáltico."
-    },
-    {
-        "formula": "Cr₂O₃",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cr₂O₃",
-        "acceptedNames": [
-            "oxido de cromo(iii)",
-            "óxido de cromo(iii)",
-            "oxido cromico",
-            "óxido crómico",
-            "trioxido de dicromo",
-            "trióxido de dicromo"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El cromo actúa con comportamiento metálico (valencia +3)."
-        ],
-        "explanation": "Stock: Óxido de cromo(III) | Tradicional: Óxido crómico."
-    },
-    {
-        "formula": "MnO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: MnO",
-        "acceptedNames": [
-            "oxido de manganeso(ii)",
-            "óxido de manganeso(ii)",
-            "oxido manganoso",
-            "óxido manganoso",
-            "monoxido de manganeso",
-            "monóxido de manganeso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El manganeso actúa como metal con valencia +2."
-        ],
-        "explanation": "Stock: Óxido de manganeso(II) | Tradicional: Óxido manganoso."
-    },
-    {
-        "formula": "Mn₂O₃",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Mn₂O₃",
-        "acceptedNames": [
-            "oxido de manganeso(iii)",
-            "óxido de manganeso(iii)",
-            "oxido manganico",
-            "óxido mangánico",
-            "trioxido de dimanganeso",
-            "trióxido de dimanganeso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El manganeso actúa como metal con valencia +3."
-        ],
-        "explanation": "Stock: Óxido de manganeso(III) | Tradicional: Óxido mangánico."
+        "pista": "El estaño actúa con valencia +4.",
+        "explicacion": "Óxido de estaño(IV) | Óxido estánnico | Dióxido de estaño"
     },
     {
         "formula": "HgO",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HgO",
-        "acceptedNames": [
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "oxido de mercurio ii",
             "oxido de mercurio(ii)",
-            "óxido de mercurio(ii)",
-            "oxido mercurico",
             "óxido mercúrico",
             "monoxido de mercurio",
-            "monóxido de mercurio"
+            "monóxido de mercurio",
+            "oxido mercurico",
+            "óxido de mercurio ii",
+            "óxido de mercurio(ii)"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "El mercurio actúa con valencia +2."
+        "pista": "El mercurio actúa con valencia +2.",
+        "explicacion": "Óxido de mercurio(II) | Óxido mercúrico"
+    },
+    {
+        "formula": "Hg₂O",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "oxido de mercurio(i)",
+            "óxido de mercurio i",
+            "monoxido de dimercurio",
+            "oxido de mercurio i",
+            "óxido mercurioso",
+            "monóxido de dimercurio",
+            "óxido de mercurio(i)",
+            "oxido mercurioso"
         ],
-        "explanation": "Stock: Óxido de mercurio(II) | Tradicional: Óxido mercúrico."
+        "pista": "El mercurio actúa con valencia +1.",
+        "explicacion": "Óxido de mercurio(I) | Óxido mercurioso"
+    },
+    {
+        "formula": "Ag₂O",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "monoxido de diplata",
+            "óxido de plata",
+            "monóxido de diplata",
+            "oxido de plata"
+        ],
+        "pista": "La plata actúa con valencia +1.",
+        "explicacion": "Óxido de plata | Monóxido de diplata"
+    },
+    {
+        "formula": "NiO",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "oxido de niquel ii",
+            "óxido de níquel(ii)",
+            "monoxido de niquel",
+            "oxido niqueloso",
+            "monóxido de níquel",
+            "oxido de niquel(ii)",
+            "óxido niqueloso",
+            "óxido de níquel ii"
+        ],
+        "pista": "El níquel actúa con valencia +2.",
+        "explicacion": "Óxido de níquel(II) | Óxido niqueloso"
+    },
+    {
+        "formula": "Ni₂O₃",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "oxido niquelico",
+            "óxido niquélico",
+            "trioxido de diniquel",
+            "óxido de níquel iii",
+            "trióxido de diníquel",
+            "óxido de níquel(iii)",
+            "oxido de niquel(iii)",
+            "oxido de niquel iii"
+        ],
+        "pista": "El níquel actúa con valencia +3.",
+        "explicacion": "Óxido de níquel(III) | Óxido niquélico | Trióxido de diníquel"
+    },
+    {
+        "formula": "Cr₂O₃",
+        "tipo": "Óxido Básico / Anfótero",
+        "nombresAceptados": [
+            "oxido cromico",
+            "óxido de cromo iii",
+            "trioxido de dicromo",
+            "trióxido de dicromo",
+            "óxido de cromo(iii)",
+            "oxido de cromo iii",
+            "oxido de cromo(iii)",
+            "óxido crómico"
+        ],
+        "pista": "El cromo actúa con valencia +3 en este óxido verde.",
+        "explicacion": "Óxido de cromo(III) | Óxido crómico | Trióxido de dicromo"
+    },
+    {
+        "formula": "MnO",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "monoxido de manganeso",
+            "oxido manganoso",
+            "oxido de manganeso ii",
+            "óxido de manganeso ii",
+            "óxido de manganeso(ii)",
+            "monóxido de manganeso",
+            "óxido manganoso",
+            "oxido de manganeso(ii)"
+        ],
+        "pista": "El manganeso actúa con valencia +2.",
+        "explicacion": "Óxido de manganeso(II) | Óxido manganoso"
+    },
+    {
+        "formula": "MnO₂",
+        "tipo": "Óxido Básico / Anfótero",
+        "nombresAceptados": [
+            "óxido de manganeso(iv)",
+            "dióxido de manganeso",
+            "oxido de manganeso(iv)",
+            "oxido de manganeso iv",
+            "dioxido de manganeso",
+            "óxido de manganeso iv",
+            "pirolusita"
+        ],
+        "pista": "Conocido como dióxido de manganeso o pirolusita.",
+        "explicacion": "Dióxido de manganeso | Óxido de manganeso(IV)"
+    },
+    {
+        "formula": "CoO",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "óxido de cobalto ii",
+            "oxido cobaltoso",
+            "óxido cobaltoso",
+            "óxido de cobalto(ii)",
+            "oxido de cobalto(ii)",
+            "monoxido de cobalto",
+            "monóxido de cobalto",
+            "oxido de cobalto ii"
+        ],
+        "pista": "El cobalto actúa con valencia +2.",
+        "explicacion": "Óxido de cobalto(II) | Óxido cobaltoso"
+    },
+    {
+        "formula": "Co₂O₃",
+        "tipo": "Óxido Básico",
+        "nombresAceptados": [
+            "oxido cobaltico",
+            "óxido de cobalto iii",
+            "óxido cobáltico",
+            "trioxido de dicobalto",
+            "trióxido de dicobalto",
+            "oxido de cobalto iii",
+            "óxido de cobalto(iii)",
+            "oxido de cobalto(iii)"
+        ],
+        "pista": "El cobalto actúa con valencia +3.",
+        "explicacion": "Óxido de cobalto(III) | Óxido cobáltico"
     },
     {
         "formula": "CO₂",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CO₂",
-        "acceptedNames": [
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
+            "óxido de carbono(iv)",
             "dioxido de carbono",
-            "dióxido de carbono",
             "anhidrido carbonico",
-            "anhídrido carbónico",
+            "oxido de carbono iv",
             "oxido de carbono(iv)",
-            "óxido de carbono(iv)"
+            "anhídrido carbónico",
+            "dióxido de carbono"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "Gas responsable del efecto invernadero."
-        ],
-        "explanation": "Sistemática: Dióxido de carbono | Tradicional: Anhídrido carbónico."
+        "pista": "Gas incoloro producto de la respiración y combustión.",
+        "explicacion": "Dióxido de carbono (IUPAC) | Anhídrido carbónico (Tradicional) | Óxido de carbono(IV) (Stock)"
     },
     {
         "formula": "CO",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CO",
-        "acceptedNames": [
-            "monoxido de carbono",
-            "monóxido de carbono",
-            "oxido de carbono(ii)",
+        "tipo": "Óxido Ácido / Neutro",
+        "nombresAceptados": [
             "óxido de carbono(ii)",
+            "oxido de carbono(ii)",
             "anhidrido carbonoso",
-            "anhídrido carbonoso"
+            "monóxido de carbono",
+            "anhídrido carbonoso",
+            "monoxido de carbono"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "Gas tóxico e inodoro producto de combustión incompleta."
-        ],
-        "explanation": "Sistemática: Monóxido de carbono | Stock: Óxido de carbono(II)."
+        "pista": "Gas tóxico inodoro por combustión incompleta.",
+        "explicacion": "Monóxido de carbono | Óxido de carbono(II)"
     },
     {
         "formula": "SO₂",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SO₂",
-        "acceptedNames": [
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
             "dioxido de azufre",
             "dióxido de azufre",
             "anhidrido sulfuroso",
-            "anhídrido sulfuroso",
+            "óxido de azufre(iv)",
             "oxido de azufre(iv)",
-            "óxido de azufre(iv)"
+            "anhídrido sulfuroso"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El azufre actúa con valencia +4."
-        ],
-        "explanation": "Sistemática: Dióxido de azufre | Tradicional: Anhídrido sulfuroso."
+        "pista": "El azufre actúa con valencia +4.",
+        "explicacion": "Dióxido de azufre | Anhídrido sulfuroso | Óxido de azufre(IV)"
     },
     {
         "formula": "SO₃",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SO₃",
-        "acceptedNames": [
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
             "trioxido de azufre",
+            "óxido de azufre(vi)",
+            "anhídrido sulfúrico",
             "trióxido de azufre",
             "anhidrido sulfurico",
-            "anhídrido sulfúrico",
-            "oxido de azufre(vi)",
-            "óxido de azufre(vi)"
+            "oxido de azufre(vi)"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El azufre actúa con su máxima valencia (+6)."
-        ],
-        "explanation": "Sistemática: Trióxido de azufre | Tradicional: Anhídrido sulfúrico."
+        "pista": "El azufre actúa con valencia +6.",
+        "explicacion": "Trióxido de azufre | Anhídrido sulfúrico | Óxido de azufre(VI)"
     },
     {
         "formula": "N₂O₃",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: N₂O₃",
-        "acceptedNames": [
-            "trioxido de dinitrogeno",
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
             "trióxido de dinitrógeno",
-            "anhidrido nitroso",
-            "anhídrido nitroso",
+            "trioxido de dinitrogeno",
             "oxido de nitrogeno(iii)",
-            "óxido de nitrógeno(iii)"
+            "óxido de nitrógeno(iii)",
+            "anhídrido nitroso",
+            "anhidrido nitroso"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El nitrógeno actúa con valencia +3."
-        ],
-        "explanation": "Sistemática: Trióxido de dinitrógeno | Tradicional: Anhídrido nitroso."
+        "pista": "El nitrógeno actúa con valencia +3.",
+        "explicacion": "Trióxido de dinitrógeno | Anhídrido nitroso"
     },
     {
         "formula": "N₂O₅",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: N₂O₅",
-        "acceptedNames": [
-            "pentaoxido de dinitrogeno",
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
+            "pentoxido de dinitrogeno",
+            "anhídrido nítrico",
             "pentaóxido de dinitrógeno",
             "anhidrido nitrico",
-            "anhídrido nítrico",
+            "óxido de nitrógeno(v)",
             "oxido de nitrogeno(v)",
-            "óxido de nitrógeno(v)"
+            "pentóxido de dinitrógeno",
+            "pentaoxido de dinitrogeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El nitrógeno actúa con su máxima valencia (+5)."
-        ],
-        "explanation": "Sistemática: Pentaóxido de dinitrógeno | Tradicional: Anhídrido nítrico."
+        "pista": "El nitrógeno actúa con su máxima valencia (+5).",
+        "explicacion": "Pentaóxido de dinitrógeno | Anhídrido nítrico"
     },
     {
         "formula": "NO₂",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NO₂",
-        "acceptedNames": [
-            "dioxido de nitrogeno",
-            "dióxido de nitrógeno",
+        "tipo": "Óxido Ácido",
+        "nombresAceptados": [
             "oxido de nitrogeno(iv)",
-            "óxido de nitrógeno(iv)"
+            "dioxido de nitrogeno",
+            "óxido de nitrógeno(iv)",
+            "dióxido de nitrógeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "Gas pardo amarillento contaminante del aire."
+        "pista": "Gas pardo tóxico de la contaminación atmosférica.",
+        "explicacion": "Dióxido de nitrógeno | Óxido de nitrógeno(IV)"
+    },
+    {
+        "formula": "N₂O",
+        "tipo": "Óxido Neutro",
+        "nombresAceptados": [
+            "monóxido de dinitrógeno",
+            "óxido de nitrógeno(i)",
+            "monoxido de dinitrogeno",
+            "gas hilarante",
+            "óxido nitroso",
+            "oxido de nitrogeno(i)",
+            "oxido nitroso"
         ],
-        "explanation": "Sistemática: Dióxido de nitrógeno | Stock: Óxido de nitrógeno(IV)."
+        "pista": "Conocido comúnmente como gas hilarante o anestésico.",
+        "explicacion": "Monóxido de dinitrógeno | Óxido nitroso"
     },
     {
         "formula": "P₂O₃",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: P₂O₃",
-        "acceptedNames": [
-            "trioxido de difosforo",
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
             "trióxido de difósforo",
             "anhidrido fosforoso",
+            "trioxido de difosforo",
+            "óxido de fósforo(iii)",
             "anhídrido fosforoso",
-            "oxido de fosforo(iii)",
-            "óxido de fósforo(iii)"
+            "oxido de fosforo(iii)"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El fósforo actúa con valencia +3."
-        ],
-        "explanation": "Sistemática: Trióxido de difósforo | Tradicional: Anhídrido fosforoso."
+        "pista": "El fósforo actúa con valencia +3.",
+        "explicacion": "Trióxido de difósforo | Anhídrido fosforoso"
     },
     {
         "formula": "P₂O₅",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: P₂O₅",
-        "acceptedNames": [
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
+            "óxido de fósforo(v)",
+            "pentóxido de difósforo",
             "pentaoxido de difosforo",
-            "pentaóxido de difósforo",
+            "oxido de fosforo(v)",
+            "pentoxido de difosforo",
             "anhidrido fosforico",
             "anhídrido fosfórico",
-            "oxido de fosforo(v)",
-            "óxido de fósforo(v)"
+            "pentaóxido de difósforo"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El fósforo actúa con valencia +5."
-        ],
-        "explanation": "Sistemática: Pentaóxido de difósforo | Tradicional: Anhídrido fosfórico."
+        "pista": "El fósforo actúa con valencia +5.",
+        "explicacion": "Pentaóxido de difósforo | Anhídrido fosfórico"
     },
     {
         "formula": "Cl₂O",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cl₂O",
-        "acceptedNames": [
-            "monoxido de dicloro",
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
+            "anhídrido hipocloroso",
             "monóxido de dicloro",
             "anhidrido hipocloroso",
-            "anhídrido hipocloroso",
+            "óxido de cloro(i)",
             "oxido de cloro(i)",
-            "óxido de cloro(i)"
+            "monoxido de dicloro"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El cloro actúa con valencia +1."
-        ],
-        "explanation": "Sistemática: Monóxido de dicloro | Tradicional: Anhídrido hipocloroso."
+        "pista": "El cloro actúa con la menor valencia (+1).",
+        "explicacion": "Monóxido de dicloro | Anhídrido hipocloroso"
     },
     {
         "formula": "Cl₂O₃",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cl₂O₃",
-        "acceptedNames": [
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
+            "oxido de cloro(iii)",
+            "anhídrido cloroso",
+            "óxido de cloro(iii)",
             "trioxido de dicloro",
             "trióxido de dicloro",
-            "anhidrido cloroso",
-            "anhídrido cloroso",
-            "oxido de cloro(iii)",
-            "óxido de cloro(iii)"
+            "anhidrido cloroso"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El cloro actúa con valencia +3."
-        ],
-        "explanation": "Sistemática: Trióxido de dicloro | Tradicional: Anhídrido cloroso."
+        "pista": "El cloro actúa con valencia +3.",
+        "explicacion": "Trióxido de dicloro | Anhídrido cloroso"
     },
     {
         "formula": "Cl₂O₅",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cl₂O₅",
-        "acceptedNames": [
-            "pentaoxido de dicloro",
-            "pentaóxido de dicloro",
-            "anhidrido clorico",
-            "anhídrido clórico",
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
+            "pentóxido de dicloro",
+            "óxido de cloro(v)",
             "oxido de cloro(v)",
-            "óxido de cloro(v)"
+            "pentaoxido de dicloro",
+            "pentoxido de dicloro",
+            "anhidrido clorico",
+            "pentaóxido de dicloro",
+            "anhídrido clórico"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El cloro actúa con valencia +5."
-        ],
-        "explanation": "Sistemática: Pentaóxido de dicloro | Tradicional: Anhídrido clórico."
+        "pista": "El cloro actúa con valencia +5.",
+        "explicacion": "Pentaóxido de dicloro | Anhídrido clórico"
     },
     {
         "formula": "Cl₂O₇",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cl₂O₇",
-        "acceptedNames": [
-            "heptaoxido de dicloro",
-            "heptaóxido de dicloro",
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
             "anhidrido perclorico",
-            "anhídrido perclórico",
             "oxido de cloro(vii)",
+            "anhídrido perclórico",
+            "heptaóxido de dicloro",
+            "heptaoxido de dicloro",
             "óxido de cloro(vii)"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El cloro actúa con su máxima valencia (+7)."
-        ],
-        "explanation": "Sistemática: Heptaóxido de dicloro | Tradicional: Anhídrido perclórico."
-    },
-    {
-        "formula": "Br₂O",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Br₂O",
-        "acceptedNames": [
-            "monoxido de dibromo",
-            "monóxido de dibromo",
-            "anhidrido hipobromoso",
-            "anhídrido hipobromoso",
-            "oxido de bromo(i)",
-            "óxido de bromo(i)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El bromo actúa con valencia +1."
-        ],
-        "explanation": "Sistemática: Monóxido de dibromo | Tradicional: Anhídrido hipobromoso."
-    },
-    {
-        "formula": "Br₂O₃",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Br₂O₃",
-        "acceptedNames": [
-            "trioxido de dibromo",
-            "trióxido de dibromo",
-            "anhidrido bromoso",
-            "anhídrido bromoso",
-            "oxido de bromo(iii)",
-            "óxido de bromo(iii)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El bromo actúa con valencia +3."
-        ],
-        "explanation": "Sistemática: Trióxido de dibromo | Tradicional: Anhídrido bromoso."
-    },
-    {
-        "formula": "Br₂O₅",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Br₂O₅",
-        "acceptedNames": [
-            "pentaoxido de dibromo",
-            "pentaóxido de dibromo",
-            "anhidrido bromico",
-            "anhídrido brómico",
-            "oxido de bromo(v)",
-            "óxido de bromo(v)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El bromo actúa con valencia +5."
-        ],
-        "explanation": "Sistemática: Pentaóxido de dibromo | Tradicional: Anhídrido brómico."
-    },
-    {
-        "formula": "Br₂O₇",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Br₂O₇",
-        "acceptedNames": [
-            "heptaoxido de dibromo",
-            "heptaóxido de dibromo",
-            "anhidrido perbromico",
-            "anhídrido perbrómico",
-            "oxido de bromo(vii)",
-            "óxido de bromo(vii)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El bromo actúa con valencia +7."
-        ],
-        "explanation": "Sistemática: Heptaóxido de dibromo | Tradicional: Anhídrido perbrómico."
-    },
-    {
-        "formula": "I₂O₅",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: I₂O₅",
-        "acceptedNames": [
-            "pentaoxido de diyodo",
-            "pentaóxido de diyodo",
-            "anhidrido yodico",
-            "anhídrido yódico",
-            "oxido de yodo(v)",
-            "óxido de yodo(v)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El yodo actúa con valencia +5."
-        ],
-        "explanation": "Sistemática: Pentaóxido de diyodo | Tradicional: Anhídrido yódico."
-    },
-    {
-        "formula": "I₂O₇",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: I₂O₇",
-        "acceptedNames": [
-            "heptaoxido de diyodo",
-            "heptaóxido de diyodo",
-            "anhidrido peryodico",
-            "anhídrido peryódico",
-            "oxido de yodo(vii)",
-            "óxido de yodo(vii)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El yodo actúa con valencia +7."
-        ],
-        "explanation": "Sistemática: Heptaóxido de diyodo | Tradicional: Anhídrido peryódico."
+        "pista": "El cloro actúa con su máxima valencia (+7).",
+        "explicacion": "Heptaóxido de dicloro | Anhídrido perclórico"
     },
     {
         "formula": "SiO₂",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SiO₂",
-        "acceptedNames": [
-            "dioxido de silicio",
+        "tipo": "Óxido Ácido (Anhídrido)",
+        "nombresAceptados": [
+            "silice",
             "dióxido de silicio",
             "anhidrido silicico",
+            "sílice",
+            "dioxido de silicio",
             "anhídrido silícico",
-            "silice",
-            "sílice"
+            "oxido de silicio(iv)",
+            "óxido de silicio(iv)"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "Constituyente principal del cuarzo y la arena."
-        ],
-        "explanation": "Sistemática: Dióxido de silicio | Tradicional: Sílice o Anhídrido silícico."
-    },
-    {
-        "formula": "B₂O₃",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: B₂O₃",
-        "acceptedNames": [
-            "trioxido de diboro",
-            "trióxido de diboro",
-            "anhidrido borico",
-            "anhídrido bórico",
-            "oxido de boro",
-            "óxido de boro"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El boro actúa con valencia +3."
-        ],
-        "explanation": "Sistemática: Trióxido de diboro | Tradicional: Anhídrido bórico."
-    },
-    {
-        "formula": "CrO₃",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CrO₃",
-        "acceptedNames": [
-            "trioxido de cromo",
-            "trióxido de cromo",
-            "anhidrido cromico",
-            "anhídrido crómico",
-            "oxido de cromo(vi)",
-            "óxido de cromo(vi)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El cromo actúa como no metal con valencia +6."
-        ],
-        "explanation": "Stock: Óxido de cromo(VI) | Tradicional: Anhídrido crómico."
-    },
-    {
-        "formula": "Mn₂O₇",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Mn₂O₇",
-        "acceptedNames": [
-            "heptaoxido de dimanganeso",
-            "heptaóxido de dimanganeso",
-            "anhidrido permanganico",
-            "anhídrido permangánico",
-            "oxido de manganeso(vii)",
-            "óxido de manganeso(vii)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El manganeso actúa con su máxima valencia (+7)."
-        ],
-        "explanation": "Tradicional: Anhídrido permangánico | Sistemática: Heptaóxido de dimanganeso."
-    },
-    {
-        "formula": "SeO₂",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SeO₂",
-        "acceptedNames": [
-            "dioxido de mecelenio",
-            "dióxido de selenio",
-            "anhidrido selenioso",
-            "anhídrido selenioso",
-            "oxido de selenio(iv)",
-            "óxido de selenio(iv)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El selenio actúa con valencia +4."
-        ],
-        "explanation": "Sistemática: Dióxido de selenio | Tradicional: Anhídrido selenioso."
-    },
-    {
-        "formula": "SeO₃",
-        "type": "Óxido Ácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SeO₃",
-        "acceptedNames": [
-            "trioxido de selenio",
-            "trióxido de selenio",
-            "anhidrido selenico",
-            "anhídrido selénico",
-            "oxido de selenio(vi)",
-            "óxido de selenio(vi)"
-        ],
-        "hints": [
-            "Tipo de compuesto: Óxido Ácido.",
-            "El selenio actúa con valencia +6."
-        ],
-        "explanation": "Sistemática: Trióxido de selenio | Tradicional: Anhídrido selénico."
+        "pista": "Componente principal del cuarzo y la arena.",
+        "explicacion": "Dióxido de silicio | Sílice"
     },
     {
         "formula": "NaOH",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaOH",
-        "acceptedNames": [
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
+            "sosa caustica",
+            "soda cáustica",
+            "sosa cáustica",
             "hidroxido de sodio",
             "hidróxido de sodio",
-            "soda caustica",
-            "soda cáustica"
+            "soda caustica"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Conocido comúnmente como soda cáustica."
-        ],
-        "explanation": "Nomenclatura oficial: Hidróxido de sodio."
+        "pista": "Conocido popularmente como soda caustica.",
+        "explicacion": "Hidróxido de sodio | Soda cáustica"
     },
     {
         "formula": "KOH",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KOH",
-        "acceptedNames": [
-            "hidroxido de potasio",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
             "hidróxido de potasio",
-            "potasa caustica",
-            "potasa cáustica"
+            "potasa cáustica",
+            "hidroxido de potasio",
+            "potasa caustica"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Conocido como potasa cáustica."
-        ],
-        "explanation": "Nomenclatura oficial: Hidróxido de potasio."
-    },
-    {
-        "formula": "LiOH",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: LiOH",
-        "acceptedNames": [
-            "hidroxido de litio",
-            "hidróxido de litio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Utilizado en purificadores de aire en naves espaciales."
-        ],
-        "explanation": "Nomenclatura oficial: Hidróxido de litio."
+        "pista": "Conocido comúnmente como potasa caustica.",
+        "explicacion": "Hidróxido de potasio | Potasa cáustica"
     },
     {
         "formula": "Ca(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ca(OH)₂",
-        "acceptedNames": [
-            "hidroxido de calcio",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
+            "cal apagada",
             "hidróxido de calcio",
             "dihidroxido de calcio",
-            "dihidróxido de calcio",
-            "cal apagada"
+            "hidroxido de calcio",
+            "dihidróxido de calcio"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Conocido como cal apagada o cal hidratada."
-        ],
-        "explanation": "Sistemática: Dihidróxido de calcio | Stock: Hidróxido de calcio."
+        "pista": "Conocido como cal apagada.",
+        "explicacion": "Hidróxido de calcio | Cal apagada"
     },
     {
         "formula": "Mg(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Mg(OH)₂",
-        "acceptedNames": [
-            "hidroxido de magnesio",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
             "hidróxido de magnesio",
+            "hidroxido de magnesio",
             "dihidroxido de magnesio",
             "dihidróxido de magnesio",
             "leche de magnesia"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Conocido como leche de magnesia, antiácido común."
-        ],
-        "explanation": "Sistemática: Dihidróxido de magnesio | Stock: Hidróxido de magnesio."
-    },
-    {
-        "formula": "Ba(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ba(OH)₂",
-        "acceptedNames": [
-            "hidroxido de bario",
-            "hidróxido de bario",
-            "dihidroxido de bario",
-            "dihidróxido de bario"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Base fuerte soluble en agua."
-        ],
-        "explanation": "Stock/IUPAC: Hidróxido de bario."
+        "pista": "Utilizado en medicina como antiácido (Leche de magnesia).",
+        "explicacion": "Hidróxido de magnesio | Leche de magnesia"
     },
     {
         "formula": "Al(OH)₃",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Al(OH)₃",
-        "acceptedNames": [
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
+            "trihidroxido de aluminio",
             "hidroxido de aluminio",
             "hidróxido de aluminio",
-            "trihidroxido de aluminio",
             "trihidróxido de aluminio"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Ingrediente activo en antiácidos gástricos."
-        ],
-        "explanation": "Sistemática: Trihidróxido de aluminio | Stock: Hidróxido de aluminio."
+        "pista": "Hidróxido con tres grupos OH⁻.",
+        "explicacion": "Hidróxido de aluminio | Trihidróxido de aluminio"
     },
     {
         "formula": "Fe(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Fe(OH)₂",
-        "acceptedNames": [
-            "hidroxido de hierro(ii)",
-            "hidróxido de hierro(ii)",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
             "hidroxido ferroso",
-            "hidróxido ferroso",
+            "hidroxido de hierro(ii)",
             "dihidroxido de hierro",
-            "dihidróxido de hierro"
+            "hidróxido de hierro(ii)",
+            "hidroxido de hierro ii",
+            "dihidróxido de hierro",
+            "hidróxido de hierro ii",
+            "hidróxido ferroso"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El hierro tiene valencia +2."
-        ],
-        "explanation": "Stock: Hidróxido de hierro(II) | Tradicional: Hidróxido ferroso."
+        "pista": "El hierro actúa con valencia +2.",
+        "explicacion": "Hidróxido de hierro(II) | Hidróxido ferroso"
     },
     {
         "formula": "Fe(OH)₃",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Fe(OH)₃",
-        "acceptedNames": [
-            "hidroxido de hierro(iii)",
-            "hidróxido de hierro(iii)",
-            "hidroxido ferrico",
-            "hidróxido férrico",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
             "trihidroxido de hierro",
-            "trihidróxido de hierro"
+            "hidroxido ferrico",
+            "hidroxido de hierro iii",
+            "hidroxido de hierro(iii)",
+            "hidróxido férrico",
+            "trihidróxido de hierro",
+            "hidróxido de hierro(iii)",
+            "hidróxido de hierro iii"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El hierro tiene valencia +3."
-        ],
-        "explanation": "Stock: Hidróxido de hierro(III) | Tradicional: Hidróxido férrico."
-    },
-    {
-        "formula": "Cu(OH)",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cu(OH)",
-        "acceptedNames": [
-            "hidroxido de cobre(i)",
-            "hidróxido de cobre(i)",
-            "hidroxido cuproso",
-            "hidróxido cuproso",
-            "monohidroxido de cobre",
-            "monohidróxido de cobre"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El cobre actúa con valencia +1."
-        ],
-        "explanation": "Stock: Hidróxido de cobre(I) | Tradicional: Hidróxido cuproso."
+        "pista": "El hierro actúa con valencia +3.",
+        "explicacion": "Hidróxido de hierro(III) | Hidróxido férrico"
     },
     {
         "formula": "Cu(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cu(OH)₂",
-        "acceptedNames": [
-            "hidroxido de cobre(ii)",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
             "hidróxido de cobre(ii)",
-            "hidroxido cuprico",
             "hidróxido cúprico",
+            "dihidróxido de cobre",
+            "hidroxido de cobre ii",
+            "hidróxido de cobre ii",
             "dihidroxido de cobre",
-            "dihidróxido de cobre"
+            "hidroxido de cobre(ii)",
+            "hidroxido cuprico"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El cobre actúa con valencia +2."
-        ],
-        "explanation": "Stock: Hidróxido de cobre(II) | Tradicional: Hidróxido cúprico."
+        "pista": "Hidróxido azul del cobre con valencia +2.",
+        "explicacion": "Hidróxido de cobre(II) | Hidróxido cúprico"
     },
     {
-        "formula": "Zn(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Zn(OH)₂",
-        "acceptedNames": [
-            "hidroxido de zinc",
-            "hidróxido de zinc",
-            "dihidroxido de zinc",
-            "dihidróxido de zinc"
+        "formula": "CuOH",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
+            "hidroxido de cobre(i)",
+            "hidróxido de cobre i",
+            "monohidroxido de cobre",
+            "hidroxido de cobre i",
+            "hidróxido de cobre(i)",
+            "hidróxido cuproso",
+            "monohidróxido de cobre",
+            "hidroxido cuproso"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Compuesto anfótero blanco e insoluble."
-        ],
-        "explanation": "Stock/IUPAC: Hidróxido de zinc."
-    },
-    {
-        "formula": "Pb(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Pb(OH)₂",
-        "acceptedNames": [
-            "hidroxido de plomo(ii)",
-            "hidróxido de plomo(ii)",
-            "hidroxido plumboso",
-            "hidróxido plumboso",
-            "dihidroxido de plomo",
-            "dihidróxido de plomo"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El plomo actúa con valencia +2."
-        ],
-        "explanation": "Stock: Hidróxido de plomo(II) | Tradicional: Hidróxido plumboso."
-    },
-    {
-        "formula": "Pb(OH)₄",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Pb(OH)₄",
-        "acceptedNames": [
-            "hidroxido de plomo(iv)",
-            "hidróxido de plomo(iv)",
-            "hidroxido plumbico",
-            "hidróxido plúmbico",
-            "tetrahidroxido de plomo",
-            "tetrahidróxido de plomo"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El plomo actúa con valencia +4."
-        ],
-        "explanation": "Stock: Hidróxido de plomo(IV) | Tradicional: Hidróxido plúmbico."
-    },
-    {
-        "formula": "Sn(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Sn(OH)₂",
-        "acceptedNames": [
-            "hidroxido de estano(ii)",
-            "hidróxido de estaño(ii)",
-            "hidroxido estannoso",
-            "hidróxido estannoso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El estaño actúa con valencia +2."
-        ],
-        "explanation": "Stock: Hidróxido de estaño(II) | Tradicional: Hidróxido estannoso."
-    },
-    {
-        "formula": "Sn(OH)₄",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Sn(OH)₄",
-        "acceptedNames": [
-            "hidroxido de estano(iv)",
-            "hidróxido de estaño(iv)",
-            "hidroxido estannico",
-            "hidróxido estánnico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El estaño actúa con valencia +4."
-        ],
-        "explanation": "Stock: Hidróxido de estaño(IV) | Tradicional: Hidróxido estánnico."
-    },
-    {
-        "formula": "AgOH",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: AgOH",
-        "acceptedNames": [
-            "hidroxido de plata",
-            "hidróxido de plata"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "La plata actúa con estado de oxidación +1."
-        ],
-        "explanation": "Nomenclatura oficial: Hidróxido de plata."
-    },
-    {
-        "formula": "Ni(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ni(OH)₂",
-        "acceptedNames": [
-            "hidroxido de niquel(ii)",
-            "hidróxido de níquel(ii)",
-            "hidroxido niqueloso",
-            "hidróxido niqueloso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El níquel actúa con valencia +2."
-        ],
-        "explanation": "Stock: Hidróxido de níquel(II) | Tradicional: Hidróxido niqueloso."
-    },
-    {
-        "formula": "Ni(OH)₃",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ni(OH)₃",
-        "acceptedNames": [
-            "hidroxido de niquel(iii)",
-            "hidróxido de níquel(iii)",
-            "hidroxido niquelico",
-            "hidróxido niquélico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El níquel actúa con valencia +3."
-        ],
-        "explanation": "Stock: Hidróxido de níquel(III) | Tradicional: Hidróxido niquélico."
-    },
-    {
-        "formula": "Co(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Co(OH)₂",
-        "acceptedNames": [
-            "hidroxido de cobalto(ii)",
-            "hidróxido de cobalto(ii)",
-            "hidroxido cobaltoso",
-            "hidróxido cobaltoso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El cobalto actúa con valencia +2."
-        ],
-        "explanation": "Stock: Hidróxido de cobalto(II) | Tradicional: Hidróxido cobaltoso."
-    },
-    {
-        "formula": "Co(OH)₃",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Co(OH)₃",
-        "acceptedNames": [
-            "hidroxido de cobalto(iii)",
-            "hidróxido de cobalto(iii)",
-            "hidroxido cobaltico",
-            "hidróxido cobáltico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El cobalto actúa con valencia +3."
-        ],
-        "explanation": "Stock: Hidróxido de cobalto(III) | Tradicional: Hidróxido cobáltico."
+        "pista": "El cobre actúa con valencia +1.",
+        "explicacion": "Hidróxido de cobre(I) | Hidróxido cuproso"
     },
     {
         "formula": "NH₄OH",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NH₄OH",
-        "acceptedNames": [
-            "hidroxido de amonio",
-            "hidróxido de amonio",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
             "agua de amoniaco",
-            "agua de amoníaco"
+            "agua de amoníaco",
+            "hidroxido de amonio",
+            "hidróxido de amonio"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "Solución acuosa de amoníaco."
-        ],
-        "explanation": "Nomenclatura oficial: Hidróxido de amonio."
+        "pista": "Formado por la disolución de amoníaco en agua.",
+        "explicacion": "Hidróxido de amonio"
     },
     {
-        "formula": "Sr(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Sr(OH)₂",
-        "acceptedNames": [
-            "hidroxido de estruncio",
-            "hidróxido de estruncio",
-            "dihidroxido de estruncio",
-            "dihidróxido de estruncio"
+        "formula": "Zn(OH)₂",
+        "tipo": "Hidróxido",
+        "nombresAceptados": [
+            "dihidroxido de zinc",
+            "hidroxido de cinc",
+            "hidroxido de zinc",
+            "dihidróxido de zinc",
+            "hidróxido de cinc",
+            "hidróxido de zinc"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El estruncio es un metal alcalinotérreo (+2)."
-        ],
-        "explanation": "Stock/IUPAC: Hidróxido de estruncio."
-    },
-    {
-        "formula": "Cr(OH)₃",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cr(OH)₃",
-        "acceptedNames": [
-            "hidroxido de cromo(iii)",
-            "hidróxido de cromo(iii)",
-            "hidroxido cromico",
-            "hidróxido crómico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El cromo actúa con valencia +3."
-        ],
-        "explanation": "Stock: Hidróxido de cromo(III) | Tradicional: Hidróxido crómico."
-    },
-    {
-        "formula": "Mn(OH)₂",
-        "type": "Hidróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Mn(OH)₂",
-        "acceptedNames": [
-            "hidroxido de manganeso(ii)",
-            "hidróxido de manganeso(ii)",
-            "hidroxido manganoso",
-            "hidróxido manganoso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidróxido.",
-            "El manganeso actúa con valencia +2."
-        ],
-        "explanation": "Stock: Hidróxido de manganeso(II) | Tradicional: Hidróxido manganoso."
+        "pista": "Hidróxido de zinc.",
+        "explicacion": "Hidróxido de zinc / cinc"
     },
     {
         "formula": "HCl",
-        "type": "Hidrácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HCl",
-        "acceptedNames": [
-            "acido clorhidrico",
-            "ácido clorhídrico",
+        "tipo": "Hidrácido / Haluro",
+        "nombresAceptados": [
             "cloruro de hidrogeno",
-            "cloruro de hidrógeno"
+            "ácido clorhídrico",
+            "cloruro de hidrógeno",
+            "acido clorhidrico"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidrácido.",
-            "En disolución acuosa es un ácido fuerte."
-        ],
-        "explanation": "En agua: Ácido clorhídrico | Gas: Cloruro de hidrógeno."
+        "pista": "Ácido estomacal en disolución acuosa.",
+        "explicacion": "Ácido clorhídrico (en agua) | Cloruro de hidrógeno (gaseoso)"
     },
     {
         "formula": "HF",
-        "type": "Hidrácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HF",
-        "acceptedNames": [
-            "acido fluorhidrico",
+        "tipo": "Hidrácido / Haluro",
+        "nombresAceptados": [
             "ácido fluorhídrico",
+            "fluoruro de hidrógeno",
             "fluoruro de hidrogeno",
-            "fluoruro de hidrógeno"
+            "acido fluorhidrico"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidrácido.",
-            "Utilizado para grabar o tallar vidrio."
-        ],
-        "explanation": "En agua: Ácido fluorhídrico | Gas: Fluoruro de hidrógeno."
+        "pista": "Capaz de corroer el vidrio.",
+        "explicacion": "Ácido fluorhídrico | Fluoruro de hidrógeno"
     },
     {
         "formula": "HBr",
-        "type": "Hidrácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HBr",
-        "acceptedNames": [
+        "tipo": "Hidrácido / Haluro",
+        "nombresAceptados": [
             "acido bromhidrico",
-            "ácido bromhídrico",
+            "bromuro de hidrógeno",
             "bromuro de hidrogeno",
-            "bromuro de hidrógeno"
+            "ácido bromhídrico"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidrácido.",
-            "En agua forma un ácido muy fuerte."
-        ],
-        "explanation": "En agua: Ácido bromhídrico | Gas: Bromuro de hidrógeno."
+        "pista": "Hidrácido formado con bromo.",
+        "explicacion": "Ácido bromhídrico | Bromuro de hidrógeno"
     },
     {
         "formula": "HI",
-        "type": "Hidrácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HI",
-        "acceptedNames": [
+        "tipo": "Hidrácido / Haluro",
+        "nombresAceptados": [
             "acido yodhidrico",
-            "ácido yodhídrico",
+            "yoduro de hidrógeno",
             "yoduro de hidrogeno",
-            "yoduro de hidrógeno"
+            "ácido yodhídrico"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidrácido.",
-            "El yodo actúa con valencia -1."
-        ],
-        "explanation": "En agua: Ácido yodhídrico | Gas: Yoduro de hidrógeno."
+        "pista": "Hidrácido formado con yodo.",
+        "explicacion": "Ácido yodhídrico | Yoduro de hidrógeno"
     },
     {
         "formula": "H₂S",
-        "type": "Hidrácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂S",
-        "acceptedNames": [
+        "tipo": "Hidrácido",
+        "nombresAceptados": [
             "acido sulfhidrico",
             "ácido sulfhídrico",
-            "sulfuro de hidrogeno",
-            "sulfuro de hidrógeno"
+            "sulfuro de hidrógeno",
+            "sulfuro de hidrogeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidrácido.",
-            "Gas con olor característico a huevos podridos."
-        ],
-        "explanation": "En agua: Ácido sulfhídrico | Gas: Sulfuro de hidrógeno."
-    },
-    {
-        "formula": "H₂Se",
-        "type": "Hidrácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂Se",
-        "acceptedNames": [
-            "acido selenhidrico",
-            "ácido selenhídrico",
-            "seleniuro de hidrogeno",
-            "seleniuro de hidrógeno"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidrácido.",
-            "El selenio actúa con valencia -2."
-        ],
-        "explanation": "En agua: Ácido selenhídrico | Gas: Seleniuro de hidrógeno."
-    },
-    {
-        "formula": "H₂Te",
-        "type": "Hidrácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂Te",
-        "acceptedNames": [
-            "acido telurhidrico",
-            "ácido telurhídrico",
-            "telururo de hidrogeno",
-            "telururo de hidrógeno"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidrácido.",
-            "El teluro actúa con valencia -2."
-        ],
-        "explanation": "En agua: Ácido telurhídrico | Gas: Telururo de hidrógeno."
-    },
-    {
-        "formula": "NaH",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaH",
-        "acceptedNames": [
-            "hidruro de sodio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "El hidrógeno actúa con estado de oxidación -1."
-        ],
-        "explanation": "Nomenclatura oficial: Hidruro de sodio."
-    },
-    {
-        "formula": "KH",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KH",
-        "acceptedNames": [
-            "hidruro de potasio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "El potasio se combina con el anión hidruro (H⁻)."
-        ],
-        "explanation": "Nomenclatura oficial: Hidruro de potasio."
-    },
-    {
-        "formula": "LiH",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: LiH",
-        "acceptedNames": [
-            "hidruro de litio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "El litio actúa con valencia +1 y H con -1."
-        ],
-        "explanation": "Nomenclatura oficial: Hidruro de litio."
-    },
-    {
-        "formula": "CaH₂",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CaH₂",
-        "acceptedNames": [
-            "hidruro de calcio",
-            "dihidruro de calcio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "Conocido industrialmente como hidrolita."
-        ],
-        "explanation": "Stock: Hidruro de calcio | Sistemática: Dihidruro de calcio."
-    },
-    {
-        "formula": "MgH₂",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: MgH₂",
-        "acceptedNames": [
-            "hidruro de magnesio",
-            "dihidruro de magnesio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "El magnesio actúa con valencia +2."
-        ],
-        "explanation": "Stock: Hidruro de magnesio | Sistemática: Dihidruro de magnesio."
-    },
-    {
-        "formula": "AlH₃",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: AlH₃",
-        "acceptedNames": [
-            "hidruro de aluminio",
-            "trihidruro de aluminio",
-            "alano"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "Conocido también con el nombre de alano."
-        ],
-        "explanation": "Stock: Hidruro de aluminio | IUPAC: Alano / Trihidruro de aluminio."
+        "pista": "Gas con olor característico a huevos podridos.",
+        "explicacion": "Ácido sulfhídrico | Sulfuro de hidrógeno"
     },
     {
         "formula": "NH₃",
-        "type": "Hidruro Volátil",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NH₃",
-        "acceptedNames": [
-            "amoniaco",
-            "amoníaco",
+        "tipo": "Hidruro Volátil",
+        "nombresAceptados": [
             "trihidruro de nitrogeno",
+            "azano",
             "trihidruro de nitrógeno",
-            "azano"
+            "amoniaco",
+            "amoníaco"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Volátil.",
-            "Gas incoloro con olor penetrante utilizado en limpieza."
-        ],
-        "explanation": "IUPAC/Aceptado: Amoníaco (o Azano) | Sistemática: Trihidruro de nitrógeno."
+        "pista": "Gas incoloro de olor penetrante ampliamente usado en limpieza.",
+        "explicacion": "Amoníaco | Trihidruro de nitrógeno"
     },
     {
         "formula": "PH₃",
-        "type": "Hidruro Volátil",
-        "pregunta": "Nombra el compuesto cuya fórmula es: PH₃",
-        "acceptedNames": [
+        "tipo": "Hidruro Volátil",
+        "nombresAceptados": [
             "fosfano",
-            "fosfina",
             "trihidruro de fosforo",
+            "fosfina",
             "trihidruro de fósforo"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Volátil.",
-            "Gas altamente tóxico e inflamable."
-        ],
-        "explanation": "IUPAC: Fosfano (o Fosfina) | Sistemática: Trihidruro de fósforo."
+        "pista": "Hidruro del fósforo.",
+        "explicacion": "Fosfano / Fosfina | Trihidruro de fósforo"
     },
     {
-        "formula": "AsH₃",
-        "type": "Hidruro Volátil",
-        "pregunta": "Nombra el compuesto cuya fórmula es: AsH₃",
-        "acceptedNames": [
-            "arsano",
-            "arsina",
-            "trihidruro de arsenico",
-            "trihidruro de arsénico"
+        "formula": "NaH",
+        "tipo": "Hidruro Metálico",
+        "nombresAceptados": [
+            "hidruro sodico",
+            "hidruro sódico",
+            "hidruro de sodio"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Volátil.",
-            "Compuesto volátil de arsénico."
-        ],
-        "explanation": "IUPAC: Arsano (o Arsina) | Sistemática: Trihidruro de arsénico."
+        "pista": "El hidrógeno actúa con estado de oxidación -1.",
+        "explicacion": "Hidruro de sodio"
     },
     {
-        "formula": "SbH₃",
-        "type": "Hidruro Volátil",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SbH₃",
-        "acceptedNames": [
-            "estibano",
-            "estibina",
-            "trihidruro de antimonio"
+        "formula": "CaH₂",
+        "tipo": "Hidruro Metálico",
+        "nombresAceptados": [
+            "hidruro de calcio",
+            "dihidruro de calcio"
         ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Volátil.",
-            "Compuesto de antimonio e hidrógeno."
-        ],
-        "explanation": "IUPAC: Estibano | Sistemática: Trihidruro de antimonio."
-    },
-    {
-        "formula": "CH₄",
-        "type": "Hidruro Volátil",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CH₄",
-        "acceptedNames": [
-            "metano",
-            "tetrahidruro de carbono"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Volátil.",
-            "Gas natural, hidrocarburo más simple."
-        ],
-        "explanation": "IUPAC / Tradicional: Metano."
-    },
-    {
-        "formula": "SiH₄",
-        "type": "Hidruro Volátil",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SiH₄",
-        "acceptedNames": [
-            "silano",
-            "tetrahidruro de silicio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Volátil.",
-            "Análogo del metano con silicio."
-        ],
-        "explanation": "IUPAC: Silano | Sistemática: Tetrahidruro de silicio."
-    },
-    {
-        "formula": "BH₃",
-        "type": "Hidruro Volátil",
-        "pregunta": "Nombra el compuesto cuya fórmula es: BH₃",
-        "acceptedNames": [
-            "borano",
-            "trihidruro de boro"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Volátil.",
-            "Monomero de borano."
-        ],
-        "explanation": "IUPAC: Borano | Sistemática: Trihidruro de boro."
-    },
-    {
-        "formula": "B₂H₆",
-        "type": "Hidruro Volátil",
-        "pregunta": "Nombra el compuesto cuya fórmula es: B₂H₆",
-        "acceptedNames": [
-            "diborano"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Volátil.",
-            "Dímero de borano con enlaces puentes de hidrógeno."
-        ],
-        "explanation": "IUPAC: Diborano."
-    },
-    {
-        "formula": "CuH",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CuH",
-        "acceptedNames": [
-            "hidruro de cobre(i)",
-            "hidruro cuproso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "El cobre actúa con valencia +1."
-        ],
-        "explanation": "Stock: Hidruro de cobre(I) | Tradicional: Hidruro cuproso."
-    },
-    {
-        "formula": "FeH₂",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: FeH₂",
-        "acceptedNames": [
-            "hidruro de hierro(ii)",
-            "hidruro ferroso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "El hierro actúa con valencia +2."
-        ],
-        "explanation": "Stock: Hidruro de hierro(II) | Tradicional: Hidruro ferroso."
-    },
-    {
-        "formula": "FeH₃",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: FeH₃",
-        "acceptedNames": [
-            "hidruro de hierro(iii)",
-            "hidruro ferrico",
-            "hidruro férrico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "El hierro actúa con valencia +3."
-        ],
-        "explanation": "Stock: Hidruro de hierro(III) | Tradicional: Hidróxido férrico."
-    },
-    {
-        "formula": "PbH₄",
-        "type": "Hidruro Metálico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: PbH₄",
-        "acceptedNames": [
-            "hidruro de plomo(iv)",
-            "hidruro plumbico",
-            "hidruro plúmbico",
-            "plumbano"
-        ],
-        "hints": [
-            "Tipo de compuesto: Hidruro Metálico.",
-            "El plomo actúa con valencia +4."
-        ],
-        "explanation": "Stock: Hidruro de plomo(IV) | IUPAC: Plumbano."
+        "pista": "Hidruro de calcio.",
+        "explicacion": "Hidruro de calcio | Dihidruro de calcio"
     },
     {
         "formula": "H₂SO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂SO₄",
-        "acceptedNames": [
+        "tipo": "Oxácido",
+        "nombresAceptados": [
             "acido sulfurico",
-            "ácido sulfúrico",
-            "tetraoxosulfato (vi) de hidrogeno",
-            "tetraoxosulfato de hidrogeno"
+            "tetraoxosulfato de hidrógeno",
+            "tetraoxosulfato de hidrogeno",
+            "ácido sulfúrico"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "Uno de los productos químicos industriales más producidos."
-        ],
-        "explanation": "Tradicional: Ácido sulfúrico | IUPAC: Tetraoxosulfato (VI) de hidrógeno."
+        "pista": "Ácido de batería, azufre con valencia +6.",
+        "explicacion": "Ácido sulfúrico | Tetraoxosulfato (VI) de hidrógeno"
     },
     {
         "formula": "H₂SO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂SO₃",
-        "acceptedNames": [
-            "acido sulfuroso",
+        "tipo": "Oxácido",
+        "nombresAceptados": [
             "ácido sulfuroso",
-            "trioxosulfato (iv) de hidrogeno"
+            "trioxosulfato de hidrogeno",
+            "trioxosulfato de hidrógeno",
+            "acido sulfuroso"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El azufre actúa con valencia +4."
-        ],
-        "explanation": "Tradicional: Ácido sulfuroso."
+        "pista": "Azufre con valencia +4.",
+        "explicacion": "Ácido sulfuroso | Trioxosulfato (IV) de hidrógeno"
     },
     {
         "formula": "HNO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HNO₃",
-        "acceptedNames": [
+        "tipo": "Oxácido",
+        "nombresAceptados": [
             "acido nitrico",
+            "trioxonitrato de hidrógeno",
             "ácido nítrico",
-            "trioxonitrato (v) de hidrogeno"
+            "trioxonitrato de hidrogeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "Ácido fuerte y agente oxidante potente."
-        ],
-        "explanation": "Tradicional: Ácido nítrico."
+        "pista": "Nitrógeno con valencia +5. Ácido fuerte muy oxidante.",
+        "explicacion": "Ácido nítrico | Trioxonitrato (V) de hidrógeno"
     },
     {
         "formula": "HNO₂",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HNO₂",
-        "acceptedNames": [
+        "tipo": "Oxácido",
+        "nombresAceptados": [
             "acido nitroso",
             "ácido nitroso",
-            "dioxonitrato (iii) de hidrogeno"
+            "dioxonitrato de hidrógeno",
+            "dioxonitrato de hidrogeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El nitrógeno actúa con valencia +3."
-        ],
-        "explanation": "Tradicional: Ácido nitroso."
+        "pista": "Nitrógeno con valencia +3.",
+        "explicacion": "Ácido nitroso | Dioxonitrato (III) de hidrógeno"
     },
     {
         "formula": "H₂CO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂CO₃",
-        "acceptedNames": [
-            "acido carbonico",
+        "tipo": "Oxácido",
+        "nombresAceptados": [
             "ácido carbónico",
-            "trioxocarbonato de hidrogeno"
+            "trioxocarbonato de hidrogeno",
+            "acido carbonico",
+            "trioxocarbonato de hidrógeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "Ácido débil presente en aguas carbonatadas."
-        ],
-        "explanation": "Tradicional: Ácido carbónico."
+        "pista": "Ácido débil presente en bebidas gaseosas.",
+        "explicacion": "Ácido carbónico"
     },
     {
         "formula": "H₃PO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₃PO₄",
-        "acceptedNames": [
-            "acido fosforico",
+        "tipo": "Oxácido",
+        "nombresAceptados": [
             "ácido fosfórico",
+            "ácido ortofosfórico",
             "acido ortofosforico",
-            "ácido ortofosfórico"
+            "tetraoxofosfato de hidrogeno",
+            "tetraoxofosfato de hidrógeno",
+            "acido fosforico"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "Utilizado en bebidas gaseosas de cola como acidulante."
-        ],
-        "explanation": "Tradicional: Ácido fosfórico (o Ortofosfórico)."
-    },
-    {
-        "formula": "H₃PO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₃PO₃",
-        "acceptedNames": [
-            "acido fosforoso",
-            "ácido fosfórico",
-            "acido ortofosforoso",
-            "ácido ortofosforoso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El fósforo actúa con valencia +3."
-        ],
-        "explanation": "Tradicional: Ácido fosfórico."
+        "pista": "Fósforo con valencia +5.",
+        "explicacion": "Ácido fosfórico / Ortofosfórico"
     },
     {
         "formula": "HClO",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HClO",
-        "acceptedNames": [
+        "tipo": "Oxácido",
+        "nombresAceptados": [
+            "ácido hipocloroso",
             "acido hipocloroso",
-            "ácido hipocloroso"
+            "oxoclorato de hidrógeno",
+            "oxoclorato de hidrogeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El cloro actúa con valencia +1."
-        ],
-        "explanation": "Tradicional: Ácido hipocloroso."
+        "pista": "Cloro con valencia +1.",
+        "explicacion": "Ácido hipocloroso"
     },
     {
         "formula": "HClO₂",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HClO₂",
-        "acceptedNames": [
+        "tipo": "Oxácido",
+        "nombresAceptados": [
+            "ácido cloroso",
             "acido cloroso",
-            "ácido cloroso"
+            "dioxoclorato de hidrógeno",
+            "dioxoclorato de hidrogeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El cloro actúa con valencia +3."
-        ],
-        "explanation": "Tradicional: Ácido cloroso."
+        "pista": "Cloro con valencia +3.",
+        "explicacion": "Ácido cloroso"
     },
     {
         "formula": "HClO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HClO₃",
-        "acceptedNames": [
-            "acido clorico",
-            "ácido clórico"
+        "tipo": "Oxácido",
+        "nombresAceptados": [
+            "trioxoclorato de hidrógeno",
+            "trioxoclorato de hidrogeno",
+            "ácido clórico",
+            "acido clorico"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El cloro actúa con valencia +5."
-        ],
-        "explanation": "Tradicional: Ácido clórico."
+        "pista": "Cloro con valencia +5.",
+        "explicacion": "Ácido clórico"
     },
     {
         "formula": "HClO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HClO₄",
-        "acceptedNames": [
+        "tipo": "Oxácido",
+        "nombresAceptados": [
+            "tetraoxoclorato de hidrogeno",
             "acido perclorico",
+            "tetraoxoclorato de hidrógeno",
             "ácido perclórico"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El cloro actúa con su máxima valencia (+7)."
-        ],
-        "explanation": "Tradicional: Ácido perclórico."
-    },
-    {
-        "formula": "HBrO",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HBrO",
-        "acceptedNames": [
-            "acido hipobromoso",
-            "ácido hipobromoso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El bromo actúa con valencia +1."
-        ],
-        "explanation": "Tradicional: Ácido hipobromoso."
-    },
-    {
-        "formula": "HBrO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HBrO₃",
-        "acceptedNames": [
-            "acido bromico",
-            "ácido brómico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El bromo actúa con valencia +5."
-        ],
-        "explanation": "Tradicional: Ácido brómico."
-    },
-    {
-        "formula": "HBrO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HBrO₄",
-        "acceptedNames": [
-            "acido perbromico",
-            "ácido perbrómico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El bromo actúa con valencia +7."
-        ],
-        "explanation": "Tradicional: Ácido perbrómico."
-    },
-    {
-        "formula": "HIO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HIO₃",
-        "acceptedNames": [
-            "acido yodico",
-            "ácido yódico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El yodo actúa con valencia +5."
-        ],
-        "explanation": "Tradicional: Ácido yódico."
-    },
-    {
-        "formula": "HIO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HIO₄",
-        "acceptedNames": [
-            "acido peryodico",
-            "ácido peryódico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El yodo actúa con valencia +7."
-        ],
-        "explanation": "Tradicional: Ácido peryódico."
-    },
-    {
-        "formula": "H₂SiO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂SiO₃",
-        "acceptedNames": [
-            "acido silicico",
-            "ácido silícico",
-            "acido metasilicico",
-            "ácido metasilícico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "Derivado del dióxido de silicio."
-        ],
-        "explanation": "Tradicional: Ácido silícico."
-    },
-    {
-        "formula": "H₃BO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₃BO₃",
-        "acceptedNames": [
-            "acido borico",
-            "ácido bórico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "Utilizado como antiséptico e insecticida suave."
-        ],
-        "explanation": "Tradicional: Ácido bórico."
-    },
-    {
-        "formula": "H₂CrO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂CrO₄",
-        "acceptedNames": [
-            "acido cromico",
-            "ácido crómico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El cromo actúa con valencia +6."
-        ],
-        "explanation": "Tradicional: Ácido crómico."
-    },
-    {
-        "formula": "H₂Cr₂O₇",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂Cr₂O₇",
-        "acceptedNames": [
-            "acido dicromico",
-            "ácido dicrómico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "Contiene el anión dicromato."
-        ],
-        "explanation": "Tradicional: Ácido dicrómico."
-    },
-    {
-        "formula": "HMnO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HMnO₄",
-        "acceptedNames": [
-            "acido permanganico",
-            "ácido permangánico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El manganeso actúa con valencia +7."
-        ],
-        "explanation": "Tradicional: Ácido permangánico."
-    },
-    {
-        "formula": "H₂SeO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂SeO₄",
-        "acceptedNames": [
-            "acido selenico",
-            "ácido selénico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El selenio actúa con valencia +6."
-        ],
-        "explanation": "Tradicional: Ácido selénico."
-    },
-    {
-        "formula": "H₂SeO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂SeO₃",
-        "acceptedNames": [
-            "acido selenioso",
-            "ácido selenioso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El selenio actúa con valencia +4."
-        ],
-        "explanation": "Tradicional: Ácido selenioso."
-    },
-    {
-        "formula": "H₂TeO₄",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂TeO₄",
-        "acceptedNames": [
-            "acido telurico",
-            "ácido telúrico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El teluro actúa con valencia +6."
-        ],
-        "explanation": "Tradicional: Ácido telúrico."
-    },
-    {
-        "formula": "H₂TeO₃",
-        "type": "Oxácido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂TeO₃",
-        "acceptedNames": [
-            "acido telurioso",
-            "ácido telurioso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxácido.",
-            "El teluro actúa con valencia +4."
-        ],
-        "explanation": "Tradicional: Ácido telurioso."
+        "pista": "Cloro con su máxima valencia (+7). Ácido extremadamente fuerte.",
+        "explicacion": "Ácido perclórico"
     },
     {
         "formula": "NaCl",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaCl",
-        "acceptedNames": [
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "sal comun",
             "cloruro de sodio",
             "cloruro sodico",
             "cloruro sódico",
-            "sal comun",
-            "sal común"
+            "sal común",
+            "sal de mesa"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "La sal común de cocina."
-        ],
-        "explanation": "Nomenclatura oficial: Cloruro de sodio."
+        "pista": "Sal común de cocina.",
+        "explicacion": "Cloruro de sodio | Sal común"
     },
     {
         "formula": "KCl",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KCl",
-        "acceptedNames": [
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
             "cloruro de potasio",
-            "cloruro potasico",
-            "cloruro potásico"
+            "cloruro potásico",
+            "cloruro potasico"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Utilizado en fertilizantes y sustitutos de sal de mesa."
-        ],
-        "explanation": "Nomenclatura oficial: Cloruro de potasio."
+        "pista": "Sal de potasio usada en fertilizantes y sustituto de sal.",
+        "explicacion": "Cloruro de potasio"
     },
     {
         "formula": "CaCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CaCl₂",
-        "acceptedNames": [
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
             "cloruro de calcio",
             "dicloruro de calcio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Utilizado para derretir hielo en carreteras."
-        ],
-        "explanation": "Stock: Cloruro de calcio | Sistemática: Dicloruro de calcio."
+        "pista": "Usado para deshielo de carreteras.",
+        "explicacion": "Cloruro de calcio"
     },
     {
         "formula": "MgCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: MgCl₂",
-        "acceptedNames": [
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
             "cloruro de magnesio",
             "dicloruro de magnesio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Sal muy soluble usada como suplemento."
-        ],
-        "explanation": "Stock: Cloruro de magnesio | Sistemática: Dicloruro de magnesio."
-    },
-    {
-        "formula": "KBr",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KBr",
-        "acceptedNames": [
-            "bromuro de potasio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Utilizado históricamente como sedante y anticonvulsivo."
-        ],
-        "explanation": "Nomenclatura oficial: Bromuro de potasio."
-    },
-    {
-        "formula": "KI",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KI",
-        "acceptedNames": [
-            "yoduro de potasio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Añadido a la sal común para prevenir el bocio."
-        ],
-        "explanation": "Nomenclatura oficial: Yoduro de potasio."
-    },
-    {
-        "formula": "NaF",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaF",
-        "acceptedNames": [
-            "fluoruro de sodio",
-            "fluoruro sodico",
-            "fluoruro sódico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Añadido a pastas de dientes para prevenir caries."
-        ],
-        "explanation": "Nomenclatura oficial: Fluoruro de sodio."
+        "pista": "Sal de magnesio.",
+        "explicacion": "Cloruro de magnesio"
     },
     {
         "formula": "FeCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: FeCl₂",
-        "acceptedNames": [
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de hierro ii",
             "cloruro de hierro(ii)",
-            "cloruro ferroso",
-            "dicloruro de hierro"
+            "dicloruro de hierro",
+            "cloruro ferroso"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El hierro actúa con valencia +2."
-        ],
-        "explanation": "Stock: Cloruro de hierro(II) | Tradicional: Cloruro ferroso."
+        "pista": "Hierro con valencia +2.",
+        "explicacion": "Cloruro de hierro(II) | Cloruro ferroso"
     },
     {
         "formula": "FeCl₃",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: FeCl₃",
-        "acceptedNames": [
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
             "cloruro de hierro(iii)",
+            "cloruro de hierro iii",
             "cloruro ferrico",
             "cloruro férrico",
             "tricloruro de hierro"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El hierro actúa con valencia +3."
-        ],
-        "explanation": "Stock: Cloruro de hierro(III) | Tradicional: Cloruro férrico."
+        "pista": "Hierro con valencia +3.",
+        "explicacion": "Cloruro de hierro(III) | Cloruro férrico"
     },
     {
         "formula": "CuCl",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CuCl",
-        "acceptedNames": [
-            "cloruro de cobre(i)",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "monocloruro de cobre",
             "cloruro cuproso",
-            "monocloruro de cobre"
+            "cloruro de cobre(i)",
+            "cloruro de cobre i"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El cobre actúa con valencia +1."
-        ],
-        "explanation": "Stock: Cloruro de cobre(I) | Tradicional: Cloruro cuproso."
+        "pista": "Cobre con valencia +1.",
+        "explicacion": "Cloruro de cobre(I) | Cloruro cuproso"
     },
     {
         "formula": "CuCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CuCl₂",
-        "acceptedNames": [
-            "cloruro de cobre(ii)",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
             "cloruro cuprico",
             "cloruro cúprico",
+            "cloruro de cobre ii",
+            "cloruro de cobre(ii)",
             "dicloruro de cobre"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El cobre actúa con valencia +2."
-        ],
-        "explanation": "Stock: Cloruro de cobre(II) | Tradicional: Cloruro cúprico."
+        "pista": "Cobre con valencia +2.",
+        "explicacion": "Cloruro de cobre(II) | Cloruro cúprico"
     },
     {
-        "formula": "ZnS",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: ZnS",
-        "acceptedNames": [
-            "sulfuro de zinc",
-            "monosulfuro de zinc",
-            "blenda"
+        "formula": "KI",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro potásico",
+            "yoduro de potasio",
+            "yoduro potasico"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Mineral esfalerita o blenda de zinc."
-        ],
-        "explanation": "Stock: Sulfuro de zinc."
+        "pista": "Usado para sal yodada.",
+        "explicacion": "Yoduro de potasio"
     },
     {
-        "formula": "PbS",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: PbS",
-        "acceptedNames": [
-            "sulfuro de plomo(ii)",
-            "sulfuro plumboso",
-            "galena"
+        "formula": "KBr",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de potasio",
+            "bromuro potasico",
+            "bromuro potásico"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Mineral galena, principal mena de plomo."
-        ],
-        "explanation": "Stock: Sulfuro de plomo(II) | Tradicional: Sulfuro plumboso."
+        "pista": "Sal de bromo y potasio.",
+        "explicacion": "Bromuro de potasio"
     },
     {
         "formula": "AgCl",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: AgCl",
-        "acceptedNames": [
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
             "cloruro de plata"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Precipitado blanco característico insoluble en agua."
-        ],
-        "explanation": "Nomenclatura oficial: Cloruro de plata."
+        "pista": "Precipitado blanco insoluble fotosensible.",
+        "explicacion": "Cloruro de plata"
     },
     {
-        "formula": "AgI",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: AgI",
-        "acceptedNames": [
-            "yoduro de plata"
+        "formula": "ZnS",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "sulfuro de zinc",
+            "sulfuro de cinc",
+            "monosulfuro de zinc"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Utilizado en la siembra de nubes para lluvia artificial."
-        ],
-        "explanation": "Nomenclatura oficial: Yoduro de plata."
-    },
-    {
-        "formula": "AlCl₃",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: AlCl₃",
-        "acceptedNames": [
-            "cloruro de aluminio",
-            "tricloruro de aluminio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Catalizador en reacciones químicas orgánicas."
-        ],
-        "explanation": "Stock: Cloruro de aluminio."
-    },
-    {
-        "formula": "CaF₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CaF₂",
-        "acceptedNames": [
-            "fluoruro de calcio",
-            "difluoruro de calcio",
-            "fluorita"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Mineral fluorita."
-        ],
-        "explanation": "Stock: Fluoruro de calcio | Mineral: Fluorita."
-    },
-    {
-        "formula": "MgS",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: MgS",
-        "acceptedNames": [
-            "sulfuro de magnesio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El magnesio actúa con valencia +2."
-        ],
-        "explanation": "Nomenclatura oficial: Sulfuro de magnesio."
-    },
-    {
-        "formula": "BaCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: BaCl₂",
-        "acceptedNames": [
-            "cloruro de bario",
-            "dicloruro de bario"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Sal soluble tóxica de bario."
-        ],
-        "explanation": "Stock: Cloruro de bario."
-    },
-    {
-        "formula": "SnCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SnCl₂",
-        "acceptedNames": [
-            "cloruro de estano(ii)",
-            "cloruro de estaño(ii)",
-            "cloruro estannoso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El estaño actúa con valencia +2."
-        ],
-        "explanation": "Stock: Cloruro de estaño(II) | Tradicional: Cloruro estannoso."
-    },
-    {
-        "formula": "SnCl₄",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: SnCl₄",
-        "acceptedNames": [
-            "cloruro de estano(iv)",
-            "cloruro de estaño(iv)",
-            "cloruro estannico",
-            "cloruro estánnico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El estaño actúa con valencia +4."
-        ],
-        "explanation": "Stock: Cloruro de estaño(IV) | Tradicional: Cloruro estánnico."
-    },
-    {
-        "formula": "NiCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NiCl₂",
-        "acceptedNames": [
-            "cloruro de niquel(ii)",
-            "cloruro de níquel(ii)",
-            "cloruro niqueloso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El níquel actúa con valencia +2."
-        ],
-        "explanation": "Stock: Cloruro de níquel(II) | Tradicional: Cloruro niqueloso."
-    },
-    {
-        "formula": "CoCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CoCl₂",
-        "acceptedNames": [
-            "cloruro de cobalto(ii)",
-            "cloruro de cobalto(ii)",
-            "cloruro cobaltoso"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Utilizado como indicador de humedad (cambia de azul a rosa)."
-        ],
-        "explanation": "Stock: Cloruro de cobalto(II) | Tradicional: Cloruro cobaltoso."
-    },
-    {
-        "formula": "LiF",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: LiF",
-        "acceptedNames": [
-            "fluoruro de litio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Sal de litio con enlace altamente iónico."
-        ],
-        "explanation": "Nomenclatura oficial: Fluoruro de litio."
-    },
-    {
-        "formula": "NaBr",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaBr",
-        "acceptedNames": [
-            "bromuro de sodio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Sal blanca cristalina de sodio y bromo."
-        ],
-        "explanation": "Nomenclatura oficial: Bromuro de sodio."
+        "pista": "Mineral blenda de zinc.",
+        "explicacion": "Sulfuro de zinc / cinc"
     },
     {
         "formula": "CaCO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CaCO₃",
-        "acceptedNames": [
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
             "carbonato de calcio",
+            "tiza",
             "trioxocarbonato de calcio",
-            "marmol",
             "mármol",
-            "tiza"
+            "marmol",
+            "calcita"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Constituyente del mármol, piedra caliza y conchas marinas."
-        ],
-        "explanation": "Stock/Oficial: Carbonato de calcio."
-    },
-    {
-        "formula": "Na₂SO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Na₂SO₄",
-        "acceptedNames": [
-            "sulfato de sodio",
-            "tetraoxosulfato de disodio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Utilizado en detergentes en polvo."
-        ],
-        "explanation": "Stock/Oficial: Sulfato de sodio."
-    },
-    {
-        "formula": "KSO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KSO₄",
-        "acceptedNames": [
-            "sulfato de potasio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Fertilizante de alta calidad libre de cloro."
-        ],
-        "explanation": "Stock/Oficial: Sulfato de potasio."
-    },
-    {
-        "formula": "BaSO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: BaSO₄",
-        "acceptedNames": [
-            "sulfato de bario",
-            "tetraoxosulfato de bario"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Utilizado como medio de contraste en radiografías médicas."
-        ],
-        "explanation": "Stock/Oficial: Sulfato de bario."
-    },
-    {
-        "formula": "CuSO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CuSO₄",
-        "acceptedNames": [
-            "sulfato de cobre(ii)",
-            "sulfato cuprico",
-            "sulfato cúprico",
-            "caparrosa azul"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Cristales azules conocidos como caparrosa azul."
-        ],
-        "explanation": "Stock: Sulfato de cobre(II) | Tradicional: Sulfato cúprico."
-    },
-    {
-        "formula": "FeSO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: FeSO₄",
-        "acceptedNames": [
-            "sulfato de hierro(ii)",
-            "sulfato ferroso",
-            "caparrosa verde"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Utilizado como suplemento para la anemia."
-        ],
-        "explanation": "Stock: Sulfato de hierro(II) | Tradicional: Sulfato ferroso."
-    },
-    {
-        "formula": "Fe₂(SO₄)₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Fe₂(SO₄)₃",
-        "acceptedNames": [
-            "sulfato de hierro(iii)",
-            "sulfato ferrico",
-            "sulfato férrico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "El hierro actúa con su mayor valencia (+3)."
-        ],
-        "explanation": "Stock: Sulfato de hierro(III) | Tradicional: Sulfato férrico."
-    },
-    {
-        "formula": "KNO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KNO₃",
-        "acceptedNames": [
-            "nitrato de potasio",
-            "salitre"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Componente principal del salitre y de la pólvora negra."
-        ],
-        "explanation": "Stock/Oficial: Nitrato de potasio | Común: Salitre."
-    },
-    {
-        "formula": "NaNO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaNO₃",
-        "acceptedNames": [
-            "nitrato de sodio",
-            "salitre de chile"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Conocido históricamente como salitre de Chile."
-        ],
-        "explanation": "Stock/Oficial: Nitrato de sodio."
-    },
-    {
-        "formula": "AgNO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: AgNO₃",
-        "acceptedNames": [
-            "nitrato de plata"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Utilizado en medicina como cauterizante (pie de luna)."
-        ],
-        "explanation": "Stock/Oficial: Nitrato de plata."
-    },
-    {
-        "formula": "NaClO",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaClO",
-        "acceptedNames": [
-            "hipoclorito de sodio",
-            "cloro de piscina",
-            "lavandina",
-            "lejia",
-            "lejía"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Agente desinfectante activo del cloro doméstico o blanqueador."
-        ],
-        "explanation": "Stock/Oficial: Hipoclorito de sodio."
-    },
-    {
-        "formula": "KClO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KClO₃",
-        "acceptedNames": [
-            "clorato de potasio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Potente agente oxidante usado en cerillas y pirotecnia."
-        ],
-        "explanation": "Stock/Oficial: Clorato de potasio."
-    },
-    {
-        "formula": "KMnO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KMnO₄",
-        "acceptedNames": [
-            "permanganato de potasio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Desinfectante de intenso color violeta."
-        ],
-        "explanation": "Stock/Oficial: Permanganato de potasio."
-    },
-    {
-        "formula": "K₂Cr₂O₇",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: K₂Cr₂O₇",
-        "acceptedNames": [
-            "dicromato de potasio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal de color naranja intenso, fuerte oxidante."
-        ],
-        "explanation": "Stock/Oficial: Dicromato de potasio."
-    },
-    {
-        "formula": "Ca₃(PO₄)₂",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ca₃(PO₄)₂",
-        "acceptedNames": [
-            "fosfato de calcio",
-            "ortofosfato de calcio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Componente mineral principal de los huesos y dientes."
-        ],
-        "explanation": "Stock/Oficial: Fosfato de calcio."
-    },
-    {
-        "formula": "Na₃PO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Na₃PO₄",
-        "acceptedNames": [
-            "fosfato de sodio",
-            "ortofosfato de sodio",
-            "fosfato trisodico",
-            "fosfato trisódico"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Utilizado en productos de limpieza y aditivo alimentario."
-        ],
-        "explanation": "Stock/Oficial: Fosfato de sodio."
-    },
-    {
-        "formula": "Li₂CO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Li₂CO₃",
-        "acceptedNames": [
-            "carbonato de litio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Utilizado en psiquiatría y en baterías de iones de litio."
-        ],
-        "explanation": "Stock/Oficial: Carbonato de litio."
-    },
-    {
-        "formula": "MgCO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: MgCO₃",
-        "acceptedNames": [
-            "carbonato de magnesio"
-        ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Polvo blanco usado por gimnastas y escaladores para secar las manos."
-        ],
-        "explanation": "Stock/Oficial: Carbonato de magnesio."
+        "pista": "Componente de la caliza, mármol y conchas marinas.",
+        "explicacion": "Carbonato de calcio"
     },
     {
         "formula": "NaHCO₃",
-        "type": "Sal Ácida",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaHCO₃",
-        "acceptedNames": [
-            "bicarbonato de sodio",
+        "tipo": "Sal Ácida",
+        "nombresAceptados": [
             "hidrogenocarbonato de sodio",
             "carbonato acido de sodio",
-            "carbonato ácido de sodio"
+            "carbonato ácido de sodio",
+            "bicarbonato de sodio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Ácida.",
-            "Antiácido y leudante en repostería."
-        ],
-        "explanation": "IUPAC: Hidrogenocarbonato de sodio | Común: Bicarbonato de sodio."
+        "pista": "Utilizado en repostería y como antiácido casero.",
+        "explicacion": "Bicarbonato de sodio | Hidrogenocarbonato de sodio"
     },
     {
-        "formula": "KHCO₃",
-        "type": "Sal Ácida",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KHCO₃",
-        "acceptedNames": [
-            "bicarbonato de potasio",
-            "hidrogenocarbonato de potasio"
+        "formula": "KNO₃",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de potasio",
+            "salitre",
+            "trioxonitrato de potasio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Ácida.",
-            "Utilizado como agente leudante y extintor de incendios."
-        ],
-        "explanation": "IUPAC: Hidrogenocarbonato de potasio."
+        "pista": "Conocido comúnmente como salitre.",
+        "explicacion": "Nitrato de potasio | Salitre"
     },
     {
-        "formula": "Ca(HCO₃)₂",
-        "type": "Sal Ácida",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ca(HCO₃)₂",
-        "acceptedNames": [
-            "bicarbonato de calcio",
-            "hidrogenocarbonato de calcio"
+        "formula": "NaNO₃",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de sodio",
+            "salitre de chile",
+            "trioxonitrato de sodio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Ácida.",
-            "Causante de la dureza temporal del agua."
-        ],
-        "explanation": "IUPAC: Hidrogenocarbonato de calcio."
+        "pista": "Salitre sódico.",
+        "explicacion": "Nitrato de sodio"
     },
     {
-        "formula": "NaHSO₄",
-        "type": "Sal Ácida",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaHSO₄",
-        "acceptedNames": [
-            "bisulfato de sodio",
-            "hidrogenosulfato de sodio"
+        "formula": "KMnO₄",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "tetraoxomanganato de potasio",
+            "permanganato de potasio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Ácida.",
-            "Sal ácida utilizada para reducir el pH del agua."
-        ],
-        "explanation": "IUPAC: Hidrogenosulfato de sodio."
+        "pista": "Sólido morado intenso muy oxidante.",
+        "explicacion": "Permanganato de potasio"
     },
     {
-        "formula": "K₂CO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: K₂CO₃",
-        "acceptedNames": [
-            "carbonato de potasio",
-            "potasa"
+        "formula": "K₂Cr₂O₇",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "heptaoxodicromato de potasio",
+            "dicromato de potasio"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Componente principal de las cenizas de madera."
+        "pista": "Sal naranja brillante muy oxidante.",
+        "explicacion": "Dicromato de potasio"
+    },
+    {
+        "formula": "CaSO₄",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "yeso",
+            "sulfato de calcio",
+            "tetraoxosulfato de calcio"
         ],
-        "explanation": "Stock/Oficial: Carbonato de potasio."
+        "pista": "Componente principal del yeso.",
+        "explicacion": "Sulfato de calcio | Yeso"
     },
     {
         "formula": "MgSO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: MgSO₄",
-        "acceptedNames": [
-            "sulfato de magnesio",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "sales de epsom",
             "sal de epsom",
-            "sales de epsom"
+            "tetraoxosulfato de magnesio",
+            "sulfato de magnesio"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Conocido comúnmente como sal de Epsom."
-        ],
-        "explanation": "Stock/Oficial: Sulfato de magnesio."
+        "pista": "Conocido como sales de Epsom.",
+        "explicacion": "Sulfato de magnesio | Sales de Epsom"
     },
     {
-        "formula": "Al₂(SO₄)₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Al₂(SO₄)₃",
-        "acceptedNames": [
-            "sulfato de aluminio"
+        "formula": "CuSO₄",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "sulfato cúprico",
+            "caparrosa azul",
+            "sulfato cuprico",
+            "sulfato de cobre(ii)",
+            "sulfato de cobre ii"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Utilizado como coagulante en el tratamiento de agua potable."
-        ],
-        "explanation": "Stock/Oficial: Sulfato de aluminio."
+        "pista": "Cristales azules característicos.",
+        "explicacion": "Sulfato de cobre(II) | Sulfato cúprico"
     },
     {
         "formula": "H₂O₂",
-        "type": "Peróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂O₂",
-        "acceptedNames": [
-            "peroxido de hidrogeno",
+        "tipo": "Peróxido",
+        "nombresAceptados": [
+            "agua oxigenada",
+            "dióxido de dihidrógeno",
             "peróxido de hidrógeno",
-            "agua oxigenada"
+            "dioxido de dihidrogeno",
+            "peroxido de hidrogeno"
         ],
-        "hints": [
-            "Tipo de compuesto: Peróxido.",
-            "Conocido comúnmente como agua oxigenada."
-        ],
-        "explanation": "IUPAC: Peróxido de hidrógeno."
+        "pista": "Agua oxigenada de desinfección.",
+        "explicacion": "Peróxido de hidrógeno | Agua oxigenada"
     },
     {
         "formula": "Na₂O₂",
-        "type": "Peróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Na₂O₂",
-        "acceptedNames": [
+        "tipo": "Peróxido",
+        "nombresAceptados": [
             "peroxido de sodio",
             "peróxido de sodio"
         ],
-        "hints": [
-            "Tipo de compuesto: Peróxido.",
-            "Sólido amarillento reactivo con el agua."
-        ],
-        "explanation": "IUPAC: Peróxido de sodio."
+        "pista": "Peróxido de sodio.",
+        "explicacion": "Peróxido de sodio"
     },
     {
         "formula": "BaO₂",
-        "type": "Peróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: BaO₂",
-        "acceptedNames": [
-            "peroxido de bario",
-            "peróxido de bario"
+        "tipo": "Peróxido",
+        "nombresAceptados": [
+            "peróxido de bario",
+            "peroxido de bario"
         ],
-        "hints": [
-            "Tipo de compuesto: Peróxido.",
-            "Utilizado históricamente para producir agua oxigenada."
-        ],
-        "explanation": "IUPAC: Peróxido de bario."
+        "pista": "Peróxido del metal bario.",
+        "explicacion": "Peróxido de bario"
     },
     {
-        "formula": "CaO₂",
-        "type": "Peróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CaO₂",
-        "acceptedNames": [
-            "peroxido de calcio",
-            "peróxido de calcio"
+        "formula": "LiF",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de litio (i)",
+            "fluoruro de litio i",
+            "fluoruro de litio(i)",
+            "fluoruro de litio"
         ],
-        "hints": [
-            "Tipo de compuesto: Peróxido.",
-            "Utilizado en agricultura como acondicionador de suelos."
-        ],
-        "explanation": "IUPAC: Peróxido de calcio."
+        "pista": "Sal formada por litio y flúor.",
+        "explicacion": "Fluoruro de litio"
     },
     {
-        "formula": "K₂O₂",
-        "type": "Peróxido",
-        "pregunta": "Nombra el compuesto cuya fórmula es: K₂O₂",
-        "acceptedNames": [
-            "peroxido de potasio",
-            "peróxido de potasio"
+        "formula": "LiCl",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de litio (i)",
+            "cloruro de litio(i)",
+            "cloruro de litio",
+            "cloruro de litio i"
         ],
-        "hints": [
-            "Tipo de compuesto: Peróxido.",
-            "Peróxido de metal alcalino."
-        ],
-        "explanation": "IUPAC: Peróxido de potasio."
+        "pista": "Sal formada por litio y cloro.",
+        "explicacion": "Cloruro de litio"
     },
     {
-        "formula": "NH₄Cl",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NH₄Cl",
-        "acceptedNames": [
-            "cloruro de amonio",
-            "sal amoniaco",
-            "sal amoníaco"
+        "formula": "LiBr",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de litio",
+            "bromuro de litio(i)",
+            "bromuro de litio i",
+            "bromuro de litio (i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Utilizado en pilas secas y como expectorante."
-        ],
-        "explanation": "Nomenclatura oficial: Cloruro de amonio."
+        "pista": "Sal formada por litio y bromo.",
+        "explicacion": "Bromuro de litio"
     },
     {
-        "formula": "NH₄NO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NH₄NO₃",
-        "acceptedNames": [
-            "nitrato de amonio"
+        "formula": "LiI",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de litio i",
+            "yoduro de litio(i)",
+            "yoduro de litio",
+            "yoduro de litio (i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Fertilizante nitrogenado y componente explosivo."
-        ],
-        "explanation": "Nomenclatura oficial: Nitrato de amonio."
+        "pista": "Sal formada por litio y yodo.",
+        "explicacion": "Yoduro de litio"
     },
     {
-        "formula": "(NH₄)₂SO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: (NH₄)₂SO₄",
-        "acceptedNames": [
-            "sulfato de amonio"
+        "formula": "LiNO₃",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de litio(i)",
+            "nitrato de litio",
+            "nitrato de litio i"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Fertilizante agrícola muy común."
-        ],
-        "explanation": "Nomenclatura oficial: Sulfato de amonio."
+        "pista": "Nitrato del metal litio.",
+        "explicacion": "Nitrato de litio"
     },
     {
-        "formula": "H₂O",
-        "type": "Óxido Básico",
-        "pregunta": "Nombra el compuesto cuya fórmula es: H₂O",
-        "acceptedNames": [
-            "agua",
-            "monoxido de dihidrogeno",
-            "monóxido de dihidrógeno",
-            "oxido de hidrogeno",
-            "óxido de hidrógeno"
+        "formula": "NaF",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de sodio",
+            "fluoruro de sodio i",
+            "fluoruro de sodio (i)",
+            "fluoruro de sodio(i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Óxido Básico.",
-            "La molécula esencial para la vida."
-        ],
-        "explanation": "IUPAC: Agua / Monóxido de dihidrógeno."
+        "pista": "Sal formada por sodio y flúor.",
+        "explicacion": "Fluoruro de sodio"
     },
     {
-        "formula": "O₃",
-        "type": "Sustancia Simple",
-        "pregunta": "Nombra el compuesto cuya fórmula es: O₃",
-        "acceptedNames": [
-            "ozono",
-            "trioxigeno",
-            "trioxígeno"
+        "formula": "NaBr",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de sodio (i)",
+            "bromuro de sodio(i)",
+            "bromuro de sodio",
+            "bromuro de sodio i"
         ],
-        "hints": [
-            "Tipo de compuesto: Sustancia Simple.",
-            "Forma alotrópica del oxígeno presente en la estratosfera."
-        ],
-        "explanation": "IUPAC: Ozono / Trioxígeno."
+        "pista": "Sal formada por sodio y bromo.",
+        "explicacion": "Bromuro de sodio"
     },
     {
-        "formula": "K₂S",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: K₂S",
-        "acceptedNames": [
-            "sulfuro de potasio",
-            "sulfuro potasico",
-            "sulfuro potásico"
+        "formula": "NaI",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de sodio i",
+            "yoduro de sodio (i)",
+            "yoduro de sodio(i)",
+            "yoduro de sodio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El potasio actúa con valencia +1 y el azufre con -2."
-        ],
-        "explanation": "Stock/IUPAC: Sulfuro de potasio."
+        "pista": "Sal formada por sodio y yodo.",
+        "explicacion": "Yoduro de sodio"
     },
     {
-        "formula": "Li₂S",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Li₂S",
-        "acceptedNames": [
-            "sulfuro de litio"
+        "formula": "KF",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de potasio i",
+            "fluoruro de potasio(i)",
+            "fluoruro de potasio",
+            "fluoruro de potasio (i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El litio actúa con valencia +1."
-        ],
-        "explanation": "Stock/IUPAC: Sulfuro de litio."
+        "pista": "Sal formada por potasio y flúor.",
+        "explicacion": "Fluoruro de potasio"
     },
     {
-        "formula": "FeS",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: FeS",
-        "acceptedNames": [
-            "sulfuro de hierro(ii)",
-            "sulfuro ferroso",
-            "monosulfuro de hierro"
+        "formula": "RbF",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de rubidio(i)",
+            "fluoruro de rubidio (i)",
+            "fluoruro de rubidio i",
+            "fluoruro de rubidio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El hierro actúa con su menor valencia (+2)."
-        ],
-        "explanation": "Stock: Sulfuro de hierro(II) | Tradicional: Sulfuro ferroso."
+        "pista": "Sal formada por rubidio y flúor.",
+        "explicacion": "Fluoruro de rubidio"
     },
     {
-        "formula": "Fe₂S₃",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Fe₂S₃",
-        "acceptedNames": [
-            "sulfuro de hierro(iii)",
-            "sulfuro ferrico",
-            "sulfuro férrico",
-            "trisulfuro de dihierro"
+        "formula": "RbCl",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de rubidio i",
+            "cloruro de rubidio (i)",
+            "cloruro de rubidio(i)",
+            "cloruro de rubidio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El hierro actúa con su mayor valencia (+3)."
-        ],
-        "explanation": "Stock: Sulfuro de hierro(III) | Tradicional: Sulfuro férrico."
+        "pista": "Sal formada por rubidio y cloro.",
+        "explicacion": "Cloruro de rubidio"
     },
     {
-        "formula": "CuS",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: CuS",
-        "acceptedNames": [
-            "sulfuro de cobre(ii)",
-            "sulfuro cuprico",
-            "sulfuro cúprico"
+        "formula": "RbBr",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de rubidio (i)",
+            "bromuro de rubidio(i)",
+            "bromuro de rubidio i",
+            "bromuro de rubidio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El cobre actúa con valencia +2."
-        ],
-        "explanation": "Stock: Sulfuro de cobre(II) | Tradicional: Sulfuro cúprico."
+        "pista": "Sal formada por rubidio y bromo.",
+        "explicacion": "Bromuro de rubidio"
     },
     {
-        "formula": "Cu₂S",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cu₂S",
-        "acceptedNames": [
-            "sulfuro de cobre(i)",
-            "sulfuro cuproso"
+        "formula": "RbI",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de rubidio (i)",
+            "yoduro de rubidio",
+            "yoduro de rubidio(i)",
+            "yoduro de rubidio i"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "El cobre actúa con valencia +1."
-        ],
-        "explanation": "Stock: Sulfuro de cobre(I) | Tradicional: Sulfuro cuproso."
+        "pista": "Sal formada por rubidio y yodo.",
+        "explicacion": "Yoduro de rubidio"
     },
     {
-        "formula": "Hg₂Cl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Hg₂Cl₂",
-        "acceptedNames": [
-            "cloruro de mercurio(i)",
-            "cloruro mercurioso",
-            "calomelanos",
-            "calomel"
+        "formula": "RbNO₃",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de rubidio i",
+            "nitrato de rubidio(i)",
+            "nitrato de rubidio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Conocido históricamente como calomelanos."
-        ],
-        "explanation": "Stock: Cloruro de mercurio(I) | Tradicional: Cloruro mercurioso."
+        "pista": "Nitrato del metal rubidio.",
+        "explicacion": "Nitrato de rubidio"
     },
     {
-        "formula": "HgCl₂",
-        "type": "Sal Binaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: HgCl₂",
-        "acceptedNames": [
-            "cloruro de mercurio(ii)",
-            "cloruro mercurico",
-            "cloruro mercúrico",
-            "sublimado corrosivo"
+        "formula": "CsF",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de cesio i",
+            "fluoruro de cesio (i)",
+            "fluoruro de cesio(i)",
+            "fluoruro de cesio"
         ],
-        "hints": [
-            "Tipo de compuesto: Sal Binaria.",
-            "Conocido comúnmente como sublimado corrosivo."
-        ],
-        "explanation": "Stock: Cloruro de mercurio(II) | Tradicional: Cloruro mercúrico."
+        "pista": "Sal formada por cesio y flúor.",
+        "explicacion": "Fluoruro de cesio"
     },
     {
-        "formula": "K₂MnO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: K₂MnO₄",
-        "acceptedNames": [
-            "manganato de potasio"
+        "formula": "CsCl",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de cesio i",
+            "cloruro de cesio",
+            "cloruro de cesio (i)",
+            "cloruro de cesio(i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "El manganeso actúa con valencia +6 (sal verde)."
-        ],
-        "explanation": "Stock/Official: Manganato de potasio."
+        "pista": "Sal formada por cesio y cloro.",
+        "explicacion": "Cloruro de cesio"
     },
     {
-        "formula": "KClO",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KClO",
-        "acceptedNames": [
-            "hipoclorito de potasio"
+        "formula": "CsBr",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de cesio(i)",
+            "bromuro de cesio (i)",
+            "bromuro de cesio",
+            "bromuro de cesio i"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal de potasio del ácido hipocloroso."
-        ],
-        "explanation": "Stock/Official: Hipoclorito de potasio."
+        "pista": "Sal formada por cesio y bromo.",
+        "explicacion": "Bromuro de cesio"
     },
     {
-        "formula": "KClO₂",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KClO₂",
-        "acceptedNames": [
-            "clorito de potasio"
+        "formula": "CsI",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de cesio i",
+            "yoduro de cesio",
+            "yoduro de cesio(i)",
+            "yoduro de cesio (i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal de potasio del ácido cloroso."
-        ],
-        "explanation": "Stock/Official: Clorito de potasio."
+        "pista": "Sal formada por cesio y yodo.",
+        "explicacion": "Yoduro de cesio"
     },
     {
-        "formula": "KClO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: KClO₄",
-        "acceptedNames": [
-            "perclorato de potasio"
+        "formula": "CsNO₃",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de cesio i",
+            "nitrato de cesio",
+            "nitrato de cesio(i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal altamente oxidante utilizada en propulsores."
-        ],
-        "explanation": "Stock/Official: Perclorato de potasio."
+        "pista": "Nitrato del metal cesio.",
+        "explicacion": "Nitrato de cesio"
     },
     {
-        "formula": "NaClO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaClO₃",
-        "acceptedNames": [
-            "clorato de sodio"
+        "formula": "BeF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de berilio(ii)",
+            "fluoruro de berilio (ii)",
+            "fluoruro de berilio",
+            "fluoruro de berilio ii"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Herbicida y blanqueador industrial."
-        ],
-        "explanation": "Stock/Official: Clorato de sodio."
+        "pista": "Sal formada por berilio y flúor.",
+        "explicacion": "Fluoruro de berilio"
     },
     {
-        "formula": "NaClO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: NaClO₄",
-        "acceptedNames": [
-            "perclorato de sodio"
+        "formula": "BeCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de berilio ii",
+            "cloruro de berilio(ii)",
+            "cloruro de berilio (ii)",
+            "cloruro de berilio"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal soluble de perclorato."
-        ],
-        "explanation": "Stock/Official: Perclorato de sodio."
+        "pista": "Sal formada por berilio y cloro.",
+        "explicacion": "Cloruro de berilio"
     },
     {
-        "formula": "Mg(NO₃)₂",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Mg(NO₃)₂",
-        "acceptedNames": [
-            "nitrato de magnesio"
+        "formula": "BeBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de berilio(ii)",
+            "bromuro de berilio (ii)",
+            "bromuro de berilio ii",
+            "bromuro de berilio"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "El magnesio forma un compuesto dinitrato."
-        ],
-        "explanation": "Stock/Official: Nitrato de magnesio."
+        "pista": "Sal formada por berilio y bromo.",
+        "explicacion": "Bromuro de berilio"
     },
     {
-        "formula": "Ca(NO₃)₂",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Ca(NO₃)₂",
-        "acceptedNames": [
+        "formula": "BeI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de berilio",
+            "yoduro de berilio ii",
+            "yoduro de berilio (ii)",
+            "yoduro de berilio(ii)"
+        ],
+        "pista": "Sal formada por berilio y yodo.",
+        "explicacion": "Yoduro de berilio"
+    },
+    {
+        "formula": "Be(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de berilio(ii)",
+            "nitrato de berilio ii",
+            "nitrato de berilio"
+        ],
+        "pista": "Nitrato del metal berilio.",
+        "explicacion": "Nitrato de berilio"
+    },
+    {
+        "formula": "MgF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de magnesio(ii)",
+            "fluoruro de magnesio (ii)",
+            "fluoruro de magnesio",
+            "fluoruro de magnesio ii"
+        ],
+        "pista": "Sal formada por magnesio y flúor.",
+        "explicacion": "Fluoruro de magnesio"
+    },
+    {
+        "formula": "MgCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de magnesio",
+            "cloruro de magnesio (ii)",
+            "cloruro de magnesio ii",
+            "cloruro de magnesio(ii)"
+        ],
+        "pista": "Sal formada por magnesio y cloro.",
+        "explicacion": "Cloruro de magnesio"
+    },
+    {
+        "formula": "MgBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de magnesio(ii)",
+            "bromuro de magnesio ii",
+            "bromuro de magnesio (ii)",
+            "bromuro de magnesio"
+        ],
+        "pista": "Sal formada por magnesio y bromo.",
+        "explicacion": "Bromuro de magnesio"
+    },
+    {
+        "formula": "MgI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de magnesio ii",
+            "yoduro de magnesio(ii)",
+            "yoduro de magnesio",
+            "yoduro de magnesio (ii)"
+        ],
+        "pista": "Sal formada por magnesio y yodo.",
+        "explicacion": "Yoduro de magnesio"
+    },
+    {
+        "formula": "Mg(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de magnesio",
+            "nitrato de magnesio(ii)",
+            "nitrato de magnesio ii"
+        ],
+        "pista": "Nitrato del metal magnesio.",
+        "explicacion": "Nitrato de magnesio"
+    },
+    {
+        "formula": "CaF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de calcio",
+            "fluoruro de calcio(ii)",
+            "fluoruro de calcio ii",
+            "fluoruro de calcio (ii)"
+        ],
+        "pista": "Sal formada por calcio y flúor.",
+        "explicacion": "Fluoruro de calcio"
+    },
+    {
+        "formula": "CaCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de calcio",
+            "cloruro de calcio ii",
+            "cloruro de calcio(ii)",
+            "cloruro de calcio (ii)"
+        ],
+        "pista": "Sal formada por calcio y cloro.",
+        "explicacion": "Cloruro de calcio"
+    },
+    {
+        "formula": "CaBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de calcio(ii)",
+            "bromuro de calcio",
+            "bromuro de calcio (ii)",
+            "bromuro de calcio ii"
+        ],
+        "pista": "Sal formada por calcio y bromo.",
+        "explicacion": "Bromuro de calcio"
+    },
+    {
+        "formula": "CaI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de calcio",
+            "yoduro de calcio (ii)",
+            "yoduro de calcio(ii)",
+            "yoduro de calcio ii"
+        ],
+        "pista": "Sal formada por calcio y yodo.",
+        "explicacion": "Yoduro de calcio"
+    },
+    {
+        "formula": "Ca(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de calcio(ii)",
             "nitrato de calcio",
-            "salitre de noruega"
+            "nitrato de calcio ii"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Conocido también como salitre de Noruega."
-        ],
-        "explanation": "Stock/Official: Nitrato de calcio."
+        "pista": "Nitrato del metal calcio.",
+        "explicacion": "Nitrato de calcio"
     },
     {
-        "formula": "Cu(NO₃)₂",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Cu(NO₃)₂",
-        "acceptedNames": [
-            "nitrato de cobre(ii)",
-            "nitrato cuprico",
-            "nitrato cúprico"
+        "formula": "SrF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de estroncio",
+            "fluoruro de estroncio(ii)",
+            "fluoruro de estroncio ii",
+            "fluoruro de estroncio (ii)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "El cobre actúa con valencia +2."
-        ],
-        "explanation": "Stock: Nitrato de cobre(II) | Tradicional: Nitrato cúprico."
+        "pista": "Sal formada por estroncio y flúor.",
+        "explicacion": "Fluoruro de estroncio"
     },
     {
-        "formula": "Fe(NO₃)₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Fe(NO₃)₃",
-        "acceptedNames": [
+        "formula": "SrCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de estroncio ii",
+            "cloruro de estroncio(ii)",
+            "cloruro de estroncio (ii)",
+            "cloruro de estroncio"
+        ],
+        "pista": "Sal formada por estroncio y cloro.",
+        "explicacion": "Cloruro de estroncio"
+    },
+    {
+        "formula": "SrBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de estroncio(ii)",
+            "bromuro de estroncio (ii)",
+            "bromuro de estroncio",
+            "bromuro de estroncio ii"
+        ],
+        "pista": "Sal formada por estroncio y bromo.",
+        "explicacion": "Bromuro de estroncio"
+    },
+    {
+        "formula": "SrI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de estroncio ii",
+            "yoduro de estroncio (ii)",
+            "yoduro de estroncio",
+            "yoduro de estroncio(ii)"
+        ],
+        "pista": "Sal formada por estroncio y yodo.",
+        "explicacion": "Yoduro de estroncio"
+    },
+    {
+        "formula": "Sr(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de estroncio",
+            "nitrato de estroncio ii",
+            "nitrato de estroncio(ii)"
+        ],
+        "pista": "Nitrato del metal estroncio.",
+        "explicacion": "Nitrato de estroncio"
+    },
+    {
+        "formula": "BaF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de bario ii",
+            "fluoruro de bario(ii)",
+            "fluoruro de bario (ii)",
+            "fluoruro de bario"
+        ],
+        "pista": "Sal formada por bario y flúor.",
+        "explicacion": "Fluoruro de bario"
+    },
+    {
+        "formula": "BaCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de bario (ii)",
+            "cloruro de bario(ii)",
+            "cloruro de bario ii",
+            "cloruro de bario"
+        ],
+        "pista": "Sal formada por bario y cloro.",
+        "explicacion": "Cloruro de bario"
+    },
+    {
+        "formula": "BaBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de bario",
+            "bromuro de bario(ii)",
+            "bromuro de bario (ii)",
+            "bromuro de bario ii"
+        ],
+        "pista": "Sal formada por bario y bromo.",
+        "explicacion": "Bromuro de bario"
+    },
+    {
+        "formula": "BaI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de bario ii",
+            "yoduro de bario(ii)",
+            "yoduro de bario (ii)",
+            "yoduro de bario"
+        ],
+        "pista": "Sal formada por bario y yodo.",
+        "explicacion": "Yoduro de bario"
+    },
+    {
+        "formula": "Ba(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de bario(ii)",
+            "nitrato de bario ii",
+            "nitrato de bario"
+        ],
+        "pista": "Nitrato del metal bario.",
+        "explicacion": "Nitrato de bario"
+    },
+    {
+        "formula": "AlF3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de aluminio (iii)",
+            "fluoruro de aluminio",
+            "fluoruro de aluminio(iii)",
+            "fluoruro de aluminio iii"
+        ],
+        "pista": "Sal formada por aluminio y flúor.",
+        "explicacion": "Fluoruro de aluminio"
+    },
+    {
+        "formula": "AlCl3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de aluminio(iii)",
+            "cloruro de aluminio",
+            "cloruro de aluminio (iii)",
+            "cloruro de aluminio iii"
+        ],
+        "pista": "Sal formada por aluminio y cloro.",
+        "explicacion": "Cloruro de aluminio"
+    },
+    {
+        "formula": "AlBr3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de aluminio iii",
+            "bromuro de aluminio (iii)",
+            "bromuro de aluminio",
+            "bromuro de aluminio(iii)"
+        ],
+        "pista": "Sal formada por aluminio y bromo.",
+        "explicacion": "Bromuro de aluminio"
+    },
+    {
+        "formula": "AlI3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de aluminio(iii)",
+            "yoduro de aluminio",
+            "yoduro de aluminio iii",
+            "yoduro de aluminio (iii)"
+        ],
+        "pista": "Sal formada por aluminio y yodo.",
+        "explicacion": "Yoduro de aluminio"
+    },
+    {
+        "formula": "Al(NO₃)3",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de aluminio",
+            "nitrato de aluminio(iii)",
+            "nitrato de aluminio iii"
+        ],
+        "pista": "Nitrato del metal aluminio.",
+        "explicacion": "Nitrato de aluminio"
+    },
+    {
+        "formula": "ZnF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de zinc",
+            "fluoruro de zinc ii",
+            "fluoruro de zinc(ii)",
+            "fluoruro de zinc (ii)"
+        ],
+        "pista": "Sal formada por zinc y flúor.",
+        "explicacion": "Fluoruro de zinc"
+    },
+    {
+        "formula": "ZnCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de zinc(ii)",
+            "cloruro de zinc (ii)",
+            "cloruro de zinc ii",
+            "cloruro de zinc"
+        ],
+        "pista": "Sal formada por zinc y cloro.",
+        "explicacion": "Cloruro de zinc"
+    },
+    {
+        "formula": "ZnBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de zinc ii",
+            "bromuro de zinc (ii)",
+            "bromuro de zinc(ii)",
+            "bromuro de zinc"
+        ],
+        "pista": "Sal formada por zinc y bromo.",
+        "explicacion": "Bromuro de zinc"
+    },
+    {
+        "formula": "ZnI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de zinc(ii)",
+            "yoduro de zinc",
+            "yoduro de zinc (ii)",
+            "yoduro de zinc ii"
+        ],
+        "pista": "Sal formada por zinc y yodo.",
+        "explicacion": "Yoduro de zinc"
+    },
+    {
+        "formula": "Zn(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de zinc ii",
+            "nitrato de zinc",
+            "nitrato de zinc(ii)"
+        ],
+        "pista": "Nitrato del metal zinc.",
+        "explicacion": "Nitrato de zinc"
+    },
+    {
+        "formula": "AgF",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de plata",
+            "fluoruro de plata(i)",
+            "fluoruro de plata i",
+            "fluoruro de plata (i)"
+        ],
+        "pista": "Sal formada por plata y flúor.",
+        "explicacion": "Fluoruro de plata"
+    },
+    {
+        "formula": "AgBr",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de plata (i)",
+            "bromuro de plata i",
+            "bromuro de plata(i)",
+            "bromuro de plata"
+        ],
+        "pista": "Sal formada por plata y bromo.",
+        "explicacion": "Bromuro de plata"
+    },
+    {
+        "formula": "AgI",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de plata i",
+            "yoduro de plata",
+            "yoduro de plata (i)",
+            "yoduro de plata(i)"
+        ],
+        "pista": "Sal formada por plata y yodo.",
+        "explicacion": "Yoduro de plata"
+    },
+    {
+        "formula": "AgNO₃",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de plata i",
+            "nitrato de plata",
+            "nitrato de plata(i)"
+        ],
+        "pista": "Nitrato del metal plata.",
+        "explicacion": "Nitrato de plata"
+    },
+    {
+        "formula": "FeF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de hierro (ii)",
+            "fluoruro de hierro ii",
+            "fluoruro de hierro",
+            "fluoruro de hierro(ii)"
+        ],
+        "pista": "Sal formada por hierro y flúor.",
+        "explicacion": "Fluoruro de hierro"
+    },
+    {
+        "formula": "FeCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de hierro",
+            "cloruro de hierro ii",
+            "cloruro de hierro(ii)",
+            "cloruro de hierro (ii)"
+        ],
+        "pista": "Sal formada por hierro y cloro.",
+        "explicacion": "Cloruro de hierro"
+    },
+    {
+        "formula": "FeBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de hierro (ii)",
+            "bromuro de hierro(ii)",
+            "bromuro de hierro",
+            "bromuro de hierro ii"
+        ],
+        "pista": "Sal formada por hierro y bromo.",
+        "explicacion": "Bromuro de hierro"
+    },
+    {
+        "formula": "FeI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de hierro ii",
+            "yoduro de hierro(ii)",
+            "yoduro de hierro (ii)",
+            "yoduro de hierro"
+        ],
+        "pista": "Sal formada por hierro y yodo.",
+        "explicacion": "Yoduro de hierro"
+    },
+    {
+        "formula": "Fe(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de hierro ii",
+            "nitrato de hierro",
+            "nitrato de hierro(ii)"
+        ],
+        "pista": "Nitrato del metal hierro.",
+        "explicacion": "Nitrato de hierro"
+    },
+    {
+        "formula": "FeF3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de hierro(iii)",
+            "fluoruro de hierro (iii)",
+            "fluoruro de hierro iii",
+            "fluoruro de hierro"
+        ],
+        "pista": "Sal formada por hierro y flúor.",
+        "explicacion": "Fluoruro de hierro"
+    },
+    {
+        "formula": "FeCl3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de hierro",
+            "cloruro de hierro iii",
+            "cloruro de hierro(iii)",
+            "cloruro de hierro (iii)"
+        ],
+        "pista": "Sal formada por hierro y cloro.",
+        "explicacion": "Cloruro de hierro"
+    },
+    {
+        "formula": "FeBr3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de hierro iii",
+            "bromuro de hierro (iii)",
+            "bromuro de hierro",
+            "bromuro de hierro(iii)"
+        ],
+        "pista": "Sal formada por hierro y bromo.",
+        "explicacion": "Bromuro de hierro"
+    },
+    {
+        "formula": "FeI3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de hierro (iii)",
+            "yoduro de hierro iii",
+            "yoduro de hierro",
+            "yoduro de hierro(iii)"
+        ],
+        "pista": "Sal formada por hierro y yodo.",
+        "explicacion": "Yoduro de hierro"
+    },
+    {
+        "formula": "Fe(NO₃)3",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
             "nitrato de hierro(iii)",
-            "nitrato ferrico",
-            "nitrato férrico"
+            "nitrato de hierro iii",
+            "nitrato de hierro"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "El hierro actúa con valencia +3."
-        ],
-        "explanation": "Stock: Nitrato de hierro(III) | Tradicional: Nitrato férrico."
+        "pista": "Nitrato del metal hierro.",
+        "explicacion": "Nitrato de hierro"
     },
     {
-        "formula": "Zn(NO₃)₂",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Zn(NO₃)₂",
-        "acceptedNames": [
-            "nitrato de zinc"
+        "formula": "CuF",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de cobre(i)",
+            "fluoruro de cobre (i)",
+            "fluoruro de cobre",
+            "fluoruro de cobre i"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal soluble de zinc."
-        ],
-        "explanation": "Stock/Official: Nitrato de zinc."
+        "pista": "Sal formada por cobre y flúor.",
+        "explicacion": "Fluoruro de cobre"
     },
     {
-        "formula": "Pb(NO₃)₂",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Pb(NO₃)₂",
-        "acceptedNames": [
-            "nitrato de plomo(ii)",
-            "nitrato plumboso"
+        "formula": "CuBr",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de cobre",
+            "bromuro de cobre (i)",
+            "bromuro de cobre i",
+            "bromuro de cobre(i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "El plomo actúa con valencia +2."
-        ],
-        "explanation": "Stock: Nitrato de plomo(II) | Tradicional: Nitrato plumboso."
+        "pista": "Sal formada por cobre y bromo.",
+        "explicacion": "Bromuro de cobre"
     },
     {
-        "formula": "Al(NO₃)₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Al(NO₃)₃",
-        "acceptedNames": [
-            "nitrato de aluminio"
+        "formula": "CuI",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de cobre",
+            "yoduro de cobre (i)",
+            "yoduro de cobre i",
+            "yoduro de cobre(i)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal de aluminio utilizada en curtidos y textiles."
-        ],
-        "explanation": "Stock/Official: Nitrato de aluminio."
+        "pista": "Sal formada por cobre y yodo.",
+        "explicacion": "Yoduro de cobre"
     },
     {
-        "formula": "K₂CrO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: K₂CrO₄",
-        "acceptedNames": [
-            "cromato de potasio"
+        "formula": "CuNO₃",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de cobre",
+            "nitrato de cobre(i)",
+            "nitrato de cobre i"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal de color amarillo intenso."
-        ],
-        "explanation": "Stock/Official: Cromato de potasio."
+        "pista": "Nitrato del metal cobre.",
+        "explicacion": "Nitrato de cobre"
     },
     {
-        "formula": "Na₂CrO₄",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Na₂CrO₄",
-        "acceptedNames": [
-            "cromato de sodio"
+        "formula": "CuF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de cobre ii",
+            "fluoruro de cobre(ii)",
+            "fluoruro de cobre",
+            "fluoruro de cobre (ii)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal amarilla de cromo +6."
-        ],
-        "explanation": "Stock/Official: Cromato de sodio."
+        "pista": "Sal formada por cobre y flúor.",
+        "explicacion": "Fluoruro de cobre"
     },
     {
-        "formula": "Na₂Cr₂O₇",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: Na₂Cr₂O₇",
-        "acceptedNames": [
-            "dicromato de sodio"
+        "formula": "CuCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de cobre",
+            "cloruro de cobre ii",
+            "cloruro de cobre (ii)",
+            "cloruro de cobre(ii)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Sal naranja brillante utilizada en la industria del cuero."
-        ],
-        "explanation": "Stock/Official: Dicromato de sodio."
+        "pista": "Sal formada por cobre y cloro.",
+        "explicacion": "Cloruro de cobre"
     },
     {
-        "formula": "K₂SiO₃",
-        "type": "Oxisal Ternaria",
-        "pregunta": "Nombra el compuesto cuya fórmula es: K₂SiO₃",
-        "acceptedNames": [
-            "silicato de potasio",
-            "metasilicato de potasio"
+        "formula": "CuBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de cobre ii",
+            "bromuro de cobre (ii)",
+            "bromuro de cobre",
+            "bromuro de cobre(ii)"
         ],
-        "hints": [
-            "Tipo de compuesto: Oxisal Ternaria.",
-            "Conocido como vidrio líquido de potasio."
+        "pista": "Sal formada por cobre y bromo.",
+        "explicacion": "Bromuro de cobre"
+    },
+    {
+        "formula": "CuI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de cobre(ii)",
+            "yoduro de cobre ii",
+            "yoduro de cobre",
+            "yoduro de cobre (ii)"
         ],
-        "explanation": "Stock/Official: Silicato de potasio."
+        "pista": "Sal formada por cobre y yodo.",
+        "explicacion": "Yoduro de cobre"
+    },
+    {
+        "formula": "Cu(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de cobre",
+            "nitrato de cobre ii",
+            "nitrato de cobre(ii)"
+        ],
+        "pista": "Nitrato del metal cobre.",
+        "explicacion": "Nitrato de cobre"
+    },
+    {
+        "formula": "NiF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de niquel(ii)",
+            "fluoruro de niquel ii",
+            "fluoruro de niquel",
+            "fluoruro de níquel(ii)",
+            "fluoruro de níquel",
+            "fluoruro de niquel (ii)"
+        ],
+        "pista": "Sal formada por niquel y flúor.",
+        "explicacion": "Fluoruro de niquel"
+    },
+    {
+        "formula": "NiCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de niquel(ii)",
+            "cloruro de niquel (ii)",
+            "cloruro de niquel",
+            "cloruro de níquel",
+            "cloruro de níquel(ii)",
+            "cloruro de niquel ii"
+        ],
+        "pista": "Sal formada por niquel y cloro.",
+        "explicacion": "Cloruro de niquel"
+    },
+    {
+        "formula": "NiBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de niquel(ii)",
+            "bromuro de niquel ii",
+            "bromuro de níquel",
+            "bromuro de niquel (ii)",
+            "bromuro de níquel(ii)",
+            "bromuro de niquel"
+        ],
+        "pista": "Sal formada por niquel y bromo.",
+        "explicacion": "Bromuro de niquel"
+    },
+    {
+        "formula": "NiI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de niquel",
+            "yoduro de níquel",
+            "yoduro de niquel (ii)",
+            "yoduro de niquel ii",
+            "yoduro de niquel(ii)",
+            "yoduro de níquel(ii)"
+        ],
+        "pista": "Sal formada por niquel y yodo.",
+        "explicacion": "Yoduro de niquel"
+    },
+    {
+        "formula": "Ni(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de níquel",
+            "nitrato de niquel",
+            "nitrato de niquel(ii)",
+            "nitrato de niquel ii"
+        ],
+        "pista": "Nitrato del metal niquel.",
+        "explicacion": "Nitrato de niquel"
+    },
+    {
+        "formula": "NiF3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de niquel (iii)",
+            "fluoruro de niquel(iii)",
+            "fluoruro de niquel iii",
+            "fluoruro de níquel(iii)",
+            "fluoruro de níquel",
+            "fluoruro de niquel"
+        ],
+        "pista": "Sal formada por niquel y flúor.",
+        "explicacion": "Fluoruro de niquel"
+    },
+    {
+        "formula": "NiCl3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de niquel",
+            "cloruro de niquel (iii)",
+            "cloruro de niquel iii",
+            "cloruro de níquel",
+            "cloruro de níquel(iii)",
+            "cloruro de niquel(iii)"
+        ],
+        "pista": "Sal formada por niquel y cloro.",
+        "explicacion": "Cloruro de niquel"
+    },
+    {
+        "formula": "NiBr3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de níquel(iii)",
+            "bromuro de niquel (iii)",
+            "bromuro de níquel",
+            "bromuro de niquel(iii)",
+            "bromuro de niquel iii",
+            "bromuro de niquel"
+        ],
+        "pista": "Sal formada por niquel y bromo.",
+        "explicacion": "Bromuro de niquel"
+    },
+    {
+        "formula": "NiI3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de niquel",
+            "yoduro de niquel iii",
+            "yoduro de níquel",
+            "yoduro de níquel(iii)",
+            "yoduro de niquel (iii)",
+            "yoduro de niquel(iii)"
+        ],
+        "pista": "Sal formada por niquel y yodo.",
+        "explicacion": "Yoduro de niquel"
+    },
+    {
+        "formula": "Ni(NO₃)3",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de niquel(iii)",
+            "nitrato de niquel",
+            "nitrato de níquel",
+            "nitrato de niquel iii"
+        ],
+        "pista": "Nitrato del metal niquel.",
+        "explicacion": "Nitrato de niquel"
+    },
+    {
+        "formula": "CoF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de cobalto (ii)",
+            "fluoruro de cobalto",
+            "fluoruro de cobalto(ii)",
+            "fluoruro de cobalto ii"
+        ],
+        "pista": "Sal formada por cobalto y flúor.",
+        "explicacion": "Fluoruro de cobalto"
+    },
+    {
+        "formula": "CoCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de cobalto",
+            "cloruro de cobalto(ii)",
+            "cloruro de cobalto (ii)",
+            "cloruro de cobalto ii"
+        ],
+        "pista": "Sal formada por cobalto y cloro.",
+        "explicacion": "Cloruro de cobalto"
+    },
+    {
+        "formula": "CoBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de cobalto (ii)",
+            "bromuro de cobalto",
+            "bromuro de cobalto ii",
+            "bromuro de cobalto(ii)"
+        ],
+        "pista": "Sal formada por cobalto y bromo.",
+        "explicacion": "Bromuro de cobalto"
+    },
+    {
+        "formula": "CoI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de cobalto (ii)",
+            "yoduro de cobalto",
+            "yoduro de cobalto ii",
+            "yoduro de cobalto(ii)"
+        ],
+        "pista": "Sal formada por cobalto y yodo.",
+        "explicacion": "Yoduro de cobalto"
+    },
+    {
+        "formula": "Co(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de cobalto",
+            "nitrato de cobalto ii",
+            "nitrato de cobalto(ii)"
+        ],
+        "pista": "Nitrato del metal cobalto.",
+        "explicacion": "Nitrato de cobalto"
+    },
+    {
+        "formula": "CoF3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de cobalto (iii)",
+            "fluoruro de cobalto",
+            "fluoruro de cobalto(iii)",
+            "fluoruro de cobalto iii"
+        ],
+        "pista": "Sal formada por cobalto y flúor.",
+        "explicacion": "Fluoruro de cobalto"
+    },
+    {
+        "formula": "CoCl3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de cobalto",
+            "cloruro de cobalto (iii)",
+            "cloruro de cobalto iii",
+            "cloruro de cobalto(iii)"
+        ],
+        "pista": "Sal formada por cobalto y cloro.",
+        "explicacion": "Cloruro de cobalto"
+    },
+    {
+        "formula": "CoBr3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de cobalto (iii)",
+            "bromuro de cobalto iii",
+            "bromuro de cobalto(iii)",
+            "bromuro de cobalto"
+        ],
+        "pista": "Sal formada por cobalto y bromo.",
+        "explicacion": "Bromuro de cobalto"
+    },
+    {
+        "formula": "CoI3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de cobalto",
+            "yoduro de cobalto(iii)",
+            "yoduro de cobalto iii",
+            "yoduro de cobalto (iii)"
+        ],
+        "pista": "Sal formada por cobalto y yodo.",
+        "explicacion": "Yoduro de cobalto"
+    },
+    {
+        "formula": "Co(NO₃)3",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de cobalto",
+            "nitrato de cobalto(iii)",
+            "nitrato de cobalto iii"
+        ],
+        "pista": "Nitrato del metal cobalto.",
+        "explicacion": "Nitrato de cobalto"
+    },
+    {
+        "formula": "PbF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de plomo",
+            "fluoruro de plomo (ii)",
+            "fluoruro de plomo ii",
+            "fluoruro de plomo(ii)"
+        ],
+        "pista": "Sal formada por plomo y flúor.",
+        "explicacion": "Fluoruro de plomo"
+    },
+    {
+        "formula": "PbCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de plomo ii",
+            "cloruro de plomo(ii)",
+            "cloruro de plomo",
+            "cloruro de plomo (ii)"
+        ],
+        "pista": "Sal formada por plomo y cloro.",
+        "explicacion": "Cloruro de plomo"
+    },
+    {
+        "formula": "PbBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de plomo(ii)",
+            "bromuro de plomo (ii)",
+            "bromuro de plomo",
+            "bromuro de plomo ii"
+        ],
+        "pista": "Sal formada por plomo y bromo.",
+        "explicacion": "Bromuro de plomo"
+    },
+    {
+        "formula": "PbI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de plomo",
+            "yoduro de plomo ii",
+            "yoduro de plomo(ii)",
+            "yoduro de plomo (ii)"
+        ],
+        "pista": "Sal formada por plomo y yodo.",
+        "explicacion": "Yoduro de plomo"
+    },
+    {
+        "formula": "Pb(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de plomo ii",
+            "nitrato de plomo",
+            "nitrato de plomo(ii)"
+        ],
+        "pista": "Nitrato del metal plomo.",
+        "explicacion": "Nitrato de plomo"
+    },
+    {
+        "formula": "PbF4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de plomo",
+            "fluoruro de plomo iv",
+            "fluoruro de plomo(iv)",
+            "fluoruro de plomo (iv)"
+        ],
+        "pista": "Sal formada por plomo y flúor.",
+        "explicacion": "Fluoruro de plomo"
+    },
+    {
+        "formula": "PbCl4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de plomo(iv)",
+            "cloruro de plomo iv",
+            "cloruro de plomo",
+            "cloruro de plomo (iv)"
+        ],
+        "pista": "Sal formada por plomo y cloro.",
+        "explicacion": "Cloruro de plomo"
+    },
+    {
+        "formula": "PbBr4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de plomo (iv)",
+            "bromuro de plomo(iv)",
+            "bromuro de plomo",
+            "bromuro de plomo iv"
+        ],
+        "pista": "Sal formada por plomo y bromo.",
+        "explicacion": "Bromuro de plomo"
+    },
+    {
+        "formula": "PbI4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de plomo (iv)",
+            "yoduro de plomo iv",
+            "yoduro de plomo(iv)",
+            "yoduro de plomo"
+        ],
+        "pista": "Sal formada por plomo y yodo.",
+        "explicacion": "Yoduro de plomo"
+    },
+    {
+        "formula": "Pb(NO₃)4",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de plomo iv",
+            "nitrato de plomo",
+            "nitrato de plomo(iv)"
+        ],
+        "pista": "Nitrato del metal plomo.",
+        "explicacion": "Nitrato de plomo"
+    },
+    {
+        "formula": "SnF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de estano (ii)",
+            "fluoruro de estaño(ii)",
+            "fluoruro de estano",
+            "fluoruro de estano(ii)",
+            "fluoruro de estano ii",
+            "fluoruro de estaño"
+        ],
+        "pista": "Sal formada por estano y flúor.",
+        "explicacion": "Fluoruro de estano"
+    },
+    {
+        "formula": "SnCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de estaño(ii)",
+            "cloruro de estano(ii)",
+            "cloruro de estano ii",
+            "cloruro de estano (ii)",
+            "cloruro de estano",
+            "cloruro de estaño"
+        ],
+        "pista": "Sal formada por estano y cloro.",
+        "explicacion": "Cloruro de estano"
+    },
+    {
+        "formula": "SnBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de estaño(ii)",
+            "bromuro de estaño",
+            "bromuro de estano (ii)",
+            "bromuro de estano ii",
+            "bromuro de estano",
+            "bromuro de estano(ii)"
+        ],
+        "pista": "Sal formada por estano y bromo.",
+        "explicacion": "Bromuro de estano"
+    },
+    {
+        "formula": "SnI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de estaño",
+            "yoduro de estano(ii)",
+            "yoduro de estano",
+            "yoduro de estaño(ii)",
+            "yoduro de estano ii",
+            "yoduro de estano (ii)"
+        ],
+        "pista": "Sal formada por estano y yodo.",
+        "explicacion": "Yoduro de estano"
+    },
+    {
+        "formula": "Sn(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de estano ii",
+            "nitrato de estano(ii)",
+            "nitrato de estano",
+            "nitrato de estaño"
+        ],
+        "pista": "Nitrato del metal estano.",
+        "explicacion": "Nitrato de estano"
+    },
+    {
+        "formula": "SnF4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de estaño(iv)",
+            "fluoruro de estano(iv)",
+            "fluoruro de estano",
+            "fluoruro de estano iv",
+            "fluoruro de estano (iv)",
+            "fluoruro de estaño"
+        ],
+        "pista": "Sal formada por estano y flúor.",
+        "explicacion": "Fluoruro de estano"
+    },
+    {
+        "formula": "SnCl4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de estano",
+            "cloruro de estaño(iv)",
+            "cloruro de estano iv",
+            "cloruro de estano(iv)",
+            "cloruro de estano (iv)",
+            "cloruro de estaño"
+        ],
+        "pista": "Sal formada por estano y cloro.",
+        "explicacion": "Cloruro de estano"
+    },
+    {
+        "formula": "SnBr4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de estano(iv)",
+            "bromuro de estaño",
+            "bromuro de estano",
+            "bromuro de estano iv",
+            "bromuro de estano (iv)",
+            "bromuro de estaño(iv)"
+        ],
+        "pista": "Sal formada por estano y bromo.",
+        "explicacion": "Bromuro de estano"
+    },
+    {
+        "formula": "SnI4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de estano iv",
+            "yoduro de estaño",
+            "yoduro de estaño(iv)",
+            "yoduro de estano",
+            "yoduro de estano(iv)",
+            "yoduro de estano (iv)"
+        ],
+        "pista": "Sal formada por estano y yodo.",
+        "explicacion": "Yoduro de estano"
+    },
+    {
+        "formula": "Sn(NO₃)4",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de estano",
+            "nitrato de estaño",
+            "nitrato de estano iv",
+            "nitrato de estano(iv)"
+        ],
+        "pista": "Nitrato del metal estano.",
+        "explicacion": "Nitrato de estano"
+    },
+    {
+        "formula": "HgF",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de mercurio",
+            "fluoruro de mercurio (i)",
+            "fluoruro de mercurio i",
+            "fluoruro de mercurio(i)"
+        ],
+        "pista": "Sal formada por mercurio y flúor.",
+        "explicacion": "Fluoruro de mercurio"
+    },
+    {
+        "formula": "HgCl",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de mercurio",
+            "cloruro de mercurio (i)",
+            "cloruro de mercurio(i)",
+            "cloruro de mercurio i"
+        ],
+        "pista": "Sal formada por mercurio y cloro.",
+        "explicacion": "Cloruro de mercurio"
+    },
+    {
+        "formula": "HgBr",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de mercurio(i)",
+            "bromuro de mercurio (i)",
+            "bromuro de mercurio",
+            "bromuro de mercurio i"
+        ],
+        "pista": "Sal formada por mercurio y bromo.",
+        "explicacion": "Bromuro de mercurio"
+    },
+    {
+        "formula": "HgI",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de mercurio i",
+            "yoduro de mercurio(i)",
+            "yoduro de mercurio (i)",
+            "yoduro de mercurio"
+        ],
+        "pista": "Sal formada por mercurio y yodo.",
+        "explicacion": "Yoduro de mercurio"
+    },
+    {
+        "formula": "HgNO₃",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de mercurio i",
+            "nitrato de mercurio",
+            "nitrato de mercurio(i)"
+        ],
+        "pista": "Nitrato del metal mercurio.",
+        "explicacion": "Nitrato de mercurio"
+    },
+    {
+        "formula": "HgF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de mercurio",
+            "fluoruro de mercurio ii",
+            "fluoruro de mercurio (ii)",
+            "fluoruro de mercurio(ii)"
+        ],
+        "pista": "Sal formada por mercurio y flúor.",
+        "explicacion": "Fluoruro de mercurio"
+    },
+    {
+        "formula": "HgCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de mercurio",
+            "cloruro de mercurio ii",
+            "cloruro de mercurio (ii)",
+            "cloruro de mercurio(ii)"
+        ],
+        "pista": "Sal formada por mercurio y cloro.",
+        "explicacion": "Cloruro de mercurio"
+    },
+    {
+        "formula": "HgBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de mercurio(ii)",
+            "bromuro de mercurio ii",
+            "bromuro de mercurio",
+            "bromuro de mercurio (ii)"
+        ],
+        "pista": "Sal formada por mercurio y bromo.",
+        "explicacion": "Bromuro de mercurio"
+    },
+    {
+        "formula": "HgI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de mercurio(ii)",
+            "yoduro de mercurio ii",
+            "yoduro de mercurio (ii)",
+            "yoduro de mercurio"
+        ],
+        "pista": "Sal formada por mercurio y yodo.",
+        "explicacion": "Yoduro de mercurio"
+    },
+    {
+        "formula": "Hg(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de mercurio ii",
+            "nitrato de mercurio",
+            "nitrato de mercurio(ii)"
+        ],
+        "pista": "Nitrato del metal mercurio.",
+        "explicacion": "Nitrato de mercurio"
+    },
+    {
+        "formula": "MnF2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de manganeso ii",
+            "fluoruro de manganeso (ii)",
+            "fluoruro de manganeso(ii)",
+            "fluoruro de manganeso"
+        ],
+        "pista": "Sal formada por manganeso y flúor.",
+        "explicacion": "Fluoruro de manganeso"
+    },
+    {
+        "formula": "MnCl2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de manganeso (ii)",
+            "cloruro de manganeso",
+            "cloruro de manganeso ii",
+            "cloruro de manganeso(ii)"
+        ],
+        "pista": "Sal formada por manganeso y cloro.",
+        "explicacion": "Cloruro de manganeso"
+    },
+    {
+        "formula": "MnBr2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de manganeso",
+            "bromuro de manganeso ii",
+            "bromuro de manganeso (ii)",
+            "bromuro de manganeso(ii)"
+        ],
+        "pista": "Sal formada por manganeso y bromo.",
+        "explicacion": "Bromuro de manganeso"
+    },
+    {
+        "formula": "MnI2",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de manganeso",
+            "yoduro de manganeso ii",
+            "yoduro de manganeso (ii)",
+            "yoduro de manganeso(ii)"
+        ],
+        "pista": "Sal formada por manganeso y yodo.",
+        "explicacion": "Yoduro de manganeso"
+    },
+    {
+        "formula": "Mn(NO₃)2",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de manganeso ii",
+            "nitrato de manganeso(ii)",
+            "nitrato de manganeso"
+        ],
+        "pista": "Nitrato del metal manganeso.",
+        "explicacion": "Nitrato de manganeso"
+    },
+    {
+        "formula": "MnF3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de manganeso(iii)",
+            "fluoruro de manganeso iii",
+            "fluoruro de manganeso (iii)",
+            "fluoruro de manganeso"
+        ],
+        "pista": "Sal formada por manganeso y flúor.",
+        "explicacion": "Fluoruro de manganeso"
+    },
+    {
+        "formula": "MnCl3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de manganeso",
+            "cloruro de manganeso (iii)",
+            "cloruro de manganeso(iii)",
+            "cloruro de manganeso iii"
+        ],
+        "pista": "Sal formada por manganeso y cloro.",
+        "explicacion": "Cloruro de manganeso"
+    },
+    {
+        "formula": "MnBr3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de manganeso",
+            "bromuro de manganeso iii",
+            "bromuro de manganeso(iii)",
+            "bromuro de manganeso (iii)"
+        ],
+        "pista": "Sal formada por manganeso y bromo.",
+        "explicacion": "Bromuro de manganeso"
+    },
+    {
+        "formula": "MnI3",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de manganeso",
+            "yoduro de manganeso iii",
+            "yoduro de manganeso (iii)",
+            "yoduro de manganeso(iii)"
+        ],
+        "pista": "Sal formada por manganeso y yodo.",
+        "explicacion": "Yoduro de manganeso"
+    },
+    {
+        "formula": "Mn(NO₃)3",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de manganeso(iii)",
+            "nitrato de manganeso iii",
+            "nitrato de manganeso"
+        ],
+        "pista": "Nitrato del metal manganeso.",
+        "explicacion": "Nitrato de manganeso"
+    },
+    {
+        "formula": "MnF4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "fluoruro de manganeso(iv)",
+            "fluoruro de manganeso",
+            "fluoruro de manganeso iv",
+            "fluoruro de manganeso (iv)"
+        ],
+        "pista": "Sal formada por manganeso y flúor.",
+        "explicacion": "Fluoruro de manganeso"
+    },
+    {
+        "formula": "MnCl4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "cloruro de manganeso",
+            "cloruro de manganeso(iv)",
+            "cloruro de manganeso (iv)",
+            "cloruro de manganeso iv"
+        ],
+        "pista": "Sal formada por manganeso y cloro.",
+        "explicacion": "Cloruro de manganeso"
+    },
+    {
+        "formula": "MnBr4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "bromuro de manganeso",
+            "bromuro de manganeso iv",
+            "bromuro de manganeso (iv)",
+            "bromuro de manganeso(iv)"
+        ],
+        "pista": "Sal formada por manganeso y bromo.",
+        "explicacion": "Bromuro de manganeso"
+    },
+    {
+        "formula": "MnI4",
+        "tipo": "Sal Binaria",
+        "nombresAceptados": [
+            "yoduro de manganeso",
+            "yoduro de manganeso iv",
+            "yoduro de manganeso (iv)",
+            "yoduro de manganeso(iv)"
+        ],
+        "pista": "Sal formada por manganeso y yodo.",
+        "explicacion": "Yoduro de manganeso"
+    },
+    {
+        "formula": "Mn(NO₃)4",
+        "tipo": "Oxisal Ternaria",
+        "nombresAceptados": [
+            "nitrato de manganeso iv",
+            "nitrato de manganeso",
+            "nitrato de manganeso(iv)"
+        ],
+        "pista": "Nitrato del metal manganeso.",
+        "explicacion": "Nitrato de manganeso"
     }
 ];
